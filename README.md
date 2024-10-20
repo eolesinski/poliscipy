@@ -28,9 +28,9 @@ conda install -c conda-forge poliscipy
 
 *Dependencies: Note that PoliSciPy requires GeoPandas and matplotlib*
 
-## Contributing
+## Documentation
 
-PoliSciPy welcomes contributions! Please see the CONTRIBUTING.md for guidelines on how to get involved.
+Complete documentation for PoliSciPy can be found here.
 
 ## Quickstart and Example
 
@@ -61,11 +61,9 @@ plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. El
 
 ```
 
+## Contributing
 
-
-## Documentation
-
-Complete documentation for PoliSciPy can be found here.
+PoliSciPy welcomes contributions! Please see the CONTRIBUTING.md for guidelines on how to get involved.
 
 ## Citation
 
