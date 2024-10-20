@@ -1,0 +1,8 @@
+title: Your Project Title
+description: A brief description of your project.
+theme: just-the-docs
+
+# Optional settings
+nav:
+  - Home: /
+  - API Documentation: /api
