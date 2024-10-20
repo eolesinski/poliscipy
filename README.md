@@ -1,3 +1,5 @@
+<h1 align="center">PoliSciPy</h1>
+
 <div align="center">
 
 [![PyPI version](https://badge.fury.io/py/poliscipy.svg)](https://badge.fury.io/py/poliscipy)
@@ -7,11 +9,11 @@
 
 </div>
 
-<h1 align="center">PoliSciPy</h1>
-
 <p align="center"><em>A Python Library for Political Data Analysis & U.S. Elections Visualization</em></p>
 
 **PoliSciPy** is an open-source Python library designed for political data analysis and visualization, particularly for U.S. elections. It offers simple, flexible, and high-quality methods to visualize the electoral college, voting results, and demographic trends using libraries such as **GeoPandas** and **Matplotlib**.
+
+<img width="974" alt="Screenshot 2024-10-19 at 1 07 37 AM" src="https://github.com/user-attachments/assets/f096e339-b4f2-4890-82e7-6f923d48a1bd">
 
 ## Key Features
 
@@ -68,7 +70,7 @@ plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. El
 
 ```
 
-<img width="974" alt="Screenshot 2024-10-19 at 1 07 37 AM" src="https://github.com/user-attachments/assets/f096e339-b4f2-4890-82e7-6f923d48a1bd">
+
 
 ## Documentation
 
