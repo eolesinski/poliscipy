@@ -1,6 +1,6 @@
-<h1 align="center">PoliSciPy</h1>
+# PoliSciPy
 
-<p align="center"><em>A Python Library for Political Data Analysis & U.S. Elections Visualization</em></p>
+*A Python Library for Political Data Analysis & U.S. Elections Visualization*
 
 **PoliSciPy** is an open-source Python library designed for political data analysis and visualization, particularly for U.S. elections. It offers simple, flexible, and high-quality methods to visualize the electoral college, voting results, and demographic trends using libraries such as **GeoPandas** and **Matplotlib**.
 
