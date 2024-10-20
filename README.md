@@ -1,11 +1,13 @@
 # PoliSciPy
 
+*A Python Library for Political Data Analysis & U.S. Elections Visualization*
+
 **PoliSciPy** is an open-source Python library designed for political data analysis and visualization, particularly for U.S. elections. It offers simple, flexible, and high-quality methods to visualize the electoral college, voting results, and demographic trends using libraries such as **GeoPandas** and **Matplotlib**.
 
 ## Key Features
 
-- **Visualize Electoral Maps**: Easily create visualizations of the U.S. electoral college, including state borders, electoral votes, and party affiliations.
-- **Customizable Plots**: Adjust figure size, title, edge color, label colors, and more to tailor each plot to your needs.
+- **Visualize Electoral Maps:** Create customizable U.S. electoral college maps, including state borders, electoral votes, and party affiliations.
+- **Customize Plots:** Adjust figure size, title, edge color, label colors, and other visual elements for tailored plots.
 - **Supports GeoPandas**: Seamlessly integrates with **GeoPandas** for handling geospatial data plotting and analysis.
 
 ## Installation
@@ -24,15 +26,17 @@ conda install -c conda-forge poliscipy
 
 ## Contributing
 
+PoliSciPy welcomes contributions! Please see the CONTRIBUTING.md for guidelines on how to get involved.
+
 ## Quickstart and Example
 
 Creating electoral college maps using PoliSciPy can be done in only three simple steps:
 
-1. Load in the geodataframe that contains all of the electoral college geospatial data
-2. Load in the specific data that you would like to plot and merge it with the geodataframe
-3. Call the `plot_electoral_map()` function and pass in your geodataframe and target column to plot
+1. Load the geodataframe that contains electoral college geospatial data
+2. Load and merge the specific data you'd like to plot with the GeoDataFrame
+3. Call the `plot_electoral_map()` function, passing in your GeoDataFrame and the target column for plotting
 
-That's it!
+Below is an example of how to use PoliSciPy to visualize the 2024 U.S. electoral college map:
 
 ```
 from poliscipy import plot_electoral_map
@@ -57,9 +61,9 @@ plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. El
 
 ## Documentation
 
-The documentation for PoliSciPy can be found here.
+Complete documentation for PoliSciPy can be found here.
 
 ## Citation
 
-If you find PoliSciPy useful in your research, academic projects, or software, please cite it using the premade bibtex citation in the CITATION.md file.
+If you find PoliSciPy useful in your research, academic projects, or software, please cite it using the pre-made BibTeX entry in the CITATION.md file located in the root directory of this repository.
 
