@@ -1,5 +1,3 @@
-<h1 align="center">PoliSciPy</h1>
-
 <div align="center">
 
 [![PyPI version](https://badge.fury.io/py/poliscipy.svg)](https://badge.fury.io/py/poliscipy)
@@ -8,6 +6,8 @@
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/yourusername/poliscipy)
 
 </div>
+
+<h1 align="center">PoliSciPy</h1>
 
 <p align="center"><em>A Python Library for Political Data Analysis & U.S. Elections Visualization</em></p>
 
