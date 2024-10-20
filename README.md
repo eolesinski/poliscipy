@@ -40,7 +40,7 @@ Creating electoral college maps using PoliSciPy can be done in only three simple
 2. Load and merge the specific data you'd like to plot with the GeoDataFrame
 3. Call the `plot_electoral_map()` function, passing in your GeoDataFrame and the target column for plotting
 
-Below is an example of how to use PoliSciPy to visualize the 2024 U.S. electoral college map:
+Below is an example of how to use PoliSciPy to visualize the 2024 U.S. electoral college map shown above.
 
 ```
 from poliscipy import plot_electoral_map
