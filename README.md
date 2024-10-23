@@ -1,5 +1,5 @@
 <div align="center">
-  <img width="400" alt="Screenshot 2024-10-23 at 12 04 41 PM" src="https://github.com/user-attachments/assets/94589463-b89a-441b-92e1-4b2e7377ec9f">
+  <img width="500" alt="Screenshot 2024-10-23 at 12 04 41 PM" src="https://github.com/user-attachments/assets/94589463-b89a-441b-92e1-4b2e7377ec9f">
 </div>
 
 # PoliSciPy
