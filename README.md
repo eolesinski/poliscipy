@@ -31,10 +31,6 @@ conda install -c conda-forge poliscipy
 
 *Dependencies: Note that PoliSciPy requires GeoPandas and matplotlib*
 
-## Documentation
-
-Complete documentation for PoliSciPy can be found here.
-
 ## Quickstart and Example
 
 Creating electoral college maps using PoliSciPy can be done in only three simple steps:
@@ -63,6 +59,10 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
 plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. Electoral College Map')
 
 ```
+
+## Documentation
+
+Complete documentation for PoliSciPy can be found here.
 
 ## Contributing
 
