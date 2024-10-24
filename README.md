@@ -38,11 +38,6 @@ Creating electoral college maps using PoliSciPy can be done in only three simple
 
 Below is an example of how to use PoliSciPy to visualize the 2024 U.S. electoral college map shown above.
 
-<div align="center">
-    <img src="https://github.com/user-attachments/assets/f096e339-b4f2-4890-82e7-6f923d48a1bd" alt="Electoral College Map" width="974">
-    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election.</em></div>
-</div>
-
 ```
 from poliscipy import plot_electoral_map
 
@@ -61,6 +56,11 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
 plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. Electoral College Map')
 
 ```
+
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/f096e339-b4f2-4890-82e7-6f923d48a1bd" alt="Electoral College Map" width="974">
+    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election.</em></div>
+</div>
 
 ## Documentation
 
