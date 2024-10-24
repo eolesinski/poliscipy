@@ -1,7 +1,3 @@
-<div align="center">
-  <img width="500" alt="Screenshot 2024-10-23 at 12 04 41 PM" src="https://github.com/user-attachments/assets/05a1a9de-c295-4588-8325-eafb3889415a">
-</div>
-
 # PoliSciPy
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -13,6 +9,11 @@
 - **Visualize Electoral Maps:** Create customizable U.S. electoral college maps, including state borders, electoral votes, and party affiliations.
 - **Customize Plots:** Adjust figure size, title, edge color, label colors, and other visual elements for tailored plots.
 - **Supports GeoPandas**: Seamlessly integrates with **GeoPandas** for handling geospatial data plotting and analysis.
+
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/f096e339-b4f2-4890-82e7-6f923d48a1bd" alt="Electoral College Map" width="974">
+    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election.</em></div>
+</div>
 
 ## Installation
 
@@ -29,6 +30,10 @@ conda install -c conda-forge poliscipy
 ```
 
 *Dependencies: Note that PoliSciPy requires GeoPandas and matplotlib*
+
+## Documentation
+
+Complete documentation for PoliSciPy can be found here.
 
 ## Quickstart and Example
 
@@ -58,15 +63,6 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
 plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. Electoral College Map')
 
 ```
-
-<div align="center">
-    <img src="https://github.com/user-attachments/assets/f096e339-b4f2-4890-82e7-6f923d48a1bd" alt="Electoral College Map" width="974">
-    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election.</em></div>
-</div>
-
-## Documentation
-
-Complete documentation for PoliSciPy can be found here.
 
 ## Contributing
 
