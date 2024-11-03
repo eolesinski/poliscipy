@@ -9,6 +9,43 @@ from shapely.affinity import scale
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from matplotlib.patches import Rectangle
 
+def load_df(path: str) -> gpd.GeoDataFrame:
+    """
+    Method for loading in a GeoDataFrame for plotting the electoral college.
+    
+    Params:
+    - path: the path to the shapefile 
+    
+    Returns:
+    - gdf: a GeoDataFrame containing the electoral college data for the specified year
+    
+    """
+    
+    gdf = gpd.read_file(path)
+    
+    # define the scale factors for Alaska and Hawaii
+    ALASKA_SCALE_FACTOR_X = 0.64
+    HAWAII_SCALE_FACTOR_X = 1.1
+    
+    # apply the transformation for Alaska
+    alaska = gdf.loc[gdf['STUSPS'] == 'AK']
+
+    # apply an affine transformation to conduct horizontal scaling
+    scaled_geometry = alaska['geometry'].apply(lambda geom: scale(geom, xfact=ALASKA_SCALE_FACTOR_X, yfact=1.0))
+    
+    gdf.loc[gdf['STUSPS'] == 'AK', 'geometry'] = scaled_geometry
+    
+    # apply the transformation for Hawaii
+    hawaii = gdf.loc[gdf['STUSPS'] == 'HI']
+    scale_factor_x = 1.1
+
+    # apply an affine transformation to conduct horizontal scaling
+    scaled_geometry_2 = hawaii['geometry'].apply(lambda geom: scale(geom, xfact=HAWAII_SCALE_FACTOR_X, yfact=1.0))
+    
+    gdf.loc[gdf['STUSPS'] == 'HI', 'geometry'] = scaled_geometry_2
+     
+    return gdf
+
 
 # create a dictionary to map the colors of the political parties
 party_colors = {
@@ -20,60 +57,70 @@ party_colors = {
 }
 
 
-def _add_vote_bar(gdf: gpd.GeoDataFrame, ax, column: str, party_colors: dict) -> None:
+def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, 
+                  vote_scale_factor: int = 20, initial_bar_position: float = -113.5) -> None:
     """
     Adds a vote bar containing the total votes for a party at the top of the plot.
-    Plots a total vote bar at the top of the plot in 'ax'
-    type: matplotlib.axes.Axes
-
-    Params:
+    
+    Parameters:
     - gdf (GeoDataFrame): The GeoDataFrame containing the election data
-    - ax (Axes): the Axes object used in the figure
-    - column (str): the column that is being plotted
-    - party_colors (dict): a dictionary containing the party color mappings
+    - ax (Axes): The Axes object used in the figure
+    - column (str): The column that is being plotted
+    - party_colors (dict): A dictionary containing the party color mappings
+    - vote_scale_factor (int): Factor to scale the total votes for plotting (default: 20)
+    - initial_bar_position (float): Starting position for the bars (default: -113.5)
     
     Returns:
     - None
-    
     """
     
-    # create a dictionary to store the total vote counts for each party
+    # Create a dictionary to store the total vote counts for each party
     total_votes = {party: gdf.loc[gdf[column] == party, 'elec_votes'].sum() 
-                   for party in party_colors.keys()}
+                    for party in party_colors.keys()}
+
+    current_left = initial_bar_position
+
+    # Sort parties by total votes, excluding "No Data"
+    sorted_parties = sorted(
+        ((party, votes) for party, votes in total_votes.items() if party != "No Data"),
+        key=lambda x: x[1],
+        reverse=True
+    )
     
-    print(total_votes)
-
-    # set constant values
-    VOTE_SCALE_FACTOR = 20
-    START_POSITION = -113.5
+    # Identify the second-largest party
+    second_largest_party = sorted_parties[1][0] if len(sorted_parties) > 1 else None
     
-    current_left = START_POSITION
+    parties_to_plot = ["Republican"] if "Republican" in party_colors else []
 
-    # List of parties to plot, ensuring "Republican" is first and "No Data" is second if present
-    parties_to_plot = []
-
-    if "Republican" in party_colors.keys():
-        parties_to_plot.append("Republican")
-
-    if "No Data" in party_colors.keys():
-        parties_to_plot.append("No Data")
-
-    # Append other parties, excluding "Republican" and "No Data"
-    for party in party_colors.keys():
+    # Append other parties in the sorted order, excluding "Republican" and handling second-largest
+    for party, _ in sorted_parties:
         if party not in parties_to_plot:
             parties_to_plot.append(party)
 
+    # Append "No Data" at the end if it exists
+    if "No Data" in party_colors:
+        parties_to_plot.append("No Data")
+
+    # Move the second-largest party to the end if it is not "No Data"
+    if second_largest_party and second_largest_party != "No Data":
+        parties_to_plot.remove(second_largest_party)
+        parties_to_plot.append(second_largest_party)
+
     # Plot each party's votes
     for party in parties_to_plot:
+        
         color = party_colors[party]
-        width = total_votes.get(party, 0) / VOTE_SCALE_FACTOR  # Use .get() to handle missing parties
+        width = total_votes.get(party, 0) / vote_scale_factor  # Use .get() to handle missing parties
         ax.barh(y=52, width=width, color=color, align='center', height=1.2, left=current_left)
+        
+        center_position = current_left + width / 2
+        vote_count = total_votes.get(party, 0)
 
-        # Annotate the bar with the total votes
-        #ax.annotate(f"{int(total_votes.get(party, 0))}", 
-                     #xy=(current_left + (width / 40), 51.65),
-                     #xytext=(0, 0), textcoords='offset points', 
-                     #ha='center', va='bottom', color='white', fontsize=10)
+        if vote_count > 20:
+            # Annotate the bar with the total votes, centered within the bar
+            ax.annotate(f"{int(vote_count)}", 
+                        xy=(center_position, 51.9),
+                        ha='center', va='center', color='white', fontsize=10)
     
         # Update the current left position for the next bar
         current_left += width
@@ -142,4 +189,27 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     ax1.axis('off')
     ax1.set_title(title, fontsize=16, fontname='Arial')
     
-    plt.show();
+    plt.show()
+
+
+
+if __name__ == "__main__":
+
+    gdf = load_df('/Users/ethanolesinski/Desktop/backup_shapefile_2/cb_2018_us_state_500k.shp') 
+
+    winning_party = {
+            'AL': 'Republican','AK': 'Republican','AZ': 'Republican','AR': 'Republican','CA': 'Democrat','CO': 'Democrat',
+            'CT': 'Democrat', 'DE': 'Democrat', 'FL': 'Republican', 'GA': 'Republican', 'HI': 'Democrat', 
+            'ID': 'Republican', 'IL': 'Democrat','IN': 'Republican','IA': 'Republican','KS': 'Republican',
+            'KY': 'Republican', 'LA': 'Republican','ME': 'Democrat','MD': 'Democrat','MA': 'Democrat',
+            'MI': 'Republican','MN': 'Democrat','MS': 'Republican','MO': 'Republican','MT': 'Republican','NE': 'Republican',
+            'NV': 'Republican','NH': 'Democrat','NJ': 'Democrat','NM': 'Democrat','NY': 'Democrat','NC': 'Republican',
+            'ND': 'Republican','OH': 'Republican','OK': 'Republican','OR': 'Democrat','PA': 'Republican','RI': 'Democrat',
+            'SC': 'Republican','SD': 'Republican','TN': 'Republican','TX': 'Republican','UT': 'Republican','VT': 'Democrat',
+            'VA': 'Democrat','WA': 'Democrat','WV': 'Republican','WI': 'Republican','WY': 'Republican', 'DC': 'Democrat'
+    }          
+
+    # add the winning party and fill any missing data with 'No Data'
+    gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
+
+    plot_electoral_map(gdf, 'winning_party',legend=True, vote_bar=True)
