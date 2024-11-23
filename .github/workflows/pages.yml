@@ -39,7 +39,7 @@ jobs:
 
         # debug the workflows
       - name: Debugging - List files in the directory
-        run: ls -la docs
+        run: ls -al
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
