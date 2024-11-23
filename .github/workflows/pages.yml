@@ -36,11 +36,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-        # debug the workflows
-      - name: Debugging Print Statement
-        run: echo "we are correctly hitting this action"
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
