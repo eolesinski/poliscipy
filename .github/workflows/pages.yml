@@ -36,6 +36,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+        # debug the workflows
+      - name: Debugging - List files in the directory
+        run: ls -la docs
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
