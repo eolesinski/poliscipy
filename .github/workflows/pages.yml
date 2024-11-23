@@ -38,8 +38,8 @@ jobs:
         uses: actions/checkout@v4
 
         # debug the workflows
-      - name: Debugging - List files in the directory
-        run: ls -al
+      - name: Debugging Print Statement
+        run: echo "we are correctly hitting this action"
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
