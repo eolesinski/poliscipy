@@ -1,8 +1,13 @@
-title: Just the Docs Template
+title: PoliSciPy
 description: A starter template for a Jeykll site using the Just the Docs theme!
 theme: just-the-docs
 
 url: https://just-the-docs.github.io
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+  View on GitHub: https://github.com/eolesinski/poliscipy
+
+# External navigation links
+nav_external_links:
+  - title: PoliSciPy on GitHub
+    url: https://github.com/eolesinski/poliscipy
