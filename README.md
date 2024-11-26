@@ -63,7 +63,7 @@ plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. El
 
 ## Documentation
 
-Complete documentation for PoliSciPy can be found here.
+Complete documentation for PoliSciPy can be found [here](https://eolesinski.github.io/poliscipy/).
 
 ## Contributing
 

@@ -35,5 +35,7 @@ pip --version
 
 ## Dependencies
 
+Still having trouble? Check out the FAQs page or open up a new issue on the Issues page.
+
 
 
