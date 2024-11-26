@@ -1,6 +1,6 @@
 ---
 layout: default
-title: poliscipy.plot_electoral_map()
+title: plot_electoral_map()
 parent: API Reference
 ---
 
