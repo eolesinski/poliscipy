@@ -7,6 +7,8 @@ url: https://just-the-docs.github.io
 aux_links:
   View on GitHub: https://github.com/eolesinski/poliscipy
 
+color_scheme: custom
+
 # External navigation links
 nav_external_links:
   - title: PoliSciPy on GitHub
