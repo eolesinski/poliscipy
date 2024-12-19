@@ -6,7 +6,7 @@ nav_order: 2
 
 # Installation
 
-Welcome to the **PoliSciPy** installation guide! This document will help you set up and run **PoliSciPy** on your system.
+Welcome to the [PoliSciPy](https://github.com/eolesinski/poliscipy) installation guide! This document will help you set up and run PoliSciPy on your system.
 
 ---
 
@@ -25,17 +25,92 @@ python --version
 pip --version
 ```
 
+You should see output similar to:
+
+```
+Python 3.8.x
+pip 21.x
+```
+
 ## Installation Methods
 
-## Option 1: Using pip
+## Option 1: Using pip (Recommended)
+If you have pip installed, you can quickly install PoliSciPy with the following command:
+
+```
+pip install poliscipy
+```
+
+This command will automatically download and install the latest stable version of PoliSciPy and its dependencies from the Python Package Index (PyPI).
 
 
 ## Option 2: Using conda
 
+Alternatively, if you prefer using the conda package manager, you can install PoliSciPy from the conda-forge channel:
+
+```
+conda install -c conda-forge poliscipy
+```
+
+This method is particularly helpful if you are working in a conda-based environment, as it will also manage dependencies more efficiently.
+
+## Option 3: Installing Directly from Git (For the Latest Version)
+
+If you would like to get the most up-to-date version of PoliSciPy (which may include the latest bug fixes, features, or improvements), you can install it directly from the Git repository. This method is especially useful if you want to contribute to development or try out new or experimental features.
+
+To install PoliSciPy directly from Git, run the following commands:
+
+Clone the repository:
+
+```
+git clone https://github.com/username/poliscipy.git
+```
+
+Navigate to the repository folder:
+
+```
+cd poliscipy
+```
+
+Install the package using pip:
+
+```
+pip install .
+```
+
+This will install PoliSciPy from the latest version in the repository.
+
 
 ## Dependencies
 
-Still having trouble? Check out the FAQs page or open up a new issue on the Issues page.
+PoliSciPy requires the following libraries to function properly:
+
+- **GeoPandas:** Used for handling geospatial data.
+- **Matplotlib:** Used for creating static, animated, and interactive plots.
+
+These dependencies will be automatically installed when you use either of the installation methods above. However, if you wish to install them manually, you can do so by running:
+
+pip install geopandas matplotlib
+or
+conda install geopandas matplotlib
+
+## Verifying Installation
+
+After installation, you can verify that PoliSciPy was installed correctly by running a simple test. Open a Python shell and try importing the package:
+
+```
+import poliscipy
+```
+
+If there are no errors, the installation was successful! You can also run one of the provided examples to ensure everything is working as expected.
+
+## Still Having Trouble?
+
+If you encounter any issues during installation, don’t worry! Here are some steps you can take:
+
+- **Check the FAQs:** We’ve compiled a list of common issues and solutions in our FAQs page.
+- **Open an Issue:** If you can't find a solution in the FAQs, please feel free to open a new issue in the Issues page. Be sure to include any relevant error messages and steps to reproduce the issue.
+- **Join the Discussion:** If you're stuck, you can also join our community discussions on GitHub Discussions for help.
 
 
 

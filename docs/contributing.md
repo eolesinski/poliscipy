@@ -4,20 +4,21 @@ title: Contributing
 nav_order: 7
 ---
 
-# **Contributing to PoliSciPy**
+# Contributing to PoliSciPy
 
-Thank you for your interest in contributing to **PoliSciPy**! Your contributions help make this project better for the community. Whether you're reporting a bug, proposing new features, writing documentation, or improving the codebase, we welcome your support.
+Thank you for your interest in contributing to [PoliSciPy](https://github.com/eolesinski/poliscipy)! Your contributions help improve the project for the entire community. Whether you're reporting a bug, proposing a new feature, writing documentation, or improving the codebase, your support is greatly appreciated!
 
-This guide outlines the process for contributing effectively.
+This guide outlines the basic process for contributing effectively.
 
 ---
+## How to Contribute
 
-## **How to Contribute**
+There are a variety of ways that you can contribute to PoliSciPy, some of which are enumerated below.
 
-### 1. **Report Bugs**
+### 1. Report Bugs
 If you encounter a bug while using PoliSciPy:
-- **Check Existing Issues**: Look through [GitHub Issues](https://github.com/username/poliscipy/issues) to see if it's already reported.
-- **Submit a New Issue**: If it's not listed, create a new issue with:
+- **Check Existing Issues**: Look through the [GitHub Issues](https://github.com/eolesinski/poliscipy/issues) tab to see if it has already been reported.
+- **Submit a New Issue**: If it's not listed, feel free to create a new issue with:
   - A clear and concise title.
   - Steps to reproduce the issue.
   - Expected vs. actual behavior.
@@ -47,9 +48,9 @@ If you're ready to write code for PoliSciPy, follow these steps:
    cd poliscipy
    ```
 
-#### Step 2: Set Up Your Environment
+#### **Step 2: Set Up Your Environment**
 1. Ensure you have Python 3.x installed.
-2. Install required dependencies:
+2. Install the required dependencies:
 ```
 pip install -r requirements.txt
 ```
@@ -58,7 +59,7 @@ pip install -r requirements.txt
 pytest
 ```
 
-#### Step 3: Make Changes
+#### **Step 3: Make Changes**
 1. Create a new branch for your changes:
 ```
 git checkout -b feature-name
@@ -66,7 +67,7 @@ git checkout -b feature-name
 2. Write clean, well-documented code.
 3. Add or update tests for your changes if necessary.
 
-#### Step 4: Commit and Push
+#### **Step 4: Commit and Push**
 
 1. Commit your changes with a meaningful message:
 ```
@@ -78,7 +79,7 @@ git commit -m "Description of changes"
 git push origin feature-name
 ```
 
-#### Step 5: Open a Pull Request
+#### **Step 5: Open a Pull Request**
 
 1. Go to the Pull Requests tab in the main repository.
 2. Click New Pull Request and follow the template.
