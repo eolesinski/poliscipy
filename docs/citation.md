@@ -8,7 +8,11 @@ nav_order: 8
 
 If you find PoliSciPy useful in your research, academic projects, or software development, please consider citing it. Proper citation helps others discover the project and supports its ongoing development!
 
-Below are a few pre-made entries for citing PoliSciPy:
+---
+
+## Pre-made Entries
+
+Below is a list of a few pre-made entries for citing PoliSciPy:
 
 ### bibtex
 

@@ -88,9 +88,9 @@ PoliSciPy requires the following libraries to work correctly:
 
 These dependencies will be automatically installed when you use either of the installation methods above. However, if you wish to install them manually, you can do so by running:
 
-pip install geopandas matplotlib
+`pip install geopandas matplotlib`
 or
-conda install geopandas matplotlib
+`conda install geopandas matplotlib`
 
 ---
 
@@ -98,7 +98,7 @@ conda install geopandas matplotlib
 
 If you encounter any issues during installation, don’t worry! Here are some steps you can take:
 
-- **Check the FAQs:** We’ve compiled a list of common issues and solutions in our FAQs page.
+- **Check the FAQs:** There is a list of common issues and solutions on the FAQs page.
 - **Open an Issue:** If you can't find a solution in the FAQs, please feel free to open a new issue in the Issues page. Be sure to include any relevant error messages and steps to reproduce the issue.
 - **Join the Discussion:** If you're stuck, you can also join our community discussions on GitHub Discussions for help.
 
