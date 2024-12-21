@@ -12,7 +12,7 @@ Plots an electoral college map of the United States using Matplotlib and GeoPand
 
 ### Method Signature
 
-```
+```python
 plot_electoral_map(
     gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
     figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = 0.5, 
@@ -79,7 +79,7 @@ Raised if year is not a valid election year (e.g., less than 1992 or not divisib
 
 ## Example Usage
 
-```
+```python
 # Import required libraries
 import geopandas as gpd
 from matplotlib import pyplot as plt
