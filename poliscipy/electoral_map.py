@@ -48,7 +48,7 @@ def load_df(path: str) -> gpd.GeoDataFrame:
 
 
 # create a dictionary to map the colors of the political parties
-party_colors = {
+default_party_colors = {
     'Democrat': '#4875b1',    
     'Republican': '#b82b2b',  
     'No Data': 'lightgray',
@@ -128,8 +128,8 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
 
 def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
                        figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = .5,
-                       labelcolor: str = 'white', legend=False, year='2024', vote_bar = False, 
-                       **kwargs) -> None:
+                       labelcolor: str = 'white', legend=False, year='2024', vote_bar = False,
+                       party_colors=None, **kwargs) -> None:
     """
     Plots an electoral college map of the United States using Matplotlib and GeoPandas.
     
@@ -142,23 +142,49 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     - linewidth (float): Width of the state boundary lines (default: 0.5)
     - labelcolor (str): Color of the state labels (default: 'white')
     - legend (bool): Whether to display a legend or not (default: True)
+    - party_colors (dict): A dictionary containing the colors to map
+    - vote_bar (bool): Vote bar, for total votes, displayed at the top of the plot
     
     Returns:
     - None
     
     """
     
+    # allow for passing in custom color maps
+    if party_colors is None:
+        party_colors = default_party_colors 
+    
+    # Check to make sure that all of the values in the plotting column have a matching color
+    missing_colors = [party for party in gdf[column].unique() if party not in party_colors]
+    if missing_colors:
+        raise ValueError(
+            f"The following party(ies) found in data, but not "
+            f"defined in colormap: {', '.join(missing_colors)}"
+        )
+        
+    # check to make sure that the input year is a valid election year
+    if int(year) < 1992 or (int(year) - 1996) % 4 != 0:
+    
+        raise ValueError("Year must be 1992 or later and a valid election year")
+    
     fig1, ax1 = plt.subplots(figsize=figsize)
 
-    gdf.plot(ax=ax1, edgecolor=edgecolor, linewidth=linewidth, color=gdf[column].map(party_colors), **kwargs)
+    gdf.plot(ax=ax1, edgecolor=edgecolor, linewidth=linewidth, 
+             color=gdf[column].map(party_colors), **kwargs)
+    
+    # eventually use gdf['elec_votes_{year}']
 
     # plot the state labels at each of the state's respective centroids
     for x_centroid, y_centroid, postal_label, elec_votes in zip(gdf['centroid_x'], gdf['centroid_y'], 
                                                             gdf['STUSPS'], gdf['elec_votes']):
-    
+        
+        #if postal_label not in ['NE', 'ME', 'NE-1', 'NE-2', 'NE-3', 'ME-1', 'ME-2']:
+            
+            #ax1.annotate(f"{postal_label}\n{elec_votes}", (x_centroid, y_centroid), ha='center', va='center',
+                     #textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
+            
         ax1.annotate(f"{postal_label}\n{elec_votes}", (x_centroid, y_centroid), ha='center', va='center',
                      textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
-        
         
     if legend:
         # Get unique values in the specified column of the GeoDataFrame
@@ -179,13 +205,7 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
         # add vertical line markers for winning condition
         plt.plot([-100, -100], [52.66, 52.73], '-', color='black')
         plt.plot([-100, -100], [51.30, 51.37], '-', color='black') 
-        
-    # check to make sure that the input year is a valid election year
-    if int(year) < 1992 or (int(year) - 1996) % 4 != 0:
-    
-        raise ValueError("Year must be 1992 or later and a valid election year")
 
-      
     ax1.axis('off')
     ax1.set_title(title, fontsize=16, fontname='Arial')
     
