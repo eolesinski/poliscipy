@@ -6,7 +6,7 @@ nav_order: 2
 
 # Installation
 
-Welcome to the [PoliSciPy](https://github.com/eolesinski/poliscipy) installation guide! This document will help you set up and run PoliSciPy on your own system.
+Welcome to the [PoliSciPy](https://github.com/eolesinski/poliscipy) installation guide! This page will help you set up and run PoliSciPy on your own system.
 
 ---
 

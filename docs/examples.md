@@ -10,7 +10,7 @@ Below is a gallery of images showing maps created using the PoliSciPy package.
 
 ---
 
-**The Present: plotting current and future United States Elections**
+**The Present: plotting current and future United States elections**
 
 One of PoliSciPy's strengths is its ability to plot current and future United States elections. PoliSciPy can be used to create state-of-the-art Electoral College visualizations that easily support an arbitrary number of candidates. Modern maps are perfect for creating hypothetical matchups or representing candidate performance. The vote bar at the top is especially useful for visualizing different win conditions based on the performance of specific candidates.
 
@@ -23,7 +23,7 @@ One of PoliSciPy's strengths is its ability to plot current and future United St
 
 **Early Post-Colonial History: plotting early United States elections**
 
-After gaining independence, some of the United States' earliest elections featured maps that looked very different from those of today. These early elections included far fewer states, representing the original thirteen colonies, as well as some newly acquired territories, reflecting the fledgling nation. PoliSciPy allows users to visualize these territories and merged state regions (for example, Massachusetts once included what is now Maine, and Georgia encompassed present-day Mississippi and Alabama) by incorporating their data and colormaps.
+After gaining independence, some of the United States' earliest elections featured maps that looked very different from those of today. These early elections included far fewer states, mostly representing the original thirteen colonies, as well as some newly acquired territories, reflecting the fledgling nation. PoliSciPy allows users to visualize these territories and merged state regions (for example, Massachusetts once included what is now Maine, and Georgia encompassed present-day Mississippi and Alabama) by incorporating their data and colormaps.
 
 <div align="center">
     <img src="assets/election_1796.png" alt="Electoral College Map" width="974">

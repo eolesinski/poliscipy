@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Contributing
-nav_order: 7
+nav_order: 8
 ---
 
 # Contributing to PoliSciPy
@@ -26,7 +26,7 @@ If you encounter a bug while using PoliSciPy:
 
 ---
 
-### 2. **Propose Features**
+### 2. Propose Features
 Have an idea for a new feature or improvement? Feel free to create a new feature request.
 - **Check Existing Requests**: See if your idea has already been suggested.  
 - **Open a Feature Request**: Use the [Feature Request Template](https://github.com/username/poliscipy/issues/new?template=feature_request.md) to share:
@@ -36,7 +36,7 @@ Have an idea for a new feature or improvement? Feel free to create a new feature
 
 ---
 
-### 3. **Contribute Code**
+### 3. Contribute Code
 If you're ready to write code for PoliSciPy, follow these steps:
 
 **Step 1: Fork the Repository**
