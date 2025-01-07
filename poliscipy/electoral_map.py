@@ -142,8 +142,15 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     - linewidth (float): Width of the state boundary lines (default: 0.5)
     - labelcolor (str): Color of the state labels (default: 'white')
     - legend (bool): Whether to display a legend or not (default: True)
-    - party_colors (dict): A dictionary containing the colors to map
+    - year (str, optional): The election year to plot. Must be a valid election year 
+      (1789 or later, occurring every 4 years) (default: "2024").
+    - party_colors (dict, optional): A dictionary mapping parties to their corresponding colors. 
+      If not provided, a default colormap is used.
     - vote_bar (bool): Vote bar, for total votes, displayed at the top of the plot
+    
+    Raises:
+    - ValueError: If any value in the `column` is not defined in `party_colors`.
+    - ValueError: If the `year` is not a valid election year.
     
     Returns:
     - None
@@ -156,36 +163,62 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     
     # Check to make sure that all of the values in the plotting column have a matching color
     missing_colors = [party for party in gdf[column].unique() if party not in party_colors]
+    
     if missing_colors:
         raise ValueError(
             f"The following party(ies) found in data, but not "
             f"defined in colormap: {', '.join(missing_colors)}"
         )
-        
+                         
     # check to make sure that the input year is a valid election year
-    if int(year) < 1992 or (int(year) - 1996) % 4 != 0:
-    
-        raise ValueError("Year must be 1992 or later and a valid election year")
+    if int(year) < 1789 or (int(year) > 1789 and (int(year) - 1792) % 4 != 0):
+        raise ValueError("Year must be 1789 or later and a valid election year")
     
     fig1, ax1 = plt.subplots(figsize=figsize)
 
     gdf.plot(ax=ax1, edgecolor=edgecolor, linewidth=linewidth, 
              color=gdf[column].map(party_colors), **kwargs)
-    
-    # eventually use gdf['elec_votes_{year}']
 
     # plot the state labels at each of the state's respective centroids
-    for x_centroid, y_centroid, postal_label, elec_votes in zip(gdf['centroid_x'], gdf['centroid_y'], 
-                                                            gdf['STUSPS'], gdf['elec_votes']):
-        
-        #if postal_label not in ['NE', 'ME', 'NE-1', 'NE-2', 'NE-3', 'ME-1', 'ME-2']:
+    for x_centroid, y_centroid, postal_label, elec_votes, defectors, defector_party in zip(gdf['centroid_x'],
+            gdf['centroid_y'], gdf['STUSPS'], gdf[f"elec_votes_{year}"], gdf['defectors'], gdf['defector_party']):
             
-            #ax1.annotate(f"{postal_label}\n{elec_votes}", (x_centroid, y_centroid), ha='center', va='center',
-                     #textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
+        # check to see if a state was part of the union or not yet
+        if elec_votes != -1:
             
-        ax1.annotate(f"{postal_label}\n{elec_votes}", (x_centroid, y_centroid), ha='center', va='center',
+            display_votes = elec_votes - defectors if defectors > 0 else elec_votes
+            
+            ax1.annotate(f"{postal_label}\n{display_votes}", (x_centroid, y_centroid), ha='center', va='center',
                      textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
-        
+            
+            # encapsulate this into its own function
+            if defectors > 0:
+                
+                face_color = party_colors.get(defector_party, '#444444')
+                
+                # Define box properties
+                box_width = 0.7
+                box_height = 0.6
+                box_color = face_color
+                
+                # Calculate the position for the box
+                box_x = x_centroid + 0.84 - box_width / 2
+                box_y = y_centroid - .545
+            
+                # Add the rectangle (box) to the plot
+                rect = Rectangle(
+                    (box_x, box_y),  # Bottom-left corner
+                    box_width,
+                    box_height,
+                    linewidth=0,
+                    edgecolor=None,
+                    facecolor=box_color
+                )
+                ax1.add_patch(rect)
+                
+                ax1.annotate(f"\n{defectors}", (x_centroid +.8, y_centroid), ha='center', va='center',
+                     textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
+            
     if legend:
         # Get unique values in the specified column of the GeoDataFrame
         unique_parties = gdf[column].unique()
