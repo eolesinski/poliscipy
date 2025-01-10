@@ -37,7 +37,6 @@ def load_df(path: str) -> gpd.GeoDataFrame:
     
     # apply the transformation for Hawaii
     hawaii = gdf.loc[gdf['STUSPS'] == 'HI']
-    scale_factor_x = 1.1
 
     # apply an affine transformation to conduct horizontal scaling
     scaled_geometry_2 = hawaii['geometry'].apply(lambda geom: scale(geom, xfact=HAWAII_SCALE_FACTOR_X, yfact=1.0))
@@ -56,22 +55,65 @@ default_party_colors = {
     'Independent': '#8d69b8'
 }
 
+def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, party_colors, labelcolor):
+    """
+    Adds a colored box to the plot representing defectors for a specific state.
+
+    Parameters:
+    - ax: The Matplotlib Axes object where the box will be added.
+    - x_centroid: The x-coordinate of the state's centroid.
+    - y_centroid: The y-coordinate of the state's centroid.
+    - defectors: The number of defectors in the state.
+    - defector_party: The party of the defectors.
+    - party_colors: A dictionary mapping parties to their corresponding colors.
+    - labelcolor: The color for the text label inside the box.
+
+    Returns:
+    - None
+
+    Notes:
+    - If the defector party is not found or defined in `party_colors`, a default color (`#444444`) will be used to represent an 'Other' category.
+
+    """
+    
+    face_color = party_colors.get(defector_party, '#444444')
+
+    # Define box properties
+    box_width = 0.7
+    box_height = 0.6
+    box_color = face_color
+
+    # Calculate the position for the box
+    box_x = x_centroid + 0.84 - box_width / 2
+    box_y = y_centroid - 0.555
+
+    # Add the rectangle (box) to the plot
+    rect = Rectangle((box_x, box_y), box_width, box_height, linewidth=0, edgecolor=None, facecolor=box_color)
+    ax.add_patch(rect)
+
+    # Add the text label for the number of defectors
+    ax.annotate(f"\n{defectors}", (x_centroid + 0.8, y_centroid), ha='center', va='center', textcoords="data", 
+        color=labelcolor, fontname='Arial', fontsize=9)
+
 
 def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, year: str, 
                   vote_scale_factor: int = 20, initial_bar_position: float = -113.5) -> None:
     """
-    Adds a vote bar containing the total votes for a party at the top of the plot.
-    
+    Adds a vote bar containing the total votes for each party at the top of the plot,
+    accounting for defecting voters.
+
     Parameters:
-    - gdf (GeoDataFrame): The GeoDataFrame containing the election data
-    - ax (Axes): The Axes object used in the figure
-    - column (str): The column that is being plotted
-    - party_colors (dict): A dictionary containing the party color mappings
-    - vote_scale_factor (int): Factor to scale the total votes for plotting (default: 20)
-    - initial_bar_position (float): Starting position for the bars (default: -113.5)
+    - gdf (GeoDataFrame): The GeoDataFrame containing the election data.
+    - ax (Axes): The matplotlib Axes object used in the figure.
+    - column (str): The column indicating the original party affiliation.
+    - party_colors (dict): A dictionary mapping parties to their respective colors.
+    - year (str): The election year used to calculate votes (e.g., "2024").
+    - vote_scale_factor (int): Factor to scale the total votes for plotting (default: 20).
+    - initial_bar_position (float): Starting position for the bars on the x-axis (default: -113.5).
     
     Returns:
     - None
+
     """
     
     # Create a dictionary to store the total vote counts for each party
@@ -204,33 +246,9 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
             ax1.annotate(f"{postal_label}\n{display_votes}", (x_centroid, y_centroid), ha='center', va='center',
                      textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
             
-            # encapsulate this into its own function
+            # add an additional box for defecting voters
             if defectors > 0:
-                
-                face_color = party_colors.get(defector_party, '#444444')
-                
-                # Define box properties
-                box_width = 0.7
-                box_height = 0.6
-                box_color = face_color
-                
-                # Calculate the position for the box
-                box_x = x_centroid + 0.84 - box_width / 2
-                box_y = y_centroid - .555
-            
-                # Add the rectangle (box) to the plot
-                rect = Rectangle(
-                    (box_x, box_y),  # Bottom-left corner
-                    box_width,
-                    box_height,
-                    linewidth=0,
-                    edgecolor=None,
-                    facecolor=box_color
-                )
-                ax1.add_patch(rect)
-                
-                ax1.annotate(f"\n{defectors}", (x_centroid +.8, y_centroid), ha='center', va='center',
-                     textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
+                _add_defector_box(ax1, x_centroid, y_centroid, defectors, defector_party, party_colors, labelcolor)
             
     if legend:
         # Get unique values in the specified column of the GeoDataFrame
