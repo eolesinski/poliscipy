@@ -1,12 +1,7 @@
 import geopandas as gpd
-
 import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
 import matplotlib.patches as mpatches
-
-from matplotlib.colors import ListedColormap
 from shapely.affinity import scale
-from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 from matplotlib.patches import Rectangle
 
 def load_df(path: str) -> gpd.GeoDataFrame:
@@ -17,8 +12,7 @@ def load_df(path: str) -> gpd.GeoDataFrame:
     - path: the path to the shapefile 
     
     Returns:
-    - gdf: a GeoDataFrame containing the electoral college data for the specified year
-    
+    - gdf: a GeoDataFrame containing the electoral college data for the specified year 
     """
     
     gdf = gpd.read_file(path)
@@ -44,7 +38,6 @@ def load_df(path: str) -> gpd.GeoDataFrame:
     gdf.loc[gdf['STUSPS'] == 'HI', 'geometry'] = scaled_geometry_2
      
     return gdf
-
 
 # create a dictionary to map the colors of the political parties
 default_party_colors = {
@@ -72,8 +65,8 @@ def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, par
     - None
 
     Notes:
-    - If the defector party is not found or defined in `party_colors`, a default color (`#444444`) will be used to represent an 'Other' category.
-
+    - If the defector party is not found or defined in `party_colors`, a default color (`#444444`) will be 
+    used to represent an 'Other' category.
     """
     
     face_color = party_colors.get(defector_party, '#444444')
@@ -95,7 +88,6 @@ def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, par
     ax.annotate(f"\n{defectors}", (x_centroid + 0.8, y_centroid), ha='center', va='center', textcoords="data", 
         color=labelcolor, fontname='Arial', fontsize=9)
 
-
 def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, year: str, 
                   vote_scale_factor: int = 20, initial_bar_position: float = -113.5) -> None:
     """
@@ -113,7 +105,6 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
     
     Returns:
     - None
-
     """
     
     # Create a dictionary to store the total vote counts for each party
@@ -180,7 +171,6 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
         # Update the current left position for the next bar
         current_left += width
 
-
 def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
                        figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = .5,
                        labelcolor: str = 'white', legend=False, year='2024', vote_bar = False,
@@ -209,7 +199,6 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     
     Returns:
     - None
-    
     """
     
     # allow for passing in custom color maps
@@ -240,7 +229,7 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
             
         # check to see if a state was part of the union or not yet
         if elec_votes != -1:
-            
+
             display_votes = elec_votes - defectors if defectors > 0 else elec_votes
             
             ax1.annotate(f"{postal_label}\n{display_votes}", (x_centroid, y_centroid), ha='center', va='center',
