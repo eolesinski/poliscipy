@@ -57,7 +57,7 @@ default_party_colors = {
 }
 
 
-def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, 
+def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, year: str, 
                   vote_scale_factor: int = 20, initial_bar_position: float = -113.5) -> None:
     """
     Adds a vote bar containing the total votes for a party at the top of the plot.
@@ -75,8 +75,21 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
     """
     
     # Create a dictionary to store the total vote counts for each party
-    total_votes = {party: gdf.loc[gdf[column] == party, 'elec_votes'].sum() 
-                    for party in party_colors.keys()}
+    total_votes = {party: 0 for party in party_colors.keys()}
+    
+    for _, row in gdf.iterrows():
+        original_party = row[column]
+        elec_votes = row[f"elec_votes_{year}"]
+        defectors = row["defectors"]
+        defector_party = row["defector_party"]
+
+        # Subtract defectors from the original party
+        if original_party in party_colors:
+            total_votes[original_party] += max(elec_votes - defectors, 0)
+
+        # Add defectors to the defector party if it exists in party_colors
+        if defector_party in party_colors:
+            total_votes[defector_party] += defectors
 
     current_left = initial_bar_position
 
@@ -203,7 +216,7 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
                 
                 # Calculate the position for the box
                 box_x = x_centroid + 0.84 - box_width / 2
-                box_y = y_centroid - .545
+                box_y = y_centroid - .555
             
                 # Add the rectangle (box) to the plot
                 rect = Rectangle(
