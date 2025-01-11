@@ -74,11 +74,17 @@ If you encounter a bug while using PoliSciPy, please submit an issue on the [Git
 
 ## Contributing Questions
 
-**How can I contribute to PoliSciPy?**
-Contributions are always welcome! See the [Contributing Guide](https://eolesinski.github.io/poliscipy/contributing.html) for detailed instructions.
+<details>
+  <summary><b>How can I contribute to PoliSciPy?</b></summary>
+  Contributions are always welcome! See the <a href="https://eolesinski.github.io/poliscipy/contributing.html">Contributing Guide</a> for detailed instructions.
+</details>
 
-**Do I need to be an expert to contribute?**
-Not at all! There are a variety of ways that you can contribute including reporting issues, suggesting features, improving documentation, or writing code. Every bit helps!
+<br>
+
+<details>
+  <summary><b>Do I need to be an expert to contribute?</b></summary>
+  Not at all! There are a variety of ways that you can contribute, including reporting issues, suggesting features, improving documentation, or writing code. Every bit helps!
+</details>
 
 ---
 
@@ -89,12 +95,18 @@ Not at all! There are a variety of ways that you can contribute including report
   While PoliSciPy is optimized for U.S. electoral data, in theory, it can be adapted for other datasets/shapefiles with similar structure (as long as you use the same set of column names). Feel free to experiment with this and share your results!
 </details>
 
+<br>
+
 <details>
   <summary><b>Where can I find examples and tutorials?</b></summary>
   Visit the <a href="https://eolesinski.github.io/poliscipy/examples.html">Examples section</a> of the documentation site for detailed tutorials and code snippets.
 </details>
 
+<br>
+
 <details>
   <summary><b>How do I cite PoliSciPy in my research?</b></summary>
   Please refer to the <a href="https://eolesinski.github.io/poliscipy/citation.html">Citation Guide</a> for information on how to cite PoliSciPy in your work.
 </details>
+
+<br>
