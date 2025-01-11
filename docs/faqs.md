@@ -8,67 +8,87 @@ nav_order: 7
 
 ## General Questions
 
-**What is PoliSciPy?**
-PoliSciPy is an open-source Python library designed for political data analysis and visualization, with a particular focus on U.S. elections. It provides tools for creating electoral college maps, analyzing voting results, and visualizing voting trends.
+<details>
+  <summary><b>What is PoliSciPy?</b></summary>
+  PoliSciPy is an open-source Python library designed for political data analysis and visualization, with a particular focus on U.S. elections. It provides tools for creating electoral college maps, analyzing voting results, and visualizing voting trends.
+</details>
 
-**Who is PoliSciPy for?**
-PoliSciPy is for data analysts, political scientists, educators, students, and anyone interested in analyzing or visualizing U.S. electoral data!
+<details>
+  <summary><b>Who is PoliSciPy for?</b></summary>
+  PoliSciPy is for data analysts, political scientists, educators, students, and anyone interested in analyzing or visualizing U.S. electoral data!
+</details>
 
-**What does PoliSciPy stand for?**
-PoliSciPy stands for Political Science Python.
+<details>
+  <summary><b>What does PoliSciPy stand for?</b></summary>
+  PoliSciPy stands for Political Science Python.
+</details>
 
 ---
 
 ## Installation Questions
 
-**What are the system requirements for PoliSciPy?**
-Python 3.8 or higher
-Libraries such as GeoPandas and Matplotlib (automatically installed with PoliSciPy)
-Optional: Git for cloning the latest version from the repository
+<details>
+  <summary><b>What are the system requirements for PoliSciPy?</b></summary>
+  <ul>
+    <li>Python 3.8 or higher</li>
+    <li>Libraries such as GeoPandas and Matplotlib (automatically installed with PoliSciPy)</li>
+    <li>Optional: Git for cloning the latest version from the repository</li>
+  </ul>
+</details>
 
-**How do I install PoliSciPy?**
-You can install PoliSciPy using pip or conda:
-
-`pip install poliscipy`
-or
-
-`conda install -c conda-forge poliscipy`
-For detailed installation steps, refer to the Installation Guide.
+<details>
+  <summary><b>How do I install PoliSciPy?</b></summary>
+  You can install PoliSciPy using pip or conda:
+  <pre><code>pip install poliscipy</code></pre>
+  or
+  <pre><code>conda install -c conda-forge poliscipy</code></pre>
+  For detailed installation steps, refer to the <a href="https://eolesinski.github.io/poliscipy/installation.html">Installation Guide</a>.
+</details>
 
 
 ---
 
 ## Usage Questions
 
-**How do I create an electoral college map?**
-Refer to the [Quickstart Guide](https://eolesinski.github.io/poliscipy/quickstart.html) for step-by-step instructions, including loading geospatial data, merging it with electoral results, and plotting a map.
+<details>
+  <summary><b>How do I create an electoral college map?</b></summary>
+  Refer to the <a href="https://eolesinski.github.io/poliscipy/quickstart.html">Quickstart Guide</a> for step-by-step instructions, including loading geospatial data, merging it with electoral results, and plotting a map.
+</details>
 
-**What file formats does PoliSciPy support for data input?**
-PoliSciPy primarily works with GeoPandas GeoDataFrames but can handle data from CSVs, dictionaries, or pandas DataFrames as long as they can be merged with the GeoDataFrame.
+<details>
+  <summary><b>What file formats does PoliSciPy support for data input?</b></summary>
+  PoliSciPy primarily works with GeoPandas GeoDataFrames but can handle data from CSVs, dictionaries, or pandas DataFrames as long as they can be merged with the GeoDataFrame.
+</details>
 
-**How do I customize the appearance of maps?**
-You can customize map titles, colors, labels, and more by using the parameters in the `plot_electoral_map()` function. Detailed instructions can be found in the [API Documentation](https://eolesinski.github.io/poliscipy/api-reference.html).
+<details>
+  <summary><b>How do I customize the appearance of maps?</b></summary>
+  You can customize map titles, colors, labels, and more by using the parameters in the <code>plot_electoral_map()</code> function. Detailed instructions can be found in the <a href="https://eolesinski.github.io/poliscipy/api-reference.html">API Documentation</a>.
+</details>
 
 ---
 
 ## Troubleshooting
 
-**I’m getting an error when importing GeoPandas. What should I do?**
-Ensure that GeoPandas is installed in your environment:
+<details>
+  <summary><b>I’m getting an error when importing GeoPandas. What should I do?</b></summary>
+  Ensure that GeoPandas is installed in your environment:
+  <pre><code>pip install geopandas</code></pre>
+  If issues persist, consult the <a href="https://geopandas.org/install.html">GeoPandas installation guide</a>.
+</details>
 
-```
-pip install geopandas
-```
+<details>
+  <summary><b>My map isn’t displaying correctly. What could be wrong?</b></summary>
+  <ul>
+    <li>Check that your data is correctly merged with the GeoDataFrame.</li>
+    <li>Verify that the column name passed to <code>plot_electoral_map()</code> exists in your data.</li>
+    <li>Review the example in the <a href="https://eolesinski.github.io/poliscipy/quickstart.html">Quickstart Guide</a> to make sure that you are following the correct steps.</li>
+  </ul>
+</details>
 
-If issues persist, consult the GeoPandas installation guide.
-
-**My map isn’t displaying correctly. What could be wrong?**
-- Check that your data is correctly merged with the GeoDataFrame.
-- Verify that the column name passed to `plot_electoral_map()` exists in your data.
-- Review the example in the [Quickstart Guide](https://eolesinski.github.io/poliscipy/quickstart.html) to make sure that you are following the correct steps.
-
-**How do I report a bug?**
-If you encounter a bug while using PoliSciPy, please submit an issue on the [GitHub Issue Tracker](https://github.com/eolesinski/poliscipy/issues) with a clear description and steps to reproduce it.
+<details>
+  <summary><b>How do I report a bug?</b></summary>
+  If you encounter a bug while using PoliSciPy, please submit an issue on the <a href="https://github.com/eolesinski/poliscipy/issues">GitHub Issue Tracker</a> with a clear description and steps to reproduce it.
+</details>
 
 ---
 
