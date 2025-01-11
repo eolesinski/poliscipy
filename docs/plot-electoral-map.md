@@ -85,7 +85,7 @@ import geopandas as gpd
 from matplotlib import pyplot as plt
 
 # Load GeoDataFrame
-gdf = load_df('path_to_shapefile.shp')
+gdf = load_df()
 
 # Add election data to the GeoDataFrame
 gdf['winning_party'] = gdf['STUSPS'].map({
