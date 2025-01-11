@@ -79,7 +79,7 @@ This should merge the data so that you can start plotting it.
 
 The ability to account for defecting or faithless electors is a crucial feature for electoral college maps. 
 
-**Non-winner-takes-all states (Nebraska and Maine)**
+### Non-winner-takes-all states (Nebraska and Maine)
 
 While most states use a "winner-takes-all" system, there are two notable exceptions: Nebraska and Maine. These states allocate their electoral votes differently, apportioning them based on the percentage of votes each candidate receives in each congressional district, in addition to awarding two electors based on the winner of the overall state-wide popular vote. This system can result in cases where, despite having five electoral votes, multiple candidates may be awarded electoral votes in Nebraska, leading to a "split" state.
 
@@ -95,9 +95,7 @@ gdf['defector_party'][10] = 'Harris'
 gdf['defector_party'][38] = 'Trump'
 ```
 
-Note: To identify the correct index for each state in the `geoDataFrame`, you can filter it by the `STUSPS` column.
-
-You can do this with the following code: `gdf['STUSPS']`
+Note: To identify the correct index for each state in the `geoDataFrame`, you can filter it by the `STUSPS` column using the following code: `gdf['STUSPS']`
 
 This will return a list of state abbreviations you can use:
 
@@ -109,11 +107,17 @@ This will return a list of state abbreviations you can use:
 ...
 ```
 
-**Faithless electors**
+For a full example of creating Electoral College maps with non-winner-takes-all states included in the map see Example 1 in the Tutorials and Examples section.
+
+### Faithless electors
 
 Similarly, in United States elections, while rare, there is the ability for there to be what are called "faithless elecrots". Due to the nature and structure of the elecrtoal college, electoral college voters are not actuall required to vote for the candidate that thier state's electors vote for. In these cases, a candidate may win a particular state while an individual elector chooses to vote for another candidate. The most recent exampel fo this was in the 2016 election when 7 different electors cast vote againt the will of thier state.
 
+## Split states
+
 Another case when it could be usefuly to be able to plot defecting voters is when plotting historical elections. Many historical elections, especially those between 1700-1800 often invovled cases where states frequently split electoral votes leading to cases where many candidates won a portion of the total number of electoral votes from that state. Similar to how Nebraska and Maine operate today, it can be useful to plot these defecting electoral votes as an alternative way to represent multople canddiatew winning parts of a single state.
+
+### Absent/missing electors
 
 The last case where it might be useful to be able to plot defecting voters is where an electoral voter may be unable to cast thier vote entirely even if they had intended to vote for the cnadidate who had won the state. One example of this was during the 1864 election (the third example shown on the Examples page) where despite having 3 electoral votes, Nevada only cast 2 votes for Presdient Lincoln. This was a result of the fact that the third electoral voter was snowbound, and there was not yet a practice put in place to deal with absent voters. Not spceifying a poltical party for these defecting voters places them in a default, dark grey colored box to signify and represent an 'Other' catagory.
 
@@ -121,10 +125,12 @@ Note: any defector that does not have a value provided in the `defector_party` c
 
 ---
 
-### Representing Territories
+## Representing Territories
 
 Some elections include territories or regions that, while part of the United States at the time, did not cast electoral votes. Representing these territories on the map can provide historical accuracy and help visualize the broader political or geographic context of an election.
 
-### Handling Reconstruction
+## Handling Reconstruction
 
-### Handling merged States
+During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite haveing no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of thier votes in the final results.
+
+## Handling merged States

@@ -9,18 +9,18 @@ nav_order: 7
 ## General Questions
 
 <details>
-  <summary><b>What is PoliSciPy?</b></summary>
+  <summary>What is PoliSciPy?</summary>
   PoliSciPy is an open-source Python library designed for political data analysis and visualization, with a particular focus on U.S. elections. It provides tools for creating electoral college maps, analyzing voting results, and visualizing voting trends.
 </details>
 
 <details>
-  <summary><b>Who is PoliSciPy for?</b></summary>
+  <summary>Who is PoliSciPy for?</summary>
   PoliSciPy is for data analysts, political scientists, educators, students, and anyone interested in analyzing or visualizing U.S. electoral data!
 </details>
 
 <details>
-  <summary><b>What does PoliSciPy stand for?</b></summary>
-  PoliSciPy stands for Political Science Python.
+  <summary>What does PoliSciPy stand for?</summary>
+  PoliSciPy is short for "Political Science Python," reflecting its focus on political science analysis and data visualization using Python.
 </details>
 
 ---
