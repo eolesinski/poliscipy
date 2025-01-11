@@ -28,7 +28,7 @@ cd poliscipy
 pip install .
 ```
 
-For more information on how to install PoliSciPy see the Installation page.
+For more information on how to install PoliSciPy see the [Installation page](https://eolesinski.github.io/poliscipy/installation.html).
 
 ---
 
@@ -71,7 +71,7 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
 
 In this example, the `winning_party` dictionary maps state codes (like 'AL' for Alabama) to the party that won the election in that state.
 
-For additional information on how to merge data with the GeoDataFrame please see the data and shapefiles section.
+For additional information on how to merge data with the GeoDataFrame please see the [data and shapefiles](https://eolesinski.github.io/poliscipy/data-and-shapefiles.html) section.
 
 ---
 
