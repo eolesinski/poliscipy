@@ -17,6 +17,11 @@ More specifically, the created site:
 
 Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
 
+<div align="center">
+    <img src="assets/election_2024.png" alt="Electoral College Map" width="974">
+    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election..</em></div>
+</div>
+
 [Browse our documentation][Just the Docs] to learn more about how to use this theme.
 
 To get started with creating a site, simply:
