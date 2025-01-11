@@ -103,4 +103,10 @@ If you encounter a bug while using PoliSciPy, please submit an issue on the [Git
   Please refer to the <a href="https://eolesinski.github.io/poliscipy/citation.html">Citation Guide</a> for information on how to cite PoliSciPy in your work.
 </details>
 
+<style>
+  details {
+    margin-bottom: 0.75em; /* Adjust this value for smaller or larger spacing */
+  }
+</style>
+
 <br>
