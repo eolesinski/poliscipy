@@ -15,8 +15,8 @@ Below is a gallery of images showing maps created using the PoliSciPy package.
 One of PoliSciPy's strengths is its ability to plot current and future United States elections. PoliSciPy can be used to create state-of-the-art Electoral College visualizations that easily support an arbitrary number of candidates. Modern maps are perfect for creating hypothetical matchups or representing candidate performance. The vote bar at the top is especially useful for visualizing different win conditions based on the performance of specific candidates.
 
 <div align="center">
-    <img src="https://github.com/user-attachments/assets/f096e339-b4f2-4890-82e7-6f923d48a1bd" alt="Electoral College Map" width="974">
-    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election.</em></div>
+    <img src="assets/election_2024.png" alt="Electoral College Map" width="974">
+    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election..</em></div>
 </div>
 
 ---
