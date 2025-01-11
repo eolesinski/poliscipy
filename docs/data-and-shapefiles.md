@@ -75,7 +75,7 @@ This should merge the data so that you can start plotting it.
 
 ---
 
-### Adding defectors
+## Adding defectors
 
 The ability to account for defecting or faithless electors is a crucial feature for electoral college maps. 
 

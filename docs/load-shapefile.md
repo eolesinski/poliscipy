@@ -6,8 +6,6 @@ parent: API Reference
 
 ## load_shapefile
 
-### Overview
-
 This method loads a shapefile containing electoral college data, applies specific scaling transformations to Alaska and Hawaii for proper plotting, and returns the data as a GeoDataFrame, allowing further analysis or visualization.
 
 ---

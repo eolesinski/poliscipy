@@ -16,4 +16,4 @@ Located on this page are links to the full PoliSciPy API Reference.
 
 ## Shapefiles
 
-- load_shapefile
+- [load_shapefile()](https://eolesinski.github.io/poliscipy/load-shapefile.html)
