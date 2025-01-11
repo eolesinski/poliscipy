@@ -12,7 +12,7 @@ Located on this page are links to the full PoliSciPy API Reference.
 
 ## Methods
 
-- plot_electoral_map
+- [plot_electoral_map()](https://eolesinski.github.io/poliscipy/plot-electoral-map.html)
 
 ## Shapefiles
 
