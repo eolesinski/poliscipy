@@ -95,7 +95,7 @@ gdf['defector_party'][10] = 'Harris'
 gdf['defector_party'][38] = 'Trump'
 ```
 
-Note: To identify the correct index for each state in the `geoDataFrame`, you can filter it by the `STUSPS` column using the following code: `gdf['STUSPS']`
+Note: To identify the correct index for each state in the `geoDataFrame`, you can filter it by the `STUSPS` column using the following line: `gdf['STUSPS']`
 
 This will return a list of state abbreviations you can use:
 
@@ -113,7 +113,7 @@ For a full example of creating Electoral College maps with non-winner-takes-all 
 
 Similarly, in United States elections, while rare, there is the ability for there to be what are called "faithless elecrots". Due to the nature and structure of the elecrtoal college, electoral college voters are not actuall required to vote for the candidate that thier state's electors vote for. In these cases, a candidate may win a particular state while an individual elector chooses to vote for another candidate. The most recent exampel fo this was in the 2016 election when 7 different electors cast vote againt the will of thier state.
 
-## Split states
+### Split states
 
 Another case when it could be usefuly to be able to plot defecting voters is when plotting historical elections. Many historical elections, especially those between 1700-1800 often invovled cases where states frequently split electoral votes leading to cases where many candidates won a portion of the total number of electoral votes from that state. Similar to how Nebraska and Maine operate today, it can be useful to plot these defecting electoral votes as an alternative way to represent multople canddiatew winning parts of a single state.
 
@@ -134,3 +134,45 @@ Some elections include territories or regions that, while part of the United Sta
 During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite haveing no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of thier votes in the final results.
 
 ## Handling merged States
+
+---
+
+## Colormaps
+
+Colormaps are an important part of creating the elecroal college maps
+
+### Default Colormap
+
+PoliSciPy has a default color map that looks like this:
+
+```python
+default_party_colors = {
+    'Democrat': '#4875b1',    
+    'Republican': '#b82b2b',  
+    'No Data': 'lightgray',
+    'Green': '#519e3e',
+    'Independent': '#8d69b8',
+    'No Vote': 'gray'
+}
+```
+
+In addition to this, as noted above, any defecting voter that does not belong to a specific party is colored `#444444` (dark grey) by default.
+
+A full colormap of all of the colors is shown below:
+
+<div align="center">
+    <img src="assets/default_colors.png" alt="Default Colormap" width="874">
+    <div style="text-align: center;"><em>Default Colormap in PoliSciPy</em></div>
+</div>
+
+### Creating custom colormaps
+
+```python
+custom_colors = {
+    'Democrat': '#1f77b4',  # Blue for Democrats
+    'Republican': '#ff7f0e',  # Orange for Republicans
+    'Independent': '#2ca02c',  # Green for Independents
+    'No Data': 'grey',  # Grey for missing data
+    'Green': '#9467bd',  # Purple for Green Party
+}
+```

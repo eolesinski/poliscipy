@@ -109,7 +109,7 @@ nav_order: 7
 ## Miscellaneous
 
 <details>
-  <summary><b>Can I use PoliSciPy for non-U.S. elections?</b></summary>
+  <summary>Can I use PoliSciPy for non-U.S. elections?</summary>
   Currently, PoliSciPy only officially supports creating electoral college maps for U.S. elections. However, the process for plotting election maps for other countries is very similar. In principle, PoliSciPy can be adapted to work with other country's shapefiles as long as the structure of the GeoDataFrame remains consistent (e.g., the column names match). Feel free to experiment and share your results!
 </details>
 
