@@ -94,9 +94,7 @@ Documentation is a critical component of any open-source project. You can help o
 - Adding examples for functions and methods.
 - Extending tutorials or writing new ones.
 
-{: .important-title }
-> Note:
->
+{: .important }
 > All the documentation for PoliSciPy is located in the `docs/` directory.
 
 *Note:* All the documentation for PoliSciPy is located in the `docs/` directory.
