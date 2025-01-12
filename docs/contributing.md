@@ -97,8 +97,6 @@ Documentation is a critical component of any open-source project. You can help o
 {: .important }
 > All the documentation for PoliSciPy is located in the `docs/` directory.
 
-*Note:* All the documentation for PoliSciPy is located in the `docs/` directory.
-
 ---
 
 ## Code of Conduct

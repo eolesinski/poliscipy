@@ -190,11 +190,10 @@ plot_electoral_map(gdf, colormap=custom_party_colors)
 
 This flexibility allows you to tailor the visual representation of maps to match your project's requirements or preferences.
 
-Warning:
-
-You might encounter the error:
-"The following party(ies) found in data, but not defined in colormap: Party1, Party2"
-
-While PoliSciPy does not impose a limit on how many different party colors you can define, **you must have at least one color defined for every party** that you plan on visualizing in your electoral college map. If you have a winning political party defined in your data that does not have a corresponding color in your colormap, you will encounter an error.
-
-Make sure that the parties in your dataset are properly mapped to colors in your colormap to avoid any issues during visualization.
+{: .warning }
+> You might encounter the error:  
+> "The following party(ies) found in data, but not defined in colormap: Party1, Party2"
+> 
+> While PoliSciPy does not impose a limit on how many different party colors you can define, **you must have at least one color defined for every party** that you plan on visualizing in your electoral college map. If you have a winning political party defined in your data that does not have a corresponding color in your colormap, you will encounter an error.
+> 
+> Make sure that the parties in your dataset are properly mapped to colors in your colormap to avoid any issues during visualization.
