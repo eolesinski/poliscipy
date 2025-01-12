@@ -28,7 +28,7 @@ nav_order: 7
 ## Installation Questions
 
 <details>
-  <summary><b>What are the system requirements for PoliSciPy?</b></summary>
+  <summary>What are the system requirements for PoliSciPy?</summary>
   <ul>
     <li>Python 3.8 or higher</li>
     <li>Libraries such as GeoPandas and Matplotlib (automatically installed with PoliSciPy)</li>
@@ -37,7 +37,7 @@ nav_order: 7
 </details>
 
 <details>
-  <summary><b>How do I install PoliSciPy?</b></summary>
+  <summary>How do I install PoliSciPy?</summary>
   You can install PoliSciPy using pip or conda:
   <pre><code>pip install poliscipy</code></pre>
   or
@@ -51,17 +51,17 @@ nav_order: 7
 ## Usage Questions
 
 <details>
-  <summary><b>How do I create an electoral college map?</b></summary>
+  <summary>How do I create an electoral college map?</summary>
   Refer to the <a href="https://eolesinski.github.io/poliscipy/quickstart.html">Quickstart Guide</a> for step-by-step instructions, including loading geospatial data, merging it with electoral results, and plotting a map.
 </details>
 
 <details>
-  <summary><b>What file formats does PoliSciPy support for data input?</b></summary>
+  <summary>What file formats does PoliSciPy support for data input?</summary>
   PoliSciPy primarily works with GeoPandas GeoDataFrames but can handle data from CSVs, dictionaries, or pandas DataFrames as long as they can be merged with the GeoDataFrame.
 </details>
 
 <details>
-  <summary><b>How do I customize the appearance of maps?</b></summary>
+  <summary>How do I customize the appearance of maps?</summary>
   You can customize map titles, colors, labels, and more by using the parameters in the <code>plot_electoral_map()</code> function. Detailed instructions can be found in the <a href="https://eolesinski.github.io/poliscipy/api-reference.html">API Documentation</a>.
 </details>
 
@@ -70,14 +70,14 @@ nav_order: 7
 ## Troubleshooting
 
 <details>
-  <summary><b>I’m getting an error when importing GeoPandas. What should I do?</b></summary>
+  <summary>I’m getting an error when importing GeoPandas. What should I do?</summary>
   Ensure that GeoPandas is installed in your environment:
   <pre><code>pip install geopandas</code></pre>
   If issues persist, consult the <a href="https://geopandas.org/install.html">GeoPandas installation guide</a>.
 </details>
 
 <details>
-  <summary><b>My map isn’t displaying correctly. What could be wrong?</b></summary>
+  <summary>My map isn’t displaying correctly. What could be wrong?</summary>
   <ul>
     <li>Check that your data is correctly merged with the GeoDataFrame.</li>
     <li>Verify that the column name passed to <code>plot_electoral_map()</code> exists in your data.</li>
@@ -86,7 +86,7 @@ nav_order: 7
 </details>
 
 <details>
-  <summary><b>How do I report a bug?</b></summary>
+  <summary>How do I report a bug?</summary>
   If you encounter a bug while using PoliSciPy, please submit an issue on the <a href="https://github.com/eolesinski/poliscipy/issues">GitHub Issue Tracker</a> with a clear description and steps to reproduce it.
 </details>
 
@@ -95,12 +95,12 @@ nav_order: 7
 ## Contributing Questions
 
 <details>
-  <summary><b>How can I contribute to PoliSciPy?</b></summary>
+  <summary>How can I contribute to PoliSciPy?</summary>
   Contributions are always welcome! See the <a href="https://eolesinski.github.io/poliscipy/contributing.html">Contributing Guide</a> for detailed instructions.
 </details>
 
 <details>
-  <summary><b>Do I need to be an expert to contribute?</b></summary>
+  <summary>Do I need to be an expert to contribute?</summary>
   Not at all! There are a variety of ways that you can contribute, including reporting issues, suggesting features, improving documentation, or writing code. Every bit helps!
 </details>
 
@@ -110,16 +110,16 @@ nav_order: 7
 
 <details>
   <summary><b>Can I use PoliSciPy for non-U.S. elections?</b></summary>
-  While PoliSciPy is optimized for U.S. electoral data, in theory, it can be adapted for other datasets/shapefiles with similar structure (as long as you use the same set of column names). Feel free to experiment with this and share your results!
+  Currently, PoliSciPy only officially supports creating electoral college maps for U.S. elections. However, the process for plotting election maps for other countries is very similar. In principle, PoliSciPy can be adapted to work with other country's shapefiles as long as the structure of the GeoDataFrame remains consistent (e.g., the column names match). Feel free to experiment and share your results!
 </details>
 
 <details>
-  <summary><b>Where can I find examples and tutorials?</b></summary>
+  <summary>Where can I find examples and tutorials?</summary>
   Visit the <a href="https://eolesinski.github.io/poliscipy/examples.html">Examples section</a> of the documentation site for detailed tutorials and code snippets.
 </details>
 
 <details>
-  <summary><b>How do I cite PoliSciPy in my research?</b></summary>
+  <summary>How do I cite PoliSciPy in my research?</summary>
   Please refer to the <a href="https://eolesinski.github.io/poliscipy/citation.html">Citation Guide</a> for information on how to cite PoliSciPy in your work.
 </details>
 
