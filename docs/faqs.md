@@ -1,7 +1,7 @@
 ---
 layout: default
 title: FAQs
-nav_order: 7
+nav_order: 8
 ---
 
 # Frequently Asked Questions (FAQs)
@@ -115,7 +115,7 @@ nav_order: 7
 
 <details>
   <summary>Where can I find examples and tutorials?</summary>
-  Visit the <a href="https://eolesinski.github.io/poliscipy/examples.html">Examples section</a> of the documentation site for detailed tutorials and code snippets.
+  Visit the <a href="https://eolesinski.github.io/poliscipy/examples.html">Examples section</a> of the documentation for detailed tutorials and code snippets.
 </details>
 
 <details>
