@@ -33,12 +33,30 @@ PoliSciPy uses modified shapefiles originally provided by the United States Cens
 
 You can inspect the shapefile once you've loaded in it using the `load_shapefile()` method. If you type the following:
 
-You can then inspect the shapefile shown below. A full list of all of the columns inlcuded in the shapefile can be seen in the Shapefiles section of the API documentation.
+You can then inspect the shapefile shown below. A full list of all of the columns inlcuded in the shapefile can be seen in the next section below.
 
 | STATEFP | NAME          | STUSPS | elec_votes_2024 | defectors  | defector_party | centroid_x | centroid_y | geometry       |
 |---------|---------------|--------|-----------------|------------|----------------|------------|------------|----------------|
 | 28      | Mississippi   | MS     | 6               | 0          | None           | -89.6652   | 32.7509    | MULTIPOLYGON   |
 | 37      | North Carolina| NC     | 16              | 0          | None           | -79.3724   | 35.5415    | MULTIPOLYGON   |
+
+### Full list of columns
+
+The shapefile used in PoliSciPy contains several columns that provide geographic and attribute data. Below is a brief overview of the columns and their data types:
+
+- **STATEFP (str):** A two-digit state FIPS code.
+- **STATENS (str):** An eight-digit state identifier.
+- **AFFGEOID (str):** A unique identifier for geographic features.
+- **GEOID (str):** A two-digit geographic identifier.
+- **STUSPS (str):** The two-letter state postal abbreviation.
+- **NAME (str):** The full name of the state or territory.
+- **LSAD (str):** A two-character legal/statistical area description.
+- **ALAND (int):** Land area in square meters.
+- **AWATER (int):** Water area in square meters.
+- **centroid_x (float):** Longitude of the state's centroid.
+- **centroid_y (float):** Latitude of the state's centroid.
+- **elec_votes (int):** Number of electoral votes for the state.
+- **geometry (Polygon):** The shape data representing the state boundary.
 
 ## Merging Election Data
 
@@ -111,7 +129,11 @@ For a full example of creating Electoral College maps with non-winner-takes-all 
 
 ### Faithless electors
 
-Similarly, in United States elections, while rare, there is the ability for there to be what are called "faithless elecrots". Due to the nature and structure of the elecrtoal college, electoral college voters are not actuall required to vote for the candidate that thier state's electors vote for. In these cases, a candidate may win a particular state while an individual elector chooses to vote for another candidate. The most recent exampel fo this was in the 2016 election when 7 different electors cast vote againt the will of thier state.
+Similar to the cases of Maine and Nebraska, United States elections might also invovle what are called "faithless electors." Faitheless electors can occur due to the structure and design of the electoral college. Since in most states there is no officil law actually requiring that electoral college voters actually vote for the candidate who won thier state, while rare, sometimes it can occur where an electoral college voter votes for a candidate against the decision of the state. These defecting voters may vote for the other candidate or a candidate not even listed in the election. The most recent example of this occured in 2016 when 7 electors voted against the decisions of their state.
+
+The approach for hanlding defecting voters is similar to adding the Congressional Distric defectors for Maine and Nebraska above. In order to add faitheles electors to any state, simply change the number of defecting voters in the `defecting_voter` coloum for the state that you woudl like and set thier respective `defector_party` value. 
+
+Note: While defecting voters may sometimes vote for the opposing party, they may also vote for candidates not listed in the current eletction. In this case it may be useful to group them into an `Other` party rather than assigning them thier own color value in the colormap. To do this, simply leave the `defector_party` value blank in the `GeoDataFrame` blank and it will be assinged to the `Other` category by default. You can see an example of how to plot electoral college maps with faithless electors by taking a look at Example 2 in the Examples section.
 
 ### Split states
 

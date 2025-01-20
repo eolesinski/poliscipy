@@ -16,7 +16,7 @@ One of PoliSciPy's strengths is its ability to plot current and future United St
 
 <div align="center">
     <img src="assets/election_2024.png" alt="Electoral College Map" width="974">
-    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election..</em></div>
+    <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election.</em></div>
 </div>
 
 ---

@@ -48,3 +48,21 @@ gdf = load_df(year=1992)
 - The method assumes the shapefile contains data about U.S. states, with a column STUSPS denoting state abbreviations (e.g., 'AK' for Alaska, 'HI' for Hawaii).
 
 - Scaling factors for Alaska and Hawaii were determined to better represent their geographical sizes in a standard map projection.
+
+### Full list of columns
+
+The shapefile used in PoliSciPy contains several columns that provide geographic and attribute data. Below is a brief overview of the columns and their data types:
+
+- **STATEFP (str):** A two-digit state FIPS code.
+- **STATENS (str):** An eight-digit state identifier.
+- **AFFGEOID (str):** A unique identifier for geographic features.
+- **GEOID (str):** A two-digit geographic identifier.
+- **STUSPS (str):** The two-letter state postal abbreviation.
+- **NAME (str):** The full name of the state or territory.
+- **LSAD (str):** A two-character legal/statistical area description.
+- **ALAND (int):** Land area in square meters.
+- **AWATER (int):** Water area in square meters.
+- **centroid_x (float):** Longitude of the state's centroid.
+- **centroid_y (float):** Latitude of the state's centroid.
+- **elec_votes (int):** Number of electoral votes for the state.
+- **geometry (Polygon):** The shape data representing the state boundary.
