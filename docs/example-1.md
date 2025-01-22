@@ -5,3 +5,4 @@ parent: Examples
 nav_order: 1
 ---
 
+# Plotting Current and Future Elections

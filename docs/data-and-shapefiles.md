@@ -26,37 +26,21 @@ A shapefile is a widely used geospatial vector data format for geographic inform
 
 **Note on Shapefiles:**
 
-PoliSciPy uses modified shapefiles originally provided by the United States Census Bureau through the TIGER/Line dataset. For more information about the original shapefiles and how to access them, please visit the citation page.
+PoliSciPy uses modified shapefiles originally provided by the United States Census Bureau through the [TIGER/Line](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) dataset. For more information about the original shapefiles and how to access them, please visit the [citation page](https://eolesinski.github.io/poliscipy/citation.html).
 
 
 ### Inspecting the Shapefile
 
 You can inspect the shapefile once you've loaded in it using the `load_shapefile()` method. If you type the following:
 
-You can then inspect the shapefile shown below. A full list of all of the columns inlcuded in the shapefile can be seen in the next section below.
+You can then inspect the shapefile shown below. A full list of all of the columns inlcuded in the shapefile is shown below.
 
 | STATEFP | NAME          | STUSPS | elec_votes_2024 | defectors  | defector_party | centroid_x | centroid_y | geometry       |
 |---------|---------------|--------|-----------------|------------|----------------|------------|------------|----------------|
 | 28      | Mississippi   | MS     | 6               | 0          | None           | -89.6652   | 32.7509    | MULTIPOLYGON   |
 | 37      | North Carolina| NC     | 16              | 0          | None           | -79.3724   | 35.5415    | MULTIPOLYGON   |
 
-### Full list of columns
-
-The shapefile used in PoliSciPy contains several columns that provide geographic and attribute data. Below is a brief overview of the columns and their data types:
-
-- **STATEFP (str):** A two-digit state FIPS code.
-- **STATENS (str):** An eight-digit state identifier.
-- **AFFGEOID (str):** A unique identifier for geographic features.
-- **GEOID (str):** A two-digit geographic identifier.
-- **STUSPS (str):** The two-letter state postal abbreviation.
-- **NAME (str):** The full name of the state or territory.
-- **LSAD (str):** A two-character legal/statistical area description.
-- **ALAND (int):** Land area in square meters.
-- **AWATER (int):** Water area in square meters.
-- **centroid_x (float):** Longitude of the state's centroid.
-- **centroid_y (float):** Latitude of the state's centroid.
-- **elec_votes (int):** Number of electoral votes for the state.
-- **geometry (Polygon):** The shape data representing the state boundary.
+---
 
 ## Merging Election Data
 
@@ -64,21 +48,21 @@ Plotting electoral college data using PoliSciPy is very easy. All you need to do
 
 ### Adding the data
 
-In order to add the data.
-
-Simply create or import a dictionary with the data that you would like to plot:
+To add the data, simply create or import a dictionary with the election results that you would like to plot:
 
 ```python
 winning_party_2024 = {
-    'AL': 'Trump', 'AK': 'Trump', 'AZ': 'Trump', 'AR': 'Trump', 'CA': 'Harris', 'CO': 'Harris',
-    'CT': 'Harris', 'DE': 'Harris', 'FL': 'Trump', 'GA': 'Trump', 'HI': 'Harris',
-    'ID': 'Trump', 'IL': 'Harris', 'IN': 'Trump', 'IA': 'Trump', 'KS': 'Trump',
-    'KY': 'Trump', 'LA': 'Trump', 'ME': 'Harris', 'MD': 'Harris', 'MA': 'Harris',
-    'MI': 'Trump', 'MN': 'Harris', 'MS': 'Trump', 'MO': 'Trump', 'MT': 'Trump', 'NE': 'Trump',
-    'NV': 'Trump', 'NH': 'Harris', 'NJ': 'Harris', 'NM': 'Harris', 'NY': 'Harris', 'NC': 'Trump',
-    'ND': 'Trump', 'OH': 'Trump', 'OK': 'Trump', 'OR': 'Harris', 'PA': 'Trump', 'RI': 'Harris',
-    'SC': 'Trump', 'SD': 'Trump', 'TN': 'Trump', 'TX': 'Trump', 'UT': 'Trump', 'VT': 'Harris',
-    'VA': 'Harris', 'WA': 'Harris', 'WV': 'Trump', 'WI': 'Trump', 'WY': 'Trump', 'DC': 'Harris'
+    'AL': 'Republican', 'AK': 'Republican', 'AZ': 'Republican', 'AR': 'Republican', 'CA': 'Democrat',
+    'CO': 'Democrat', 'CT': 'Democrat', 'DE': 'Democrat', 'FL': 'Republican', 'GA': 'Republican',
+    'HI': 'Democrat', 'ID': 'Republican', 'IL': 'Democrat', 'IN': 'Republican', 'IA': 'Republican',
+    'KS': 'Republican', 'KY': 'Republican', 'LA': 'Republican', 'ME': 'Democrat', 'MD': 'Democrat',
+    'MA': 'Democrat', 'MI': 'Republican', 'MN': 'Democrat', 'MS': 'Republican', 'MO': 'Republican',
+    'MT': 'Republican', 'NE': 'Republican', 'NV': 'Republican', 'NH': 'Democrat', 'NJ': 'Democrat',
+    'NM': 'Democrat', 'NY': 'Democrat', 'NC': 'Republican', 'ND': 'Republican', 'OH': 'Republican',
+    'OK': 'Republican', 'OR': 'Democrat', 'PA': 'Republican', 'RI': 'Democrat', 'SC': 'Republican',
+    'SD': 'Republican', 'TN': 'Republican', 'TX': 'Republican', 'UT': 'Republican', 'VT': 'Democrat',
+    'VA': 'Democrat', 'WA': 'Democrat', 'WV': 'Republican', 'WI': 'Republican', 'WY': 'Republican',
+    'DC': 'Democrat'
 }
 ```
 
@@ -109,8 +93,8 @@ gdf['defectors'][10] = 1 # nebraska
 gdf['defectors'][38] = 1 # maine
 
 # set the party affiliation of the defecting voter
-gdf['defector_party'][10] = 'Harris'
-gdf['defector_party'][38] = 'Trump'
+gdf['defector_party'][10] = 'Democrat'
+gdf['defector_party'][38] = 'Republican'
 ```
 
 Note: To identify the correct index for each state in the `geoDataFrame`, you can filter it by the `STUSPS` column using the following line: `gdf['STUSPS']`
@@ -129,9 +113,9 @@ For a full example of creating Electoral College maps with non-winner-takes-all 
 
 ### Faithless electors
 
-Similar to the cases of Maine and Nebraska, United States elections might also invovle what are called "faithless electors." Faitheless electors can occur due to the structure and design of the electoral college. Since in most states there is no officil law actually requiring that electoral college voters actually vote for the candidate who won thier state, while rare, sometimes it can occur where an electoral college voter votes for a candidate against the decision of the state. These defecting voters may vote for the other candidate or a candidate not even listed in the election. The most recent example of this occured in 2016 when 7 electors voted against the decisions of their state.
+Similar to representing electoral votes for the Congressional districts in Maine and Nebraska, it can also be useful to use defecting voters to represent faithless electors. Faithless electors are electoral college voters that, despite the popular vote of the respective states, choose to vote a differnt candidate than thier state selected. While rare, these faitheless electors may vote for the other candidate or a candidate that does not even appear on the ballot. While rare, the most recent example of this occured in 2016 when there were 7 electors that cast votes against the will of thier respetive states.
 
-The approach for hanlding defecting voters is similar to adding the Congressional Distric defectors for Maine and Nebraska above. In order to add faitheles electors to any state, simply change the number of defecting voters in the `defecting_voter` coloum for the state that you woudl like and set thier respective `defector_party` value. 
+While faithless electors are rare, it can be useful to be able to represent them in electoral college maps. The appraoch for handling faithless electors is the same as for handling Congressional districts above. To add a faithless electors to any state simply set the value in the `defecting_voter` column and the respective `defector_party` for the respective state. If you do not select a defecting party they will be placed into the `Other` category by default.
 
 Note: While defecting voters may sometimes vote for the opposing party, they may also vote for candidates not listed in the current eletction. In this case it may be useful to group them into an `Other` party rather than assigning them thier own color value in the colormap. To do this, simply leave the `defector_party` value blank in the `GeoDataFrame` blank and it will be assinged to the `Other` category by default. You can see an example of how to plot electoral college maps with faithless electors by taking a look at Example 2 in the Examples section.
 
