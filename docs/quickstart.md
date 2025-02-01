@@ -115,7 +115,7 @@ PoliSciPy offers several other features for working with electoral data. You can
 
 ## Example Output
 
-Here’s an example of what the map might look like after running the above commands:
+Here’s an example of what the map should look like after running the above commands:
 
 <div align="center">
     <img src="assets/election_2024.png" alt="Electoral College Map" width="974">

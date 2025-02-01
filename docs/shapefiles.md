@@ -36,6 +36,7 @@ You can inspect the shapefile once you've loaded it using the `load_shapefile()`
 
 ```
 gdf = load_shapefile()
+gdf.head(2)
 ```
 
 You can then inspect the shapefile shown below. A full list of all of the columns inlcuded in the shapefile is shown below.
@@ -51,10 +52,10 @@ For more information on the columns in the shapefile and their meanings, you can
 
 | Column      | Type          | Description |
 |------------|--------------|-------------|
-| `STATEFP`    | `str:2`        | The two-digit FIPS code assigned to the state. |
-| `STATENS`    | `str:8`        | A unique identifier for the state in the GNIS database. |
+| `STATEFP`    | `str:2`        | The two-digit [FIPS code](https://transition.fcc.gov/oet/info/maps/census/fips/fips.txt) assigned to the state. |
+| `STATENS`    | `str:8`        | A unique identifier for the state in the [GNIS database](https://www.usgs.gov/tools/geographic-names-information-system-gnis). |
 | `AFFGEOID`   | `str:11`       | An 11-character unique geographic identifier. |
-| `GEOID`      | `str:2`        | The numeric FIPS code (same as STATEFP). |
+| `GEOID`      | `str:2`        | The numeric FIPS code (same as STATEFP). See: [*What are GEOIDs?*](https://www.census.gov/programs-surveys/geography/guidance/geo-identifiers.html) |
 | `STUSPS`     | `str:2`        | The two-letter postal abbreviation for the state (e.g., CA, TX). |
 | `NAME`       | `str:100`      | The full state name (e.g., "California"). |
 | `LSAD`       | `str:2`        | Legal/statistical area description (usually empty or generic for states). |
