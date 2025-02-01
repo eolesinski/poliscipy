@@ -68,6 +68,6 @@ For more information on the columns in the shapefile and their meanings, you can
 
 This table serves as a reference for understanding the attributes in the shapefile and how they can be used when merging data or visualizing maps.
 
-### Next Step: Merging Election Data with the Shapefile
+## Next Step: Merging Election Data with the Shapefile
 
 Next, we’ll explore how to merge additional election data with the shapefile for visualization. Head over to the next section on [Merging Data](https://eolesinski.github.io/poliscipy/merging-data.html) to learn more about integrating datasets for analysis and creating visualizations.
