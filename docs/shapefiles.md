@@ -32,7 +32,11 @@ PoliSciPy uses modified shapefiles originally provided by the United States Cens
 
 ### Inspecting the Shapefile
 
-You can inspect the shapefile once you've loaded in it using the `load_shapefile()` method. If you type the following:
+You can inspect the shapefile once you've loaded it using the `load_shapefile()` method. If you type the following:
+
+```
+gdf = load_shapefile()
+```
 
 You can then inspect the shapefile shown below. A full list of all of the columns inlcuded in the shapefile is shown below.
 
@@ -41,9 +45,9 @@ You can then inspect the shapefile shown below. A full list of all of the column
 | 28      | Mississippi   | MS     | 6               | 0          | None           | -89.6652   | 32.7509    | MULTIPOLYGON   |
 | 37      | North Carolina| NC     | 16              | 0          | None           | -79.3724   | 35.5415    | MULTIPOLYGON   |
 
-### Understanding Shapfile Columns
+### Understanding the Shapefile's Columns
 
-For more information each of the columns in the shapeifle and what they represent we can inspect the shapefile's schema. Each row in the shapefile represents a U.S. state or territory and contains the following columns:
+For more information on the columns in the shapefile and their meanings, you can inspect the shapefile’s schema. Each row in the shapefile represents a U.S. state or territory and includes the following columns:
 
 | Column      | Type          | Description |
 |------------|--------------|-------------|
@@ -63,6 +67,6 @@ For more information each of the columns in the shapeifle and what they represen
 
 This table serves as a reference for understanding the attributes in the shapefile and how they can be used when merging data or visualizing maps.
 
-### Next Steps: Merging Data with the Shapefile
+### Next Step: Merging Election Data with the Shapefile
 
-Next, we’ll explore how to merge additional election data with the shapefile for visualization. Head over to the Merging Data section to learn more about integrating datasets for analysis and plotting.
+Next, we’ll explore how to merge additional election data with the shapefile for visualization. Head over to the next section on [Merging Data](https://eolesinski.github.io/poliscipy/merging-data.html) to learn more about integrating datasets for analysis and creating visualizations.
