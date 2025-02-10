@@ -45,7 +45,7 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party_2024).fillna('No Data')
 This should merge the data so that you can start plotting it.
 
 {: .important }
-> You can merge your election data dictionary with the GeoDataFrame on any column as long as they match. However, it is generally easier to perform the merge on the `STUSPS` column.
+> You can merge your election data dictionary with the GeoDataFrame on any column as long as they match. However, it is generally easiest to perform the merge on the `STUSPS` column.
 
 ---
 
@@ -82,6 +82,11 @@ This will return a list of state abbreviations you can use:
 ```
 
 For a full example of creating Electoral College maps with non-winner-takes-all states included in the map see Example 1 in the Tutorials and Examples section.
+
+<div align="center">
+    <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="550">
+    <div style="text-align: center;"><em>Example: Nebraska and Maine with Congressional District Wins.</em></div>
+</div>
 
 ### Faithless electors
 
