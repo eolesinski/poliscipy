@@ -58,7 +58,7 @@ The ability to account for defecting or faithless electors is a crucial feature 
 While most states use a "winner-takes-all" system, there are two notable exceptions: Nebraska and Maine. These states allocate their electoral votes differently, apportioning them based on the percentage of votes each candidate receives in each congressional district, in addition to awarding two electors based on the winner of the overall state-wide popular vote. This system can result in cases where, despite having five electoral votes, multiple candidates may be awarded electoral votes in Nebraska, leading to a "split" state.
 
 <div align="center">
-    <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="450">
+    <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="400">
     <div style="text-align: center;"><em>Example: Nebraska and Maine with Congressional District Wins.</em></div>
 </div>
 
