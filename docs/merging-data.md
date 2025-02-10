@@ -58,7 +58,7 @@ The ability to account for defecting or faithless electors is a crucial feature 
 While most states use a "winner-takes-all" system, there are two notable exceptions: Nebraska and Maine. These states allocate their electoral votes differently, apportioning them based on the percentage of votes each candidate receives in each congressional district, in addition to awarding two electors based on the winner of the overall state-wide popular vote. This system can result in cases where, despite having five electoral votes, multiple candidates may be awarded electoral votes in Nebraska, leading to a "split" state.
 
 <div align="center">
-    <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="400">
+    <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="425">
     <div style="text-align: center;"><em>Example: Nebraska and Maine with Congressional District Wins.</em></div>
 </div>
 
@@ -102,7 +102,15 @@ Another case when it could be usefuly to be able to plot defecting voters is whe
 
 ### Absent/missing electors
 
-The last case where it might be useful to be able to plot defecting voters is where an electoral voter may be unable to cast thier vote entirely even if they had intended to vote for the cnadidate who had won the state. One example of this was during the 1864 election (the third example shown on the Examples page) where despite having 3 electoral votes, Nevada only cast 2 votes for Presdient Lincoln. This was a result of the fact that the third electoral voter was snowbound, and there was not yet a practice put in place to deal with absent voters. Not spceifying a poltical party for these defecting voters places them in a default, dark grey colored box to signify and represent an 'Other' catagory.
+<div style="display: flex; align-items: center; gap: 20px;">
+  <div style="flex: 3;">
+    <p>The last case where it might be useful to be able to plot defecting voters is where an electoral voter may be unable to cast thier vote entirely even if they had intended to vote for the cnadidate who had won the state. One example of this was during the 1864 election (the third example shown on the Examples page) where despite having 3 electoral votes, Nevada only cast 2 votes for Presdient Lincoln. This was a result of the fact that the third electoral voter was snowbound, and there was not yet a practice put in place to deal with absent voters. Not spceifying a poltical party for these defecting voters places them in a default, dark grey colored box to signify and represent an 'Other' catagory.</p>
+  </div>
+  <div style="flex: 2; text-align: center;">
+    <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 150;">
+    <div><em>Nevada snowbound elector, 1864.</em></div>
+  </div>
+</div>
 
 {: .important }
 Any defector that does not have a value provided in the `defector_party` column will automatically default to the `Other/Unspecified` category.
