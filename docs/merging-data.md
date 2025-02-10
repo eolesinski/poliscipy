@@ -104,10 +104,10 @@ Another case when it could be usefuly to be able to plot defecting voters is whe
 
 <div style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 3;">
-    <p>The last case where it might be useful to be able to plot defecting voters is where an electoral voter may be unable to cast thier vote entirely even if they had intended to vote for the cnadidate who had won the state. One example of this was during the 1864 election (the third example shown on the Examples page) where despite having 3 electoral votes, Nevada only cast 2 votes for Presdient Lincoln. This was a result of the fact that the third electoral voter was snowbound, and there was not yet a practice put in place to deal with absent voters. Not spceifying a poltical party for these defecting voters places them in a default, dark grey colored box to signify and represent an 'Other' catagory.</p>
+    <p>The last case where it might be useful to be able to plot defecting voters is when an electoral voter is unable to cast their vote entirely, even if they had intended to vote for the candidate who won the state. One example of this occurred during the 1864 election (the third example shown on the Examples page), where despite having three electoral votes, Nevada only cast two votes for President Lincoln. This was because the third electoral voter was snowbound, and there was not yet a practice in place to handle absent voters. Not specifying a political party for these defecting voters places them in a default dark grey-colored box to signify and represent an 'Other' category.</p>
   </div>
-  <div style="flex: 2; text-align: center;">
-    <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 150;">
+  <div style="flex: 1; text-align: center;">
+    <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 100px;">
     <div><em>Nevada snowbound elector, 1864.</em></div>
   </div>
 </div>
