@@ -57,6 +57,11 @@ The ability to account for defecting or faithless electors is a crucial feature 
 
 While most states use a "winner-takes-all" system, there are two notable exceptions: Nebraska and Maine. These states allocate their electoral votes differently, apportioning them based on the percentage of votes each candidate receives in each congressional district, in addition to awarding two electors based on the winner of the overall state-wide popular vote. This system can result in cases where, despite having five electoral votes, multiple candidates may be awarded electoral votes in Nebraska, leading to a "split" state.
 
+<div align="center">
+    <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="450">
+    <div style="text-align: center;"><em>Example: Nebraska and Maine with Congressional District Wins.</em></div>
+</div>
+
 If you would like to represent this "split" state for Nebraska and Maine, you can use the `defectors` and `defector_party` columns in the `geoDataFrame`. To do this, simply input the number of defectors for each state and their respective party affiliation.
 
 ```python
@@ -83,11 +88,6 @@ This will return a list of state abbreviations you can use:
 
 For a full example of creating Electoral College maps with non-winner-takes-all states included in the map see Example 1 in the Tutorials and Examples section.
 
-<div align="center">
-    <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="550">
-    <div style="text-align: center;"><em>Example: Nebraska and Maine with Congressional District Wins.</em></div>
-</div>
-
 ### Faithless electors
 
 Similar to representing electoral votes for the Congressional districts in Maine and Nebraska, it can also be useful to use defecting voters to represent faithless electors. Faithless electors are electoral college voters that, despite the popular vote of the respective states, choose to vote a differnt candidate than thier state selected. While rare, these faitheless electors may vote for the other candidate or a candidate that does not even appear on the ballot. While rare, the most recent example of this occured in 2016 when there were 7 electors that cast votes against the will of thier respetive states.
@@ -104,7 +104,8 @@ Another case when it could be usefuly to be able to plot defecting voters is whe
 
 The last case where it might be useful to be able to plot defecting voters is where an electoral voter may be unable to cast thier vote entirely even if they had intended to vote for the cnadidate who had won the state. One example of this was during the 1864 election (the third example shown on the Examples page) where despite having 3 electoral votes, Nevada only cast 2 votes for Presdient Lincoln. This was a result of the fact that the third electoral voter was snowbound, and there was not yet a practice put in place to deal with absent voters. Not spceifying a poltical party for these defecting voters places them in a default, dark grey colored box to signify and represent an 'Other' catagory.
 
-Note: any defector that does not have a value provided in the `defector_party` column will default to the `Other/Unspecified` catagory.
+{: .important }
+Any defector that does not have a value provided in the `defector_party` column will automatically default to the `Other/Unspecified` category.
 
 ---
 
