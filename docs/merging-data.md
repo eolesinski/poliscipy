@@ -107,7 +107,7 @@ Another case when it could be usefuly to be able to plot defecting voters is whe
     <p>The last case where it might be useful to be able to plot defecting voters is when an electoral voter is unable to cast their vote entirely, even if they had intended to vote for the candidate who won the state. One example of this occurred during the 1864 election (the third example shown on the Examples page), where despite having three electoral votes, Nevada only cast two votes for President Lincoln. This was because the third electoral voter was snowbound, and there was not yet a practice in place to handle absent voters. Not specifying a political party for these defecting voters places them in a default dark grey-colored box to signify and represent an 'Other' category.</p>
   </div>
   <div style="flex: 1; text-align: center;">
-    <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 100px;">
+    <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 200px;">
     <div><em>Nevada snowbound elector, 1864.</em></div>
   </div>
 </div>
@@ -126,3 +126,5 @@ Some elections include territories or regions that, while part of the United Sta
 During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite haveing no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of thier votes in the final results. For more detail on how to plot electoral college maps from the Reconstruction period, see Example 3: Plotting Reconstruction Elections.
 
 ## Handling merged States
+
+During some early elections, some states had boundaries that were different from those of today. As an example, Masschussets encompassed what is today Maine and Georiga once included both Alabama and Missisippi. 
