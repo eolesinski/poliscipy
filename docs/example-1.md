@@ -49,16 +49,20 @@ This function loads a GeoDataFrame containing the geometries and attributes of s
 
 ## Step 4: Prepare Election Data
 
-Next, prepare the election results for the chosen year. For example, for the 2024 U.S. presidential election, create a DataFrame with the results:
+Next, prepare the election results for the chosen year. For example, for the 2024 U.S. presidential election, create a dictionary with the results:
 
 ```
-# Example data for the 2024 election
-data = {
-    'state': ['California', 'Texas', 'Florida', 'New York', 'Pennsylvania', 'Illinois', 'Ohio', 'Georgia', 'North Carolina', 'Michigan'],
-    'winner': ['Democratic', 'Republican', 'Republican', 'Democratic', 'Democratic', 'Democratic', 'Republican', 'Republican', 'Republican', 'Democratic']
+winning_party = {
+    'AL': 'Republican','AK': 'Republican','AZ': 'No Data','AR': 'Republican','CA': 'Democrat','CO': 'Democrat',
+    'CT': 'Democrat', 'DE': 'Democrat', 'FL': 'Republican', 'GA': 'Republican', 'HI': 'Democrat', 
+    'ID': 'Republican', 'IL': 'Democrat','IN': 'Republican','IA': 'Republican','KS': 'Republican',
+    'KY': 'Republican', 'LA': 'Sam Smith','ME': 'Democrat','MD': 'Democrat','MA': 'Democrat',
+    'MI': 'Republican','MN': 'Democrat','MS': 'Republican','MO': 'Republican','MT': 'Republican','NE': 'Republican',
+    'NV': 'Republican','NH': 'Democrat','NJ': 'Democrat','NM': 'Democrat','NY': 'Democrat','NC': 'Republican',
+    'ND': 'Republican','OH': 'Republican','OK': 'Republican','OR': 'Democrat','PA': 'Republican','RI': 'Democrat',
+    'SC': 'Republican','SD': 'Republican','TN': 'Republican','TX': 'Republican','UT': 'Republican','VT': 'Democrat',
+    'VA': 'Democrat','WA': 'Democrat','WV': 'Republican','WI': 'Republican','WY': 'Republican', 'DC': 'Democrat'
 }
-
-df = pd.DataFrame(data)
 ```
 
 This DataFrame includes the states that participated in the 2024 election and the party that won in each state.

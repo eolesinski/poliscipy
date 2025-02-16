@@ -75,31 +75,37 @@ custom_colors_1796 = {
 }
 ```
 
+## Step 6: Add the defecting voters to represent the split states
+
 Adding the defecting voters to represent split states:
 
 ```
+# add the number of defecting voters for each respective state
 gdf['defectors'][3] = 1
 gdf['defectors'][1] = 1
 gdf['defectors'][18] = 1
+gdf['defectors'][37] = 4 # Maryland
+
+# add the defecting party for each of the defecting voters
 gdf['defector_party'][3] = 'Adams'
 gdf['defector_party'][1] = 'Adams'
 gdf['defector_party'][18] = 'Adams'
+gdf['defector_party'][37] = "Jefferson"
 ```
 
 ## Step 5: Merge Election Data with Shapefile
 
-To visualize the election results, merge the election data with the GeoDataFrame:
+To visualize the election results, merge the election data with the `GeoDataFrame`:
 
 ```
-# Merge the election data with the GeoDataFrame
 gdf = gdf.merge(df, left_on='NAME', right_on='state')
 ```
 
 This merges the election results into the GeoDataFrame based on the state names.
 
-## Step 6: Plot the Electoral Map
+## Step 7: Plot the Electoral Map
 
-With the merged data, you can now plot the electoral college map:
+With the merged data and defecting voters set, you can now plot the electoral college map:
 
 ```python
 # Plot the 1796 electoral college map
@@ -111,7 +117,7 @@ This function generates a map visualizing the 1796 election results, coloring ea
 
 ## Example Output
 
-Here's an example of the 1796 U.S. Presidential Election map generated using the above steps:
+Here's what the 1796 U.S. Presidential Election map should look like after follwing the steps above:
 
 <div align="center"> <img src="assets/election_1796_2.png" alt="1796 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1796 U.S. Presidential Election Results</em></div> </div>
 

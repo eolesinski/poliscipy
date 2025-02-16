@@ -36,9 +36,9 @@ After gaining independence, some of the United States' earliest elections featur
 
 ---
 
-**Reconstruction: plotting more complex maps**
+**The Civil War and Reconstruction: plotting more complex maps**
 
-You can also plot more complex historical Electoral College maps that include states that did not participate in certain elections. After the Civil War, the tumultuous Reconstruction period meant that some Southern states did not cast any electoral votes. The consequences of this are illustrated below in the results of the 1864 Election.
+You can also plot more complex historical Electoral College maps that include states that did not participate in certain elections. During the Civil War, several Southern states seceded from the Union and consequently did not participate in the 1864 election. After the Civil War, the tumultuous Reconstruction period meant that some Southern states remained ineligible to cast electoral votes for several years afterward. An example of the consequences of this are illustrated below in the results of the 1864 election.
 
 <div align="center">
     <a href="https://eolesinski.github.io/poliscipy/example-3.html">

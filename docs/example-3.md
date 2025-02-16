@@ -5,9 +5,9 @@ parent: Examples
 nav_order: 3
 ---
 
-# Plotting Post-Reconstruction Electoral College Maps with PoliSciPy
+# Plotting Civil War and Reconstruction Electoral College Maps with PoliSciPy
 
-During the post-Reconstruction era, the political landscape of the United States underwent significant shifts. Several Southern states were excluded from participating in presidential elections, particularly in the elections immediately following the Civil War. Using PoliSciPy, we can visualize these historical electoral maps, capturing the impact of Reconstruction policies on the Electoral College.
+During the Civil War and post-Reconstruction era, the political landscape of the United States underwent significant shifts. Several Southern states were excluded from participating in presidential elections entirly, particularly in the elections of 1864, 1868, and 1872. Using PoliSciPy, we can visualize these historical electoral maps, capturing the impact of Sessesion and Reconstruction policies on the Electoral College.
 
 ---
 
@@ -19,7 +19,7 @@ Key aspects of post-Reconstruction elections:
 
 - 1868 Election: Texas, Virginia, and Mississippi did not participate, as their Reconstruction governments were not yet recognized.
 - 1872 Election: Most states were readmitted, but disputes in Louisiana and Arkansas led to their votes being rejected.
-Visualizing these elections requires shapefiles that accurately represent the electoral landscape at the time.
+Visualizing these elections requires accurately representing the electoral landscape at this time.
 
 ## Step 1: Install PoliSciPy
 
@@ -43,8 +43,8 @@ import pandas as pd
 For post-Reconstruction elections, we must use the correct state boundaries for the given year. PoliSciPy provides shapefiles reflecting the political landscape at various historical moments.
 
 ```
-# Load the shapefile for the 1868 election
-gdf = ps.load_shapefile(year=1868)
+# Load the shapefile for the 1864 election
+gdf = ps.load_shapefile(year=1864)
 ```
 
 This function loads a GeoDataFrame representing U.S. state boundaries as they were in 1868.
@@ -94,7 +94,7 @@ This function generates a map highlighting which states voted for each candidate
 
 Here's an example of the 1868 U.S. Presidential Election map:
 
-<div align="center"> <img src="assets/election_1864_2.png" alt="1864 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1868 U.S. Presidential Election Results</em></div> </div>
+<div align="center"> <img src="assets/election_1864_2.png" alt="1864 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1864 U.S. Presidential Election Results</em></div> </div>
 
 ## Additional Resources
 
