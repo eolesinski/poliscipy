@@ -51,24 +51,18 @@ This function loads a GeoDataFrame representing U.S. state boundaries as they we
 
 ## Step 4: Prepare Election Data
 
-We'll create a DataFrame representing the 1868 U.S. presidential election results. Since Texas, Virginia, and Mississippi did not participate, we will mark these states accordingly.
+We'll create a dictionary representing the 1868 U.S. presidential election results. Since Texas, Virginia, and Mississippi did not participate, we will mark these states accordingly.
 
-```
-# Create a DataFrame with 1868 election results
-data = {
-    'state': ['Alabama', 'Arkansas', 'California', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Illinois', 'Indiana', 'Iowa',
-              'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-              'Missouri', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New York', 'North Carolina', 'Ohio', 'Oregon',
-              'Pennsylvania', 'Rhode Island', 'South Carolina', 'Tennessee', 'Texas', 'Vermont', 'Virginia', 'West Virginia',
-              'Wisconsin'],
-    'winner': ['Republican', 'Republican', 'Democratic', 'Republican', 'Democratic', 'Republican', 'Republican', 'Republican', 'Republican',
-               'Republican', 'Republican', 'Democratic', 'Republican', 'Republican', 'Democratic', 'Republican', 'Republican',
-               'Republican', 'No Votes', 'Democratic', 'Republican', 'Democratic', 'Republican', 'Democratic', 'Republican',
-               'Republican', 'Republican', 'Democratic', 'Republican', 'Republican', 'Republican', 'No Votes', 'Republican',
-               'No Votes', 'Republican', 'Republican']
+```python
+winning_party_1864 = {
+    'AL': 'No Vote','AR': 'No Vote','CA': 'Lincoln','CT': 'Lincoln', 'DE': 'McClellan', 'FL': 'No Vote', 
+    'GA': 'No Vote', 'IL': 'Lincoln','IN': 'Lincoln','IA': 'Lincoln', 'KS': 'Lincoln','KY': 'McClellan',
+    'LA': 'No Vote','ME': 'Lincoln','MD': 'Lincoln','MA': 'Lincoln','MI': 'Lincoln', 'MS': 'No Vote',
+    'MO': 'Lincoln','NV': 'Lincoln','NH': 'Lincoln','NJ': 'McClellan','NY': 'Lincoln','NC': 'No Vote',
+    'OH': 'Lincoln','OR': 'Lincoln','PA': 'Lincoln','RI': 'Lincoln','SC': 'No Vote','TN': 'Lincoln',
+    'TX': 'No Vote','VT': 'Lincoln','VA': 'No Vote','WV': 'Lincoln',
+    'WI': 'Lincoln'
 }
-
-df = pd.DataFrame(data)
 ```
 
 Note:
@@ -100,7 +94,7 @@ This function generates a map highlighting which states voted for each candidate
 
 Here's an example of the 1868 U.S. Presidential Election map:
 
-<div align="center"> <img src="assets/election_1864.png" alt="1864 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1868 U.S. Presidential Election Results</em></div> </div>
+<div align="center"> <img src="assets/election_1864_2.png" alt="1864 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1868 U.S. Presidential Election Results</em></div> </div>
 
 ## Additional Resources
 
