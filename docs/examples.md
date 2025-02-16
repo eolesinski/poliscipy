@@ -42,7 +42,7 @@ You can also plot more complex historical Electoral College maps that include st
 
 <div align="center">
     <a href="https://eolesinski.github.io/poliscipy/example-3.html">
-        <img src="assets/election_1864.png" alt="Electoral College Map" width="974">
+        <img src="assets/election_1864_2.png" alt="Electoral College Map" width="974">
     </a>
     <div style="text-align: center;"><em>Example: Figure with Election of 1864.</em></div>
 </div>
