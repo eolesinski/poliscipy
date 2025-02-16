@@ -59,7 +59,7 @@ While most states use a "winner-takes-all" system, there are two notable excepti
 
 <div align="center">
     <img src="assets/defecting-voters-4.png" alt="Electoral College Map" width="425">
-    <div style="text-align: center;"><em>Example: Nebraska and Maine with Congressional District Wins.</em></div>
+    <div style="text-align: center;"><em>Example: Nebraska and Maine with Congressional District Wins, 2024.</em></div>
 </div>
 
 If you would like to represent this "split" state for Nebraska and Maine, you can use the `defectors` and `defector_party` columns in the `geoDataFrame`. To do this, simply input the number of defectors for each state and their respective party affiliation.

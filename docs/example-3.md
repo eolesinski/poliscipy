@@ -4,3 +4,107 @@ title: Reconstruction Elections
 parent: Examples
 nav_order: 3
 ---
+
+# Plotting Post-Reconstruction Electoral College Maps with PoliSciPy
+
+During the post-Reconstruction era, the political landscape of the United States underwent significant shifts. Several Southern states were excluded from participating in presidential elections, particularly in the elections immediately following the Civil War. Using PoliSciPy, we can visualize these historical electoral maps, capturing the impact of Reconstruction policies on the Electoral College.
+
+---
+
+## Understanding Post-Reconstruction Elections
+
+Following the Civil War, the Reconstruction period (1865–1877) saw federal efforts to reintegrate the Southern states into the Union. However, during the presidential elections of 1868 and 1872, some former Confederate states did not participate fully in the Electoral College.
+
+Key aspects of post-Reconstruction elections:
+
+- 1868 Election: Texas, Virginia, and Mississippi did not participate, as their Reconstruction governments were not yet recognized.
+- 1872 Election: Most states were readmitted, but disputes in Louisiana and Arkansas led to their votes being rejected.
+Visualizing these elections requires shapefiles that accurately represent the electoral landscape at the time.
+
+## Step 1: Install PoliSciPy
+
+Ensure you have PoliSciPy installed to access historical shapefiles and election visualization tools.
+
+```
+pip install poliscipy
+```
+
+For more installation details, refer to the Installation page.
+
+## Step 2: Import Necessary Libraries
+
+```
+import poliscipy as ps
+import pandas as pd
+```
+
+## Step 3: Load Historical Shapefiles
+
+For post-Reconstruction elections, we must use the correct state boundaries for the given year. PoliSciPy provides shapefiles reflecting the political landscape at various historical moments.
+
+```
+# Load the shapefile for the 1868 election
+gdf = ps.load_shapefile(year=1868)
+```
+
+This function loads a GeoDataFrame representing U.S. state boundaries as they were in 1868.
+
+## Step 4: Prepare Election Data
+
+We'll create a DataFrame representing the 1868 U.S. presidential election results. Since Texas, Virginia, and Mississippi did not participate, we will mark these states accordingly.
+
+```
+# Create a DataFrame with 1868 election results
+data = {
+    'state': ['Alabama', 'Arkansas', 'California', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Illinois', 'Indiana', 'Iowa',
+              'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
+              'Missouri', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New York', 'North Carolina', 'Ohio', 'Oregon',
+              'Pennsylvania', 'Rhode Island', 'South Carolina', 'Tennessee', 'Texas', 'Vermont', 'Virginia', 'West Virginia',
+              'Wisconsin'],
+    'winner': ['Republican', 'Republican', 'Democratic', 'Republican', 'Democratic', 'Republican', 'Republican', 'Republican', 'Republican',
+               'Republican', 'Republican', 'Democratic', 'Republican', 'Republican', 'Democratic', 'Republican', 'Republican',
+               'Republican', 'No Votes', 'Democratic', 'Republican', 'Democratic', 'Republican', 'Democratic', 'Republican',
+               'Republican', 'Republican', 'Democratic', 'Republican', 'Republican', 'Republican', 'No Votes', 'Republican',
+               'No Votes', 'Republican', 'Republican']
+}
+
+df = pd.DataFrame(data)
+```
+
+Note:
+
+- Texas, Virginia, and Mississippi did not participate, so they are labeled as "No Votes".
+- The Republican candidate (Ulysses S. Grant) won the election against the Democratic candidate (Horatio Seymour).
+
+## Step 5: Merge Election Data with Shapefile
+
+To map the election results, we merge the DataFrame with the GeoDataFrame:
+
+```
+# Merge the election data with the GeoDataFrame
+gdf = gdf.merge(df, left_on='NAME', right_on='state', how='left')
+```
+
+This ensures that each state is assigned the correct election outcome.
+
+## Step 6: Plot the Electoral College Map
+
+```
+# Plot the 1868 electoral map
+ps.plot_electoral_map(gdf, column='winner', title='1868 U.S. Presidential Election')
+```
+
+This function generates a map highlighting which states voted for each candidate and which states did not participate.
+
+## Example Output
+
+Here's an example of the 1868 U.S. Presidential Election map:
+
+<div align="center"> <img src="assets/election_1864.png" alt="1864 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1868 U.S. Presidential Election Results</em></div> </div>
+
+## Additional Resources
+
+- Historical Election Data: For details on post-Reconstruction elections, visit the American Presidency Project.
+- Reconstruction and Voting Rights: Learn about the impact of Reconstruction on elections from the National Archives.
+
+Using PoliSciPy, we can effectively visualize post-Reconstruction elections and understand how political participation evolved in the aftermath of the Civil War.
