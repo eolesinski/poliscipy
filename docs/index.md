@@ -6,19 +6,22 @@ nav_order: 1
 
 # **Welcome to PoliSciPy's Documentation**
 
-This is a *bare-minimum* template to create a Jekyll site that uses the [Just the Docs] theme. You can easily set the created site to be published on [GitHub Pages] – the [README] file explains how to do that, along with other details.
+PoliSciPy is a Python package for creating customizable electoral college maps of the United States, making it easy to visualize and analyze electoral data.
+{: .fs-5 .fw-300 }
 
-[Get started now](#getting-started){: .btn .btn-blue .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[View on GitHub](#getting-started){: .btn .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Get started now](https://eolesinski.github.io/poliscipy/quickstart.html){: .btn .btn-blue .fs-4 .mb-4 .mb-md-0 .mr-2 }
+[View on GitHub](https://github.com/eolesinski/poliscipy){: .btn .fs-4 .mb-4 .mb-md-0 .mr-2 }
 
-If [Jekyll] is installed on your computer, you can also build and preview the created site *locally*. This lets you test changes before committing them, and avoids waiting for GitHub Pages.[^1] And you will be able to deploy your local build to a different platform than GitHub Pages.
+---
+
+If Jekyll is installed on your computer, you can also build and preview the created site locally. This lets you test changes before committing them, and avoids waiting for GitHub Pages.1 And you will be able to deploy your local build to a different platform than GitHub Pages.
 
 PoliSciPy is great for:
 
 - Creating customized, high-quality electoral college maps of the United States
 - Conducting political data analysis and tracking changes in voting history and patterns
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+Other than that, you’re free to customize sites that you create with this template, however you like. You can easily change the versions of just-the-docs and Jekyll it uses, as well as adding further plugins.
 
 <div align="center">
     <img src="assets/election_2024.png" alt="Electoral College Map" width="974">
@@ -42,6 +45,8 @@ PoliSciPy is distributed under an [MIT license](https://github.com/just-the-docs
   </li>
 {% endfor %}
 </ul>
+
+Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
 
 ### Code of Conduct
 
