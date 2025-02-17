@@ -104,7 +104,7 @@ Another case when it could be usefuly to be able to plot defecting voters is whe
 
 <div style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 3;">
-    <p>The last case where it might be useful to be able to plot defecting voters is when an electoral voter is unable to cast their vote entirely, even if they had intended to vote for the candidate who won the state. One example of this occurred during the 1864 election (the third example shown on the Examples page), where despite having three electoral votes, Nevada only cast two votes for President Lincoln. This was because the third electoral voter was snowbound, and there was not yet a practice in place to handle absent voters. Not specifying a political party for these defecting voters places them in a default dark grey-colored box to signify and represent an 'Other' category.</p>
+    <p>The final case where it may be useful to plot defecting voters is when an electoral college voter is unable to cast their vote entirely. In these cases, their vote may not be counted even if they had intended to vote for the winning candidate in their state. One example of this occurred in 1864 when one of Nevada's three electoral voters got caught in a snowstorm and was unable to cast their vote. Since there was not yet an established proceedure for handling absent voters, the state only cast two votes for President Lincoln. You can see how this scenario is represented using PoliSciPy by viewing Example 3 in the Tutorials and Examples section. By deafult, absent electoral vottes are put inside a dark grey box (see image to right and note below for more detail).</p>
   </div>
   <div style="flex: 1; text-align: center;">
     <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 200px;">
@@ -113,18 +113,40 @@ Another case when it could be usefuly to be able to plot defecting voters is whe
 </div>
 
 {: .important }
-Any defector that does not have a value provided in the `defector_party` column will automatically default to the `Other/Unspecified` category.
+Any defector that does not have a value provided in the `defector_party` column will automatically default to the `Other/Unspecified` category and be shown on the map in a dark grey box.
 
 ---
 
 ## Representing Territories
 
-Some elections include territories or regions that, while part of the United States at the time, did not cast electoral votes. Representing these territories on the map can provide historical accuracy and help visualize the broader political or geographic context of an election. For an in depth example of how to represent territories in PoliSciPy, see Example 2: Plotting Early Post-Colonial Elections.
+<div style="display: flex; align-items: center; gap: 20px;">
+  <div style="flex: 1; text-align: center;">
+    <img src="assets/territories.png" alt="Electoral College Map" style="width: 100%;">
+    <div><em>United States Territories in 1796.</em></div>
+  </div>
+  <div style="flex: 2;">
+    <p>Some elections include territories or regions that, while part of the United States at the time, did not cast electoral votes. Representing these territories on the map can provide historical accuracy and help visualize the broader political or geographic context of an election. For an in-depth example of how to represent territories in PoliSciPy, see Example 2: Plotting Early Post-Colonial Elections. Some elections include territories or regions that, while part of the United States at the time, did not cast electoral votes.</p>
+  </div>
+</div>
 
-## Handling State Abstention
+---
+
+## Handling Abstaining States
 
 During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite haveing no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of thier votes in the final results. For more detail on how to plot electoral college maps from the Reconstruction period, see Example 3: Plotting Reconstruction Elections.
 
-## Handling merged States
+---
+
+## Handling Merged States
+
+<div style="display: flex; align-items: center; gap: 20px;">
+  <div style="flex: 2;">
+    <p>The final case where it may be useful to plot defecting voters is when an electoral college voter is unable to cast their vote entirely. In these cases, their vote may not be counted even if they had intended to vote for the winning candidate in their state. One example of this occurred in 1864 when one of Nevada's three electoral voters got caught in a snowstorm and was unable to cast their vote. Since there was not yet an established practice for handling absent voters, the state only.</p>
+  </div>
+  <div style="flex: 1; text-align: center;">
+    <img src="assets/georgia.png" alt="Electoral College Map" style="width: 100%;">
+    <div><em>State of Georgia, 1796.</em></div>
+  </div>
+</div>
 
 During some early elections, some states had boundaries that were different from those of today. As an example, Masschussets encompassed what is today Maine and Georiga once included both Alabama and Missisippi. 
