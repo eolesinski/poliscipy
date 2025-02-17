@@ -121,7 +121,7 @@ Any defector that does not have a value provided in the `defector_party` column 
 
 Some elections include territories or regions that, while part of the United States at the time, did not cast electoral votes. Representing these territories on the map can provide historical accuracy and help visualize the broader political or geographic context of an election. For an in depth example of how to represent territories in PoliSciPy, see Example 2: Plotting Early Post-Colonial Elections.
 
-## Handling Reconstruction
+## Handling State Abstention
 
 During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite haveing no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of thier votes in the final results. For more detail on how to plot electoral college maps from the Reconstruction period, see Example 3: Plotting Reconstruction Elections.
 

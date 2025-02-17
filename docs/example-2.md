@@ -29,7 +29,7 @@ For more installation options and details, refer to the Installation page.
 
 Begin by importing PoliSciPy and its relevant methods:
 
-```
+```python
 import poliscipy as ps
 from poliscipy.shapfiles import load_shapefile()
 ```
@@ -75,11 +75,11 @@ custom_colors_1796 = {
 }
 ```
 
-## Step 6: Add the defecting voters to represent the split states
+## Step 5: Add the defecting voters to represent the split states
 
 Adding the defecting voters to represent split states:
 
-```
+```python
 # add the number of defecting voters for each respective state
 gdf['defectors'][3] = 1
 gdf['defectors'][1] = 1
@@ -93,12 +93,13 @@ gdf['defector_party'][18] = 'Adams'
 gdf['defector_party'][37] = "Jefferson"
 ```
 
-## Step 5: Merge Election Data with Shapefile
+## Step 6: Merge Election Data with Shapefile
 
 To visualize the election results, merge the election data with the `GeoDataFrame`:
 
-```
-gdf = gdf.merge(df, left_on='NAME', right_on='state')
+```python
+# add the winning party and fill any missing data with 'No Data'
+gdf['winning_party'] = gdf['STUSPS'].map(winning_party_1796).fillna('No Data')
 ```
 
 This merges the election results into the GeoDataFrame based on the state names.
@@ -108,7 +109,6 @@ This merges the election results into the GeoDataFrame based on the state names.
 With the merged data and defecting voters set, you can now plot the electoral college map:
 
 ```python
-# Plot the 1796 electoral college map
 plot_electoral_map(gdf, column='winning_party', legend=True, party_colors=custom_colors_1796,
                    title="Election of 1796 - Adams vs Jefferson", year=1796)
 ```
