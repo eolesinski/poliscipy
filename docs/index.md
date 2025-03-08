@@ -16,7 +16,7 @@ PoliSciPy is a Python package for creating customizable electoral college maps o
 
 If Jekyll is installed on your computer, you can also build and preview the created site locally. This lets you test changes before committing them, and avoids waiting for GitHub Pages.1 And you will be able to deploy your local build to a different platform than GitHub Pages.
 
-PoliSciPy is great for:
+PoliSciPy is especially useful for:
 
 - Creating customized, high-quality electoral college maps of the United States
 - Conducting political data analysis and tracking changes in voting history and patterns

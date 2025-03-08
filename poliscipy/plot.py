@@ -4,40 +4,8 @@ import matplotlib.patches as mpatches
 from shapely.affinity import scale
 from matplotlib.patches import Rectangle
 
-def load_df(path: str) -> gpd.GeoDataFrame:
-    """
-    Method for loading in a GeoDataFrame for plotting the electoral college.
-    
-    Params:
-    - path: the path to the shapefile 
-    
-    Returns:
-    - gdf: a GeoDataFrame containing the electoral college data for the specified year 
-    """
-    
-    gdf = gpd.read_file(path)
-    
-    # define the scale factors for Alaska and Hawaii
-    ALASKA_SCALE_FACTOR_X = 0.64
-    HAWAII_SCALE_FACTOR_X = 1.1
-    
-    # apply the transformation for Alaska
-    alaska = gdf.loc[gdf['STUSPS'] == 'AK']
-
-    # apply an affine transformation to conduct horizontal scaling
-    scaled_geometry = alaska['geometry'].apply(lambda geom: scale(geom, xfact=ALASKA_SCALE_FACTOR_X, yfact=1.0))
-    
-    gdf.loc[gdf['STUSPS'] == 'AK', 'geometry'] = scaled_geometry
-    
-    # apply the transformation for Hawaii
-    hawaii = gdf.loc[gdf['STUSPS'] == 'HI']
-
-    # apply an affine transformation to conduct horizontal scaling
-    scaled_geometry_2 = hawaii['geometry'].apply(lambda geom: scale(geom, xfact=HAWAII_SCALE_FACTOR_X, yfact=1.0))
-    
-    gdf.loc[gdf['STUSPS'] == 'HI', 'geometry'] = scaled_geometry_2
-     
-    return gdf
+# temporary import
+from shapefile_utils import load_df
 
 # create a dictionary to map the colors of the political parties
 default_party_colors = {

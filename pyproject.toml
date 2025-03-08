@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "poliscipy"
+version = "0.1.0"
+description = "A Python package for political science data visualization"
+authors = [{name = "Ethan Olesinski"}]
+license = {file = "LICENSE"}
+readme = "README.md"
+dependencies = [
+    "geopandas",
+    "matplotlib"
+]
+
+[tool.setuptools]
+packages = ["poliscipy"]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/poliscipy"
+Repository = "https://github.com/yourusername/poliscipy"
+Issues = "https://github.com/yourusername/poliscipy/issues"
+
+[tool.setuptools.package-data]
+poliscipy = ["data/shapefiles/*.shp", "data/shapefiles/*.dbf", "data/shapefiles/*.shx"]

@@ -33,7 +33,7 @@ For more installation details, refer to the Installation page.
 
 ## Step 2: Import Necessary Libraries
 
-```
+```python
 import poliscipy as ps
 import pandas as pd
 ```
@@ -42,8 +42,7 @@ import pandas as pd
 
 For post-Reconstruction elections, we must use the correct state boundaries for the given year. PoliSciPy provides shapefiles reflecting the political landscape at various historical moments.
 
-```
-# Load the shapefile for the 1864 election
+```python
 gdf = ps.load_shapefile(year=1864)
 ```
 
@@ -74,7 +73,7 @@ Note:
 
 To map the election results, we merge the DataFrame with the GeoDataFrame:
 
-```
+```python
 # Merge the election data with the GeoDataFrame
 gdf = gdf.merge(df, left_on='NAME', right_on='state', how='left')
 ```
@@ -83,9 +82,9 @@ This ensures that each state is assigned the correct election outcome.
 
 ## Step 6: Plot the Electoral College Map
 
-```
-# Plot the 1868 electoral map
-ps.plot_electoral_map(gdf, column='winner', title='1868 U.S. Presidential Election')
+```python
+plot_electoral_map(gdf, column='winning_party', legend=True, party_colors=custom_colors_1796,
+                   title="Election of 1864 - Lincoln vs McCellan")
 ```
 
 This function generates a map highlighting which states voted for each candidate and which states did not participate.
