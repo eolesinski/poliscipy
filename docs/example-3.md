@@ -84,7 +84,19 @@ gdf = gdf.merge(df, left_on='NAME', right_on='state', how='left')
 
 This ensures that each state is assigned the correct election outcome.
 
-## Step 6: Plot the Electoral College Map
+## Step 6: Add the defecting voters to represent the split states
+
+Adding the defecting voters to represent split states:
+
+```python
+# add the number of defecting voters for each respective state
+gdf.loc[27, 'defectors'] = 1 # Nevada snowbound elector
+
+# add the defecting party for each of the defecting voters
+gdf.loc[3, 'defector_party'] = 'Other'
+```
+
+## Step 7: Plot the Electoral College Map
 
 ```python
 plot_electoral_map(gdf, column='winning_party', legend=True, party_colors=custom_colors_1796,

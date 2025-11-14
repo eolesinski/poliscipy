@@ -50,7 +50,7 @@ from poliscipy.plot import plot_electoral_map
 gdf = load_shapefile()
 ```
 
-Note: The default year for election data is 2024, but users can pass in a `year` parameter to `load_shapefile(year="2020")` to get a geoDataFrame with historical election data.
+**Note:** The default year for election data is 2024, but users can pass in a `year` parameter to `load_shapefile(year="2020")` to get a geoDataFrame with historical election data.
 
 ---
 
@@ -76,7 +76,27 @@ For additional information on how to merge data with the GeoDataFrame please see
 
 ---
 
-## Step 4: Plot the Electoral College Map
+## Step 4: Handling Split States
+
+Some states allocate electoral votes by congressional district rather than winner-takes-all. PoliSciPy provides tools to account for these splits, so you can visualize them accurately.
+
+To account for Maine and Nebraska you can edit the defecting voters column that specifies cases with non-winner-takes-all cases:
+
+```python
+# add the number of electors that voted for the other candidate
+gdf.loc[38, 'defectors'] = 1 # maine
+gdf.loc[10, 'defectors'] = 1 # nebraska
+
+# set the political party for each of the congressional district winners
+gdf.loc[38, 'defector_party'] = 'Republican'
+gdf.loc[10, 'defector_party'] = 'Democrat'
+```
+
+For more information on handling split states and defecting voters check out the [Adding Defectors](https://eolesinski.github.io/poliscipy/merging-data.html) section of the Merging data page.
+
+---
+
+## Step 5: Plot the Electoral College Map
 
 Now that the data is prepared, it’s time to plot the electoral college map. You can use the `plot_electoral_map()` function to generate a custom map with the data you’ve provided.
 
@@ -88,7 +108,7 @@ This will generate a map that visualizes the election results by party affiliati
 
 ---
 
-## Step 5: Customize the Plot (Optional)
+## Step 6: Customize the Plot (Optional)
 
 PoliSciPy allows for customization of the map’s appearance. You can modify aspects such as figure size, title, label colors, and borders. Here’s an example of customizing the plot further:
 
@@ -108,7 +128,7 @@ This example customizes the figure size, edge color, and label color to create a
 
 ---
 
-## Step 6: Explore More Features
+## Step 7: Explore More Features
 
 PoliSciPy offers several other features for working with electoral data. You can visualize demographic trends, explore voting results over time, and more. Check out the full documentation for detailed examples, advanced usage, and more customization options.
 

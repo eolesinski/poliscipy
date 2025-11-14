@@ -31,7 +31,7 @@ nav_order: 8
   <summary>What are the system requirements for PoliSciPy?</summary>
   <ul>
     <li>Python 3.8 or higher</li>
-    <li>Libraries such as GeoPandas and Matplotlib (automatically installed with PoliSciPy)</li>
+    <li>Libraries such as GeoPandas, Matplotlib, and Pandas (automatically installed with PoliSciPy)</li>
     <li>Optional: Git for cloning the latest version from the repository</li>
   </ul>
 </details>

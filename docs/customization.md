@@ -82,7 +82,7 @@ You can customize the title of your map and the labels for the states or regions
 
 ```python
 # Plot electoral college map with a custom title and labels
-ps.plot_electoral_map(
+plot_electoral_map(
     data=your_data,
     colormap=custom_party_colors,
     title="2024 U.S. Electoral College Map",
@@ -97,7 +97,7 @@ Legends help users understand what different colors represent. PoliSciPy will au
 Example:
 
 ```python
-ps.plot_electoral_map(
+plot_electoral_map(
     data=your_data,
     colormap=custom_party_colors,
     legend_title="Political Party",
@@ -110,7 +110,7 @@ ps.plot_electoral_map(
 You can adjust the borders between states, such as changing their width or color:
 
 ```python
-ps.plot_electoral_map(
+plot_electoral_map(
     data=your_data,
     colormap=custom_party_colors,
     border_color="#000000",

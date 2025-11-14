@@ -85,12 +85,13 @@ PoliSciPy requires the following libraries to work correctly:
 
 - **GeoPandas:** Used for handling geospatial data.
 - **Matplotlib:** Used for creating static, animated, and interactive plots.
+- **Pandas:** Used for working with data and merging in results.
 
 These dependencies will be automatically installed when you use either of the installation methods above. However, if you wish to install them manually, you can do so by running:
 
-`pip install geopandas matplotlib`
+`pip install geopandas matplotlib pandas`
 or
-`conda install geopandas matplotlib`
+`conda install geopandas matplotlib pandas`
 
 ---
 

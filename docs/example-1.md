@@ -81,12 +81,12 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('Not a State')
 
 ```python
 # add the number of electors that voted for the other candidate
-gdf['defectors'][10] = 1 # nebraska
-gdf['defectors'][38] = 1 # maine
+gdf.loc[38, 'defectors'] = 1 # maine
+gdf.loc[10, 'defectors'] = 1 # nebraska
 
 # set the political party for each of the congressional district winners
-gdf['defector_party'][10] = 'Democrat'
-gdf['defector_party'][38] = 'Republican'
+gdf.loc[38, 'defector_party'] = 'Republican'
+gdf.loc[10, 'defector_party'] = 'Democrat'
 ```
 
 ## Step 7: Plot the Electoral Map
@@ -95,7 +95,7 @@ Now that you’ve merged the data, you can visualize the electoral results by pl
 
 ```python
 # Plot the 2024 electoral map
-ps.plot_electoral_map(gdf, column='winner', title='2024 U.S. Presidential Election')
+plot_electoral_map(gdf, column='winner', title='2024 U.S. Presidential Election')
 ```
 
 This function generates a map of the 2024 election results, coloring each state based on the winner. States that did not participate in the election can be marked as "No Votes".

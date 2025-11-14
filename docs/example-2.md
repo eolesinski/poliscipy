@@ -77,25 +77,7 @@ custom_colors_1796 = {
 }
 ```
 
-## Step 5: Add the defecting voters to represent the split states
-
-Adding the defecting voters to represent split states:
-
-```python
-# add the number of defecting voters for each respective state
-gdf['defectors'][3] = 1
-gdf['defectors'][1] = 1
-gdf['defectors'][18] = 1
-gdf['defectors'][37] = 4 # Maryland
-
-# add the defecting party for each of the defecting voters
-gdf['defector_party'][3] = 'Adams'
-gdf['defector_party'][1] = 'Adams'
-gdf['defector_party'][18] = 'Adams'
-gdf['defector_party'][37] = "Jefferson"
-```
-
-## Step 6: Merge Election Data with Shapefile
+## Step 5: Merge Election Data with Shapefile
 
 To visualize the election results, merge the election data with the `GeoDataFrame`:
 
@@ -105,6 +87,24 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party_1796).fillna('No Data')
 ```
 
 This merges the election results into the GeoDataFrame based on the state names.
+
+## Step 6: Add the defecting voters to represent the split states
+
+Adding the defecting voters to represent split states:
+
+```python
+# add the number of defecting voters for each respective state
+gdf.loc[3, 'defectors'] = 1
+gdf.loc[1, 'defectors'] = 1
+gdf.loc[18, 'defectors'] = 1
+gdf.loc[37, 'defectors'] = 4  # Maryland
+
+# add the defecting party for each of the defecting voters
+gdf.loc[3, 'defector_party'] = 'Adams'
+gdf.loc[1, 'defector_party'] = 'Adams'
+gdf.loc[18, 'defector_party'] = 'Adams'
+gdf.loc[37, 'defector_party'] = 'Jefferson'
+```
 
 ## Step 7: Plot the Electoral Map
 
