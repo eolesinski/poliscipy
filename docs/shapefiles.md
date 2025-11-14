@@ -39,7 +39,7 @@ gdf = load_shapefile()
 gdf.head(2)
 ```
 
-You can then inspect the shapefile shown below. A full list of all of the columns inlcuded in the shapefile is shown below.
+You can then inspect the shapefile shown below. A full list of all of the columns included in the shapefile is shown below.
 
 | STATEFP | NAME          | STUSPS | elec_votes_2024 | defectors  | defector_party | centroid_x | centroid_y | geometry       |
 |---------|---------------|--------|-----------------|------------|----------------|------------|------------|----------------|

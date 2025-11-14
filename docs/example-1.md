@@ -27,11 +27,13 @@ For more installation details, refer to the PoliSciPy Installation Guide.
 
 ## Step 2: Import Necessary Libraries
 
-Once you have PoliSciPy installed, begin by importing it, along with other essential libraries:
+Once you have PoliSciPy installed, begin by importing it and its relevant methods:
 
 ```
-import poliscipy as ps
-import pandas as pd
+import poliscipy
+
+from poliscipy.shapefile_utils import load_shapefile
+from poliscipy.plot import plot_electoral_map
 ```
 
 This will allow you to work with the election data and generate maps using the available shapefiles.
@@ -41,7 +43,7 @@ This will allow you to work with the election data and generate maps using the a
 PoliSciPy provides shapefiles for various historical election years. For the current and upcoming elections, you can load the shapefile for the most recent election year. For example, for the 2024 presidential election:
 
 ```
-gdf = ps.load_shapefile()
+gdf = load_shapefile()
 ```
 
 This function loads a GeoDataFrame containing the geometries and attributes of states as they existed in 2024, based on the latest available data.
@@ -72,7 +74,7 @@ To visualize the election results, you’ll need to merge your election data wit
 
 ```python
 # add the winning party and fill any missing data with 'No Data'
-gdf['winning_party'] = gdf['STUSPS'].map(winning_party_1864).fillna('Not a State')
+gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('Not a State')
 ```
 
 ## Step 6: Add the Non-Winner-Takes-All States (Maine and Nebraska)
@@ -100,6 +102,6 @@ This function generates a map of the 2024 election results, coloring each state 
 
 ## Example Output
 
-Here's what the 1796 U.S. Presidential Election map should look like after follwing the steps above:
+Here's what the 1796 U.S. Presidential Election map should look like after following the steps above:
 
 <div align="center"> <img src="assets/election_2024.png" alt="2024 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 2024 U.S. Presidential Election Results</em></div> </div>

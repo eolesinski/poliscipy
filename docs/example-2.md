@@ -27,19 +27,21 @@ For more installation options and details, refer to the Installation page.
 
 ## Step 2: Import Necessary Libraries
 
-Begin by importing PoliSciPy and its relevant methods:
+Once you have PoliSciPy installed, begin by importing it and its relevant methods:
 
 ```python
-import poliscipy as ps
-from poliscipy.shapfiles import load_shapefile()
+import poliscipy
+
+from poliscipy.shapefile_utils import load_shapefile
+from poliscipy.plot import plot_electoral_map
 ```
 
-## Step 3: Load in the Shapfile
+## Step 3: Load in the Shapefile
 
 PoliSciPy provides a method for easily loading in shapefiles that contain historical election data. For early elections, it's crucial to use shapefiles that accurately represent the state boundaries of the specific election year. PoliSciPy includes shapefiles for various historical periods. Load the appropriate shapefile as follows:
 
 ```python
-gdf = ps.load_shapefile(year=1796)
+gdf = load_shapefile(year="1796")
 ```
 This function loads a `GeoDataFrame` containing the geometries and attributes of states as they existed in 1796.
 
@@ -60,9 +62,9 @@ winning_party_1796 = {
 This dictionary includes the states that participated in the 1796 election and the party that won in each state.
 
 {: .important }
-> Note: In the data dictionary above we have added a category for `Territories` above. Note: for reprsenting territoties, we can simply create another feild in out data dictionary for `Terriroties` and then add this to the colormap.
+> Note: In the data dictionary above we have added a category for `Territories` above. Note: for representing territories, we can simply create another field in out data dictionary for `Terriroties` and then add this to the colormap.
 
-Since we have added a new category `Territories` to our electoral college map, we need to make sure that we also specify a color in our color map so that PoliSciPy knows which color you would like to use to represent them. For representing territoires, it can be useful to show them simply as `grey` so that they do not get confused with the `No Data` category.
+Since we have added a new category `Territories` to our electoral college map, we need to make sure that we also specify a color in our color map so that PoliSciPy knows which color you would like to use to represent them. For representing territories, it can be useful to show them simply as `grey` so that they do not get confused with the `No Data` category.
 
 Create a custom colormap like the one below:
 
@@ -117,7 +119,7 @@ This function generates a map visualizing the 1796 election results, coloring ea
 
 ## Example Output
 
-Here's what the 1796 U.S. Presidential Election map should look like after follwing the steps above:
+Here's what the 1796 U.S. Presidential Election map should look like after following the steps above:
 
 <div align="center"> <img src="assets/election_1796_2.png" alt="1796 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1796 U.S. Presidential Election Results</em></div> </div>
 

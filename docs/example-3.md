@@ -7,7 +7,7 @@ nav_order: 3
 
 # Plotting Civil War and Reconstruction Electoral College Maps with PoliSciPy
 
-During the Civil War and post-Reconstruction era, the political landscape of the United States underwent significant shifts. Several Southern states were excluded from participating in presidential elections entirly, particularly in the elections of 1864, 1868, and 1872. Using PoliSciPy, we can visualize these historical electoral maps, capturing the impact of Sessesion and Reconstruction policies on the Electoral College.
+During the Civil War and post-Reconstruction era, the political landscape of the United States underwent significant shifts. Several Southern states were excluded from participating in presidential elections entirely, particularly in the elections of 1864, 1868, and 1872. Using PoliSciPy, we can visualize these historical electoral maps, capturing the impact of Secession and Reconstruction policies on the Electoral College.
 
 ---
 
@@ -33,9 +33,13 @@ For more installation details, refer to the Installation page.
 
 ## Step 2: Import Necessary Libraries
 
+Once you have PoliSciPy installed, begin by importing it and its relevant methods:
+
 ```python
-import poliscipy as ps
-import pandas as pd
+import poliscipy
+
+from poliscipy.shapefile_utils import load_shapefile
+from poliscipy.plot import plot_electoral_map
 ```
 
 ## Step 3: Load Historical Shapefiles
@@ -43,7 +47,7 @@ import pandas as pd
 For post-Reconstruction elections, we must use the correct state boundaries for the given year. PoliSciPy provides shapefiles reflecting the political landscape at various historical moments.
 
 ```python
-gdf = ps.load_shapefile(year=1864)
+gdf = load_shapefile(year="1864")
 ```
 
 This function loads a GeoDataFrame representing U.S. state boundaries as they were in 1868.

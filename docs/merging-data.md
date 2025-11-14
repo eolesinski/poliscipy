@@ -13,7 +13,7 @@ This section explains how to merge election data with shapefiles in PoliSciPy fo
 
 ## Merging Election Data
 
-Plotting electoral college data using PoliSciPy is very easy. All you need to do is create a dictionary with the data that you woudl like to plot, and then merge it into the geoDataFrame above.
+Plotting electoral college data using PoliSciPy is very easy. All you need to do is create a dictionary with the data that you would like to plot, and then merge it into the geoDataFrame above.
 
 ### Adding the data
 
@@ -90,21 +90,21 @@ For a full example of creating Electoral College maps with non-winner-takes-all 
 
 ### Faithless electors
 
-Similar to representing electoral votes for the Congressional districts in Maine and Nebraska, it can also be useful to use defecting voters to represent faithless electors. Faithless electors are electoral college voters that, despite the popular vote of the respective states, choose to vote a differnt candidate than thier state selected. While rare, these faitheless electors may vote for the other candidate or a candidate that does not even appear on the ballot. While rare, the most recent example of this occured in 2016 when there were 7 electors that cast votes against the will of thier respetive states.
+Similar to representing electoral votes for the Congressional districts in Maine and Nebraska, it can also be useful to use defecting voters to represent faithless electors. Faithless electors are electoral college voters that, despite the popular vote of the respective states, choose to vote a different candidate than their state selected. While rare, these faithless electors may vote for the other candidate or a candidate that does not even appear on the ballot. While rare, the most recent example of this occurred in 2016 when there were 7 electors that cast votes against the will of their respective states.
 
-While faithless electors are rare, it can be useful to be able to represent them in electoral college maps. The appraoch for handling faithless electors is the same as for handling Congressional districts above. To add a faithless electors to any state simply set the value in the `defecting_voter` column and the respective `defector_party` for the respective state. If you do not select a defecting party they will be placed into the `Other` category by default.
+While faithless electors are rare, it can be useful to be able to represent them in electoral college maps. The approach for handling faithless electors is the same as for handling Congressional districts above. To add a faithless electors to any state simply set the value in the `defecting_voter` column and the respective `defector_party` for the respective state. If you do not select a defecting party they will be placed into the `Other` category by default.
 
-Note: While defecting voters may sometimes vote for the opposing party, they may also vote for candidates not listed in the current eletction. In this case it may be useful to group them into an `Other` party rather than assigning them thier own color value in the colormap. To do this, simply leave the `defector_party` value blank in the `GeoDataFrame` blank and it will be assinged to the `Other` category by default. You can see an example of how to plot electoral college maps with faithless electors by taking a look at Example 2 in the Examples section.
+Note: While defecting voters may sometimes vote for the opposing party, they may also vote for candidates not listed in the current election. In this case it may be useful to group them into an `Other` party rather than assigning them their own color value in the colormap. To do this, simply leave the `defector_party` value blank in the `GeoDataFrame` blank, and it will be assigned to the `Other` category by default. You can see an example of how to plot electoral college maps with faithless electors by taking a look at Example 2 in the Examples section.
 
 ### Split states
 
-Another case when it could be usefuly to be able to plot defecting voters is when plotting historical elections. Many historical elections, especially those between 1700-1800 often invovled cases where states frequently split electoral votes leading to cases where many candidates won a portion of the total number of electoral votes from that state. Similar to how Nebraska and Maine operate today, it can be useful to plot these defecting electoral votes as an alternative way to represent multople canddiatew winning parts of a single state.
+Another case when it could be usefully to be able to plot defecting voters is when plotting historical elections. Many historical elections, especially those between 1700-1800 often involved cases where states frequently split electoral votes leading to cases where many candidates won a portion of the total number of electoral votes from that state. Similar to how Nebraska and Maine operate today, it can be useful to plot these defecting electoral votes as an alternative way to represent multiple candidates winning parts of a single state.
 
 ### Absent/missing electors
 
 <div style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 3;">
-    <p>The final case where it may be useful to plot defecting voters is when an electoral college voter is unable to cast their vote entirely. In these cases, their vote may not be counted even if they had intended to vote for the winning candidate in their state. One example of this occurred in 1864 when one of Nevada's three electoral voters got caught in a snowstorm and was unable to cast their vote. Since there was not yet an established proceedure for handling absent voters, the state only cast two votes for President Lincoln. You can see how this scenario is represented using PoliSciPy by viewing Example 3 in the Tutorials and Examples section. By deafult, absent electoral vottes are put inside a dark grey box (see image to right and note below for more detail).</p>
+    <p>The final case where it may be useful to plot defecting voters is when an electoral college voter is unable to cast their vote entirely. In these cases, their vote may not be counted even if they had intended to vote for the winning candidate in their state. One example of this occurred in 1864 when one of Nevada's three electoral voters got caught in a snowstorm and was unable to cast their vote. Since there was not yet an established procedure for handling absent voters, the state only cast two votes for President Lincoln. You can see how this scenario is represented using PoliSciPy by viewing Example 3 in the Tutorials and Examples section. By default, absent electoral votes are put inside a dark grey box (see image to right and note below for more detail).</p>
   </div>
   <div style="flex: 1; text-align: center;">
     <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 200px;">
@@ -133,7 +133,7 @@ Any defector that does not have a value provided in the `defector_party` column 
 
 ## Handling Abstaining States
 
-During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite haveing no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of thier votes in the final results. For more detail on how to plot electoral college maps from the Reconstruction period, see Example 3: Plotting Reconstruction Elections.
+During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite having no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of their votes in the final results. For more detail on how to plot electoral college maps from the Reconstruction period, see Example 3: Plotting Reconstruction Elections.
 
 ---
 
@@ -149,4 +149,4 @@ During the reconstruction period there were some Southern states that were part 
   </div>
 </div>
 
-During some early elections, some states had boundaries that were different from those of today. As an example, Masschussets encompassed what is today Maine and Georiga once included both Alabama and Missisippi. 
+During some early elections, some states had boundaries that were different from those of today. As an example, Massachusetts encompassed what is today Maine and Georgia once included both Alabama and Mississippi. 

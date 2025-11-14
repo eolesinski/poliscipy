@@ -6,19 +6,19 @@ parent: API Reference
 
 ## load_shapefile
 
-This method loads a shapefile containing electoral college data, applies specific scaling transformations to Alaska and Hawaii for proper plotting, and returns the data as a GeoDataFrame, allowing further analysis or visualization.
+This method loads a shapefile containing electoral college data, applies specific scaling transformations to Alaska and Hawaii for proper plotting, adds electoral vote data, and returns the data as a GeoDataFrame, allowing further analysis or visualization.
 
 ---
 
 ### Method Signature
 
 ```python
-def load_df(year: int) -> gpd.GeoDataFrame:
+def load_df(year: str) -> gpd.GeoDataFrame:
 ```
 
 ### Parameters
 
-**year *(int, optional)*:**
+**year *(str, optional)*:**
 
 The year for which to load the electoral college data. This parameter is currently unused in the method but can be extended to filter or manipulate data for specific years. If a year is not provided the default is set to the year 2024.
 
@@ -37,14 +37,16 @@ A GeoDataFrame containing the electoral college data for the specified year. The
 ### Example Usage
 
 ```python
-from poliscipy import load_shapefile
+import poliscipy
+
+from poliscipy.shapefile_utils import load_shapefile
 
 # Load the GeoDataFrame with electoral college data
-gdf = load_df(year=1992)
+gdf = load_df(year="1992")
 ```
 
 ### Notes
 
 - The method assumes the shapefile contains data about U.S. states, with a column STUSPS denoting state abbreviations (e.g., 'AK' for Alaska, 'HI' for Hawaii).
 
-- Scaling factors for Alaska and Hawaii were determined to better represent their geographical sizes in a standard map projection.
+- Scale factors for Alaska and Hawaii were determined to better represent their geographical sizes in a standard map projection.

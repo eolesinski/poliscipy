@@ -14,14 +14,15 @@ PoliSciPy is a Python package for creating customizable electoral college maps o
 
 ---
 
-If Jekyll is installed on your computer, you can also build and preview the created site locally. This lets you test changes before committing them, and avoids waiting for GitHub Pages.1 And you will be able to deploy your local build to a different platform than GitHub Pages.
+With Python installed, you can quickly set up PoliSciPy and start generating electoral maps. This lets you experiment with data, visualize results instantly, and test customizations before sharing or publishing.
 
 PoliSciPy is especially useful for:
 
 - Creating customized, high-quality electoral college maps of the United States
 - Conducting political data analysis and tracking changes in voting history and patterns
+- Exploring historical election results and visualizing trends
 
-Other than that, you’re free to customize sites that you create with this template, however you like. You can easily change the versions of just-the-docs and Jekyll it uses, as well as adding further plugins.
+Feel free to customize maps however you like, check out the [Getting Started](https://eolesinski.github.io/poliscipy/quickstart.html) guide above, share your results, and post any questions or issues that you run into on the [GitHub](https://github.com/eolesinski/poliscipy) repository.
 
 <div align="center">
     <img src="assets/election_2024.png" alt="Electoral College Map" width="974">
@@ -38,6 +39,8 @@ PoliSciPy is distributed under an [MIT license](https://github.com/just-the-docs
 
 ### Contributors
 
+Thank you to everyone who helps make PoliSciPy better! You can see the full list of contributors below or on [GitHub](https://github.com/eolesinski/poliscipy/graphs/contributors):
+
 <ul class="list-style-none">
 {% for contributor in site.github.contributors %}
   <li class="d-inline-block mr-1">
@@ -46,13 +49,13 @@ PoliSciPy is distributed under an [MIT license](https://github.com/just-the-docs
 {% endfor %}
 </ul>
 
-Other than that, you're free to customize sites that you create with this template, however you like. You can easily change the versions of `just-the-docs` and Jekyll it uses, as well as adding further plugins.
+We welcome contributors of all levels whether it’s fixing bugs, adding features, or improving documentation! If you are interested in helping improve PoliSciPy, visit the [Contribution Guide](https://eolesinski.github.io/poliscipy/contributing.html) for more information.
 
 ### Code of Conduct
 
-Just the Docs is committed to fostering a welcoming community.
+PoliSciPy is committed to fostering a welcoming and inclusive community.  
 
-[View our Code of Conduct](https://github.com/just-the-docs/just-the-docs/tree/main/CODE_OF_CONDUCT.md) on our GitHub repository.
+[View the Code of Conduct](https://github.com/eolesinski/poliscipy/blob/main/CODE_OF_CONDUCT.md) on the GitHub repository.
 
 ----
 

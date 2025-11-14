@@ -34,22 +34,23 @@ For more information on how to install PoliSciPy see the [Installation page](htt
 
 ## Step 2: Import PoliSciPy and Load Data
 
-Once you have installed PoliSciPy, you can start by importing the package and loading the electoral college data. PoliSciPy uses GeoPandas to work with geospatial data, so make sure you have GeoPandas installed as well. If you haven’t installed it, run:
+Once you have installed PoliSciPy, you can start by importing the package and loading the electoral college data. You can do this by running:
 
 ```
-pip install geopandas
+import poliscipy
 ```
 
-Now, you can import the necessary modules and load the electoral college data into a GeoDataFrame:
+Now, you can load in the shapefile containing the electoral college data in a GeoDataFrame:
 ```python
-# import the poliscipy package
-from poliscipy import plot_electoral_map
+# import the poliscipy load_shapefile and plot_electoral_map methods
+from poliscipy.shapefile_utils import load_shapefile
+from poliscipy.plot import plot_electoral_map
 
-# Load U.S. electoral college geospatial data (from a predefined dataset or a file)
-gdf = poliscipy.load_shapefile()
+# Load U.S. electoral college geospatial data
+gdf = load_shapefile()
 ```
 
-If you don’t have the electoral college shapefile, PoliSciPy provides a utility function to load the dataset for you.
+Note: The default year for election data is 2024, but users can pass in a `year` parameter to `load_shapefile(year="2020")` to get a geoDataFrame with historical election data.
 
 ---
 

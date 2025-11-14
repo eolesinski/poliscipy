@@ -81,11 +81,13 @@ Raised if year is not a valid election year (e.g., less than 1992 or not divisib
 
 ```python
 # Import required libraries
-import geopandas as gpd
-from matplotlib import pyplot as plt
+import poliscipy
 
-# Load GeoDataFrame
-gdf = load_df()
+from poliscipy.shapefile_utils import load_shapefile
+from poliscipy.plot import plot_electoral_map
+
+# Load the GeoDataFrame
+gdf = load_shapefile()
 
 # Add election data to the GeoDataFrame
 gdf['winning_party'] = gdf['STUSPS'].map({
