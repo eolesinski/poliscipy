@@ -3,18 +3,10 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from shapely.affinity import scale
 from matplotlib.patches import Rectangle
+from poliscipy.colors import default_party_colors
 
 # temporary import
-from shapefile_utils import load_df
-
-# create a dictionary to map the colors of the political parties
-default_party_colors = {
-    'Democrat': '#4875b1',    
-    'Republican': '#b82b2b',  
-    'No Data': 'lightgray',
-    'Green': '#519e3e',
-    'Independent': '#8d69b8'
-}
+from shapefile_utils import load_shapefile
 
 def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, party_colors, labelcolor):
     """
@@ -141,7 +133,7 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
 
 def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
                        figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = .5,
-                       labelcolor: str = 'white', legend=False, year='2024', vote_bar = False,
+                       labelcolor: str = 'white', legend=False, year='2024', vote_bar=False,
                        party_colors=None, **kwargs) -> None:
     """
     Plots an electoral college map of the United States using Matplotlib and GeoPandas.
@@ -173,7 +165,7 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     if party_colors is None:
         party_colors = default_party_colors 
     
-    # Check to make sure that all of the values in the plotting column have a matching color
+    # Check to make sure that all the values in the plotting column have a matching color
     missing_colors = [party for party in gdf[column].unique() if party not in party_colors]
     
     if missing_colors:
@@ -203,7 +195,7 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
             ax1.annotate(f"{postal_label}\n{display_votes}", (x_centroid, y_centroid), ha='center', va='center',
                      textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
             
-            # add an additional box for defecting voters
+            # add additional box for defecting voters
             if defectors > 0:
                 _add_defector_box(ax1, x_centroid, y_centroid, defectors, defector_party, party_colors, labelcolor)
             
@@ -221,7 +213,7 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     if vote_bar:
         
         # add a vote bar to the top of the plot
-        _add_vote_bar(gdf, ax1, column, party_colors)
+        _add_vote_bar(gdf, ax1, column, party_colors, year)
         
         # add vertical line markers for winning condition
         plt.plot([-100, -100], [52.66, 52.73], '-', color='black')
@@ -236,7 +228,8 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
 
 if __name__ == "__main__":
 
-    gdf = load_df('/Users/ethanolesinski/Desktop/backup_shapefile_2/cb_2018_us_state_500k.shp') 
+    # load in the shapefile to use
+    gdf = load_shapefile()
 
     winning_party = {
             'AL': 'Republican','AK': 'Republican','AZ': 'Republican','AR': 'Republican','CA': 'Democrat','CO': 'Democrat',
@@ -248,9 +241,9 @@ if __name__ == "__main__":
             'ND': 'Republican','OH': 'Republican','OK': 'Republican','OR': 'Democrat','PA': 'Republican','RI': 'Democrat',
             'SC': 'Republican','SD': 'Republican','TN': 'Republican','TX': 'Republican','UT': 'Republican','VT': 'Democrat',
             'VA': 'Democrat','WA': 'Democrat','WV': 'Republican','WI': 'Republican','WY': 'Republican', 'DC': 'Democrat'
-    }          
+    }
 
     # add the winning party and fill any missing data with 'No Data'
     gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
 
-    plot_electoral_map(gdf, 'winning_party',legend=True, vote_bar=True)
+    plot_electoral_map(gdf, 'winning_party', legend=True, vote_bar=True)
