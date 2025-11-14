@@ -1,12 +1,9 @@
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
-from shapely.affinity import scale
 from matplotlib.patches import Rectangle
 from poliscipy.colors import default_party_colors
 
-# temporary import
-from shapefile_utils import load_shapefile
 
 def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, party_colors, labelcolor):
     """
@@ -47,6 +44,7 @@ def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, par
     # Add the text label for the number of defectors
     ax.annotate(f"\n{defectors}", (x_centroid + 0.8, y_centroid), ha='center', va='center', textcoords="data", 
         color=labelcolor, fontname='Arial', fontsize=9)
+
 
 def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, year: str, 
                   vote_scale_factor: int = 20, initial_bar_position: float = -113.5) -> None:
@@ -130,6 +128,7 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
     
         # Update the current left position for the next bar
         current_left += width
+
 
 def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
                        figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = .5,
@@ -225,25 +224,27 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     plt.show()
 
 
+# temporary import
+#from .shapefile_utils import load_shapefile
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
 
     # load in the shapefile to use
-    gdf = load_shapefile()
+    #gdf = load_shapefile()
 
-    winning_party = {
-            'AL': 'Republican','AK': 'Republican','AZ': 'Republican','AR': 'Republican','CA': 'Democrat','CO': 'Democrat',
-            'CT': 'Democrat', 'DE': 'Democrat', 'FL': 'Republican', 'GA': 'Republican', 'HI': 'Democrat', 
-            'ID': 'Republican', 'IL': 'Democrat','IN': 'Republican','IA': 'Republican','KS': 'Republican',
-            'KY': 'Republican', 'LA': 'Republican','ME': 'Democrat','MD': 'Democrat','MA': 'Democrat',
-            'MI': 'Republican','MN': 'Democrat','MS': 'Republican','MO': 'Republican','MT': 'Republican','NE': 'Republican',
-            'NV': 'Republican','NH': 'Democrat','NJ': 'Democrat','NM': 'Democrat','NY': 'Democrat','NC': 'Republican',
-            'ND': 'Republican','OH': 'Republican','OK': 'Republican','OR': 'Democrat','PA': 'Republican','RI': 'Democrat',
-            'SC': 'Republican','SD': 'Republican','TN': 'Republican','TX': 'Republican','UT': 'Republican','VT': 'Democrat',
-            'VA': 'Democrat','WA': 'Democrat','WV': 'Republican','WI': 'Republican','WY': 'Republican', 'DC': 'Democrat'
-    }
+    #winning_party = {
+            #'AL': 'Republican','AK': 'Republican','AZ': 'Republican','AR': 'Republican','CA': 'Democrat','CO': 'Democrat',
+            #'CT': 'Democrat', 'DE': 'Democrat', 'FL': 'Republican', 'GA': 'Republican', 'HI': 'Democrat',
+            #'ID': 'Republican', 'IL': 'Democrat','IN': 'Republican','IA': 'Republican','KS': 'Republican',
+            #'KY': 'Republican', 'LA': 'Republican','ME': 'Democrat','MD': 'Democrat','MA': 'Democrat',
+            #'MI': 'Republican','MN': 'Democrat','MS': 'Republican','MO': 'Republican','MT': 'Republican','NE': 'Republican',
+            #'NV': 'Republican','NH': 'Democrat','NJ': 'Democrat','NM': 'Democrat','NY': 'Democrat','NC': 'Republican',
+            #'ND': 'Republican','OH': 'Republican','OK': 'Republican','OR': 'Democrat','PA': 'Republican','RI': 'Democrat',
+            #'SC': 'Republican','SD': 'Republican','TN': 'Republican','TX': 'Republican','UT': 'Republican','VT': 'Democrat',
+            #'VA': 'Democrat','WA': 'Democrat','WV': 'Republican','WI': 'Republican','WY': 'Republican', 'DC': 'Democrat'
+    #}
 
     # add the winning party and fill any missing data with 'No Data'
-    gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
+    #gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
 
-    plot_electoral_map(gdf, 'winning_party', legend=True, vote_bar=True)
+    #plot_electoral_map(gdf, 'winning_party', legend=True, vote_bar=True)
