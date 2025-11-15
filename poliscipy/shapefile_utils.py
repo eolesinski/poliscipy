@@ -12,15 +12,20 @@ HAWAII_SCALE_FACTOR_X = 1.1
 # method for applying an affine transformation to a state polygon
 def scale_geometry_for_state(gdf: gpd.GeoDataFrame, state_code: str, scale_factor_x: float) -> gpd.GeoDataFrame:
     """
-    Apply horizontal scaling transformation to the geometry of a specific state in the GeoDataFrame.
-    
-    Params:
-    - gdf: GeoDataFrame containing geospatial data
-    - state_code: 2-letter postal code of the state (e.g., 'AK', 'HI')
-    - scale_factor_x: the scale factor to be applied horizontally
-    
+    Apply a horizontal scaling transformation to the geometry of a specific state
+    within a GeoDataFrame.
+
+    Parameters:
+        gdf (GeoDataFrame): GeoDataFrame containing state geometries.
+        state_code (str): Two-letter postal code of the state to scale (e.g., 'AK', 'HI').
+        scale_factor_x (float): Factor by which to scale the state's geometry horizontally.
+
     Returns:
-    - gdf: Updated GeoDataFrame with scaled geometries for the specified state
+        GeoDataFrame: Updated GeoDataFrame with the specified state's geometry scaled.
+
+    Notes:
+        - Vertical scaling is not applied (y-factor remains 1.0).
+        - The function modifies only the geometry of the specified state; other states remain unchanged.
     """
 
     state_data = gdf.loc[gdf['STUSPS'] == state_code]
@@ -32,16 +37,27 @@ def scale_geometry_for_state(gdf: gpd.GeoDataFrame, state_code: str, scale_facto
 
 def load_shapefile(year: str = "2024") -> gpd.GeoDataFrame:
     """
-    Load the US state shapefile with electoral votes for the given year.
-    Scales Alaska and Hawaii and adds defectors columns.
+    Load the US state shapefile with electoral votes for the specified year,
+    applying transformations for Alaska and Hawaii and initializing defector data.
 
-    Params:
-    - year : str, default "2024"
-        The election year to load electoral votes for. Must match a column in
-        the electoral_votes.csv file (e.g., "2024", "2016").
+    Parameters:
+        year (str, optional): Election year to load electoral votes for.
+            Must match a column in the `electoral_votes.csv` file (default: "2024").
 
     Returns:
-    - gdf: GeoDataFrame with electoral votes and defectors columns with Alaska and Hawaii transformed.
+        GeoDataFrame: A GeoDataFrame containing:
+            - State geometries (with Alaska and Hawaii scaled)
+            - Electoral vote column for the specified year (`elec_votes_<year>`)
+            - 'defectors' column initialized to 0
+            - 'defector_party' column initialized to None
+
+    Raises:
+        ValueError: If no electoral vote data is available for the specified year.
+
+    Notes:
+        - Alaska is scaled by `ALASKA_SCALE_FACTOR_X` and Hawaii by `HAWAII_SCALE_FACTOR_X`.
+        - Defector-related columns are added to facilitate plotting of defecting voters.
+        - The function safely loads shapefile and CSV data from the `poliscipy.shapefiles` package.
     """
 
     # Load shapefile safely from package

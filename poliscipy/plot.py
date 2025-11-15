@@ -5,27 +5,27 @@ from matplotlib.patches import Rectangle
 from poliscipy.colors import default_party_colors
 
 
-def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, party_colors, labelcolor):
+def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, party_colors, label_color, fontsize):
     """
-    Adds a colored box to the plot representing defectors for a specific state.
+    Adds a colored box to a Matplotlib plot representing defectors for a specific state.
 
     Parameters:
-    - ax: The Matplotlib Axes object where the box will be added.
-    - x_centroid: The x-coordinate of the state's centroid.
-    - y_centroid: The y-coordinate of the state's centroid.
-    - defectors: The number of defectors in the state.
-    - defector_party: The party of the defectors.
-    - party_colors: A dictionary mapping parties to their corresponding colors.
-    - labelcolor: The color for the text label inside the box.
+        ax (matplotlib.axes.Axes): The axes to which the box will be added.
+        x_centroid (float): The x-coordinate of the state's centroid.
+        y_centroid (float): The y-coordinate of the state's centroid.
+        defectors (int): The number of defectors in the state.
+        defector_party (str): The party affiliation of the defectors.
+        party_colors (dict): A mapping of party names to colors.
+        label_color (str): Color of the text label inside the box.
+        fontsize (int or float): Font size of the text label.
 
     Returns:
-    - None
+        None
 
     Notes:
-    - If the defector party is not found or defined in `party_colors`, a default color (`#444444`) will be 
-    used to represent an 'Other' category.
+        - If `defector_party` is not found in `party_colors`, a default color `#444444` is used.
     """
-    
+
     face_color = party_colors.get(defector_party, '#444444')
 
     # Define box properties
@@ -43,26 +43,36 @@ def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, par
 
     # Add the text label for the number of defectors
     ax.annotate(f"\n{defectors}", (x_centroid + 0.8, y_centroid), ha='center', va='center', textcoords="data", 
-        color=labelcolor, fontname='Arial', fontsize=9)
+        color=label_color, fontname='Arial', fontsize=fontsize)
 
 
 def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, year: str, 
                   vote_scale_factor: int = 20, initial_bar_position: float = -113.5) -> None:
     """
-    Adds a vote bar containing the total votes for each party at the top of the plot,
+    Adds a horizontal vote bar to the plot representing the total votes for each party,
     accounting for defecting voters.
 
+    The vote bar is placed near the top of the plot and shows each party's total votes
+    scaled by `vote_scale_factor`. Defectors are subtracted from their original party
+    and added to the party they defected to.
+
     Parameters:
-    - gdf (GeoDataFrame): The GeoDataFrame containing the election data.
-    - ax (Axes): The matplotlib Axes object used in the figure.
-    - column (str): The column indicating the original party affiliation.
-    - party_colors (dict): A dictionary mapping parties to their respective colors.
-    - year (str): The election year used to calculate votes (e.g., "2024").
-    - vote_scale_factor (int): Factor to scale the total votes for plotting (default: 20).
-    - initial_bar_position (float): Starting position for the bars on the x-axis (default: -113.5).
-    
+        gdf (GeoDataFrame): The GeoDataFrame containing election data.
+        ax (matplotlib.axes.Axes): The axes to which the vote bars will be added.
+        column (str): The column in `gdf` indicating the original party affiliation.
+        party_colors (dict): Mapping of party names to colors for the bars.
+        year (str): The election year used to access vote counts (e.g., "2024").
+        vote_scale_factor (int, optional): Factor to scale total votes for plotting (default: 20).
+        initial_bar_position (float, optional): Starting x-axis position for the first bar (default: -113.5).
+
     Returns:
-    - None
+        None
+
+    Notes:
+        - Parties with no data should be included in `party_colors` as "No Data" if needed.
+        - Parties are plotted in descending order of votes, with some exceptions for
+          visualization (e.g., second-largest party moved to the end).
+        - Only parties with votes greater than 20 are annotated with vote counts.
     """
     
     # Create a dictionary to store the total vote counts for each party
@@ -132,32 +142,42 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
 
 def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
                        figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = .5,
-                       labelcolor: str = 'white', legend=False, year='2024', vote_bar=False,
+                       labelcolor: str = 'white', fontsize: float = 9, legend=False, year="2024", vote_bar=False,
                        party_colors=None, **kwargs) -> None:
     """
-    Plots an electoral college map of the United States using Matplotlib and GeoPandas.
-    
+    Plots an electoral college map of the United States using GeoPandas and Matplotlib.
+
+    The map colors each state according to the specified party column, adds state labels
+    with electoral votes, and optionally includes defecting voters as separate boxes
+    and a vote bar summarizing total votes.
+
     Parameters:
-    - gdf: GeoDataFrame containing the electoral college data
-    - column: The target column to plot
-    - title (str): Title of the plot
-    - figsize (tuple): Size of the figure (default: (20, 10))
-    - edgecolor (str): Edgecolor for the state boundary lines (default: 'white')
-    - linewidth (float): Width of the state boundary lines (default: 0.5)
-    - labelcolor (str): Color of the state labels (default: 'white')
-    - legend (bool): Whether to display a legend or not (default: True)
-    - year (str, optional): The election year to plot. Must be a valid election year 
-      (1789 or later, occurring every 4 years) (default: "2024").
-    - party_colors (dict, optional): A dictionary mapping parties to their corresponding colors. 
-      If not provided, a default colormap is used.
-    - vote_bar (bool): Vote bar, for total votes, displayed at the top of the plot
-    
+        gdf (GeoDataFrame): GeoDataFrame containing state geometries and electoral data.
+        column (str): Name of the column in `gdf` representing party affiliation for coloring.
+        title (str, optional): Title of the plot (default: "Electoral College Map").
+        figsize (tuple, optional): Figure size in inches (width, height) (default: (20, 10)).
+        edgecolor (str, optional): Color of state boundary lines (default: 'white').
+        linewidth (float, optional): Width of state boundary lines (default: 0.5).
+        labelcolor (str, optional): Color of state labels (default: 'white').
+        fontsize (float, optional): Font size of state labels (default: 9).
+        legend (bool, optional): Whether to display a legend (default: False).
+        year (str, optional): Election year to plot. Must be 1789 or later and a valid election year (every 4 years) (default: "2024").
+        vote_bar (bool, optional): Whether to display a vote bar summarizing total votes at the top of the plot (default: False).
+        party_colors (dict, optional): Mapping of party names to colors. Defaults to `default_party_colors` if not provided.
+        **kwargs: Additional keyword arguments passed to `GeoDataFrame.plot()`.
+
     Raises:
-    - ValueError: If any value in the `column` is not defined in `party_colors`.
-    - ValueError: If the `year` is not a valid election year.
-    
+        ValueError: If any value in `column` is missing from `party_colors`.
+        ValueError: If `year` is not a valid election year (1789 or later, every 4 years).
+
     Returns:
-    - None
+        None
+
+    Notes:
+        - State labels show the postal abbreviation and electoral votes, adjusted for defectors.
+        - Defecting voters are represented with additional boxes using `_add_defector_box`.
+        - The vote bar, if enabled, shows total votes per party scaled by `_add_vote_bar`.
+        - Parties in `party_colors` not present in the data are ignored for plotting.
     """
     
     # allow for passing in custom color maps
@@ -192,11 +212,12 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
             display_votes = elec_votes - defectors if defectors > 0 else elec_votes
             
             ax1.annotate(f"{postal_label}\n{display_votes}", (x_centroid, y_centroid), ha='center', va='center',
-                     textcoords="data", color=labelcolor, fontname='Arial', fontsize=9)
+                     textcoords="data", color=labelcolor, fontname='Arial', fontsize=fontsize)
             
             # add additional box for defecting voters
             if defectors > 0:
-                _add_defector_box(ax1, x_centroid, y_centroid, defectors, defector_party, party_colors, labelcolor)
+                _add_defector_box(ax1, x_centroid, y_centroid, defectors, defector_party, party_colors,
+                                  labelcolor, fontsize)
             
     if legend:
         # Get unique values in the specified column of the GeoDataFrame
@@ -222,29 +243,3 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
     ax1.set_title(title, fontsize=16, fontname='Arial')
     
     plt.show()
-
-
-# temporary import
-#from .shapefile_utils import load_shapefile
-
-#if __name__ == "__main__":
-
-    # load in the shapefile to use
-    #gdf = load_shapefile()
-
-    #winning_party = {
-            #'AL': 'Republican','AK': 'Republican','AZ': 'Republican','AR': 'Republican','CA': 'Democrat','CO': 'Democrat',
-            #'CT': 'Democrat', 'DE': 'Democrat', 'FL': 'Republican', 'GA': 'Republican', 'HI': 'Democrat',
-            #'ID': 'Republican', 'IL': 'Democrat','IN': 'Republican','IA': 'Republican','KS': 'Republican',
-            #'KY': 'Republican', 'LA': 'Republican','ME': 'Democrat','MD': 'Democrat','MA': 'Democrat',
-            #'MI': 'Republican','MN': 'Democrat','MS': 'Republican','MO': 'Republican','MT': 'Republican','NE': 'Republican',
-            #'NV': 'Republican','NH': 'Democrat','NJ': 'Democrat','NM': 'Democrat','NY': 'Democrat','NC': 'Republican',
-            #'ND': 'Republican','OH': 'Republican','OK': 'Republican','OR': 'Democrat','PA': 'Republican','RI': 'Democrat',
-            #'SC': 'Republican','SD': 'Republican','TN': 'Republican','TX': 'Republican','UT': 'Republican','VT': 'Democrat',
-            #'VA': 'Democrat','WA': 'Democrat','WV': 'Republican','WI': 'Republican','WY': 'Republican', 'DC': 'Democrat'
-    #}
-
-    # add the winning party and fill any missing data with 'No Data'
-    #gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
-
-    #plot_electoral_map(gdf, 'winning_party', legend=True, vote_bar=True)

@@ -16,7 +16,7 @@ Plots an electoral college map of the United States using Matplotlib and GeoPand
 plot_electoral_map(
     gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
     figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = 0.5, 
-    labelcolor: str = 'white', legend: bool = False, year: str = '2024', 
+    labelcolor: str = 'white', fontsize: float = 9, legend: bool = False, year: str = '2024', 
     vote_bar: bool = False, **kwargs
 ) -> None
 ```
@@ -48,6 +48,9 @@ The width of the state boundary lines. Defaults to 0.5.
 
 **labelcolor *(str, optional)*:**
 The color of the text for state labels. Defaults to 'white'.
+
+**fontsize *(float, optional)*:**
+The fontsize of the state labels. Defaults to 9pt.
 
 **legend *(bool, optional)*:**
 Whether to display a legend mapping political parties to colors. Defaults to False.

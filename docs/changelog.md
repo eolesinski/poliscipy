@@ -10,7 +10,7 @@ Track changes and updates to the project. This page lists improvements, bug fixe
 
 ---
 
-## [1.1.0] - 2024-07-20
+## [0.1.1] - 2024-07-20
 ### Added
 - New `plot_electoral_map` feature to display state-specific electoral votes.
 - `vote_bar` parameter to show party distribution in a bar chart above the map.
@@ -24,7 +24,7 @@ Track changes and updates to the project. This page lists improvements, bug fixe
 
 ---
 
-## [1.0.0] - 2024-07-01
+## [0.1.0] - 2024-07-01
 ### Added
 - Initial release with core features:
   - `plot_electoral_map` function for visualizing electoral data.
