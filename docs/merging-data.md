@@ -65,16 +65,16 @@ While most states use a "winner-takes-all" system, there are two notable excepti
 If you would like to represent this "split" state for Nebraska and Maine, you can use the `defectors` and `defector_party` columns in the `geoDataFrame`. To do this, simply input the number of defectors for each state and their respective party affiliation.
 
 ```python
-# set the number of defectors for each state to one
-gdf['defectors'][10] = 1 # nebraska
-gdf['defectors'][38] = 1 # maine
+# add the number of electors that voted for the other candidate
+gdf.loc[38, 'defectors'] = 1 # maine
+gdf.loc[10, 'defectors'] = 1 # nebraska
 
-# set the party affiliation of the defecting voter
-gdf['defector_party'][10] = 'Democrat'
-gdf['defector_party'][38] = 'Republican'
+# set the political party for each of the congressional district winners
+gdf.loc[38, 'defector_party'] = 'Republican'
+gdf.loc[10, 'defector_party'] = 'Democrat'
 ```
 
-Note: To identify the correct index for each state in the `geoDataFrame`, you can filter it by the `STUSPS` column using the following line: `gdf['STUSPS']`
+**Note:** The value to use to index into the defecting voters colum for a given state is the index for that respective state. To identify the correct index for each state in the `geoDataFrame` that you would like to edit, you can filter it by the `STUSPS` column using the following line: `gdf['STUSPS']`
 
 This will return a list of state abbreviations you can use:
 
@@ -86,7 +86,7 @@ This will return a list of state abbreviations you can use:
 ...
 ```
 
-For a full example of creating Electoral College maps with non-winner-takes-all states included in the map see Example 1 in the Tutorials and Examples section.
+For a full example of creating Electoral College maps with non-winner-takes-all states included in the map see [Example 1](https://eolesinski.github.io/poliscipy/example-1.html) in the Tutorials and Examples section.
 
 ### Faithless electors
 
@@ -133,7 +133,7 @@ Any defector that does not have a value provided in the `defector_party` column 
 
 ## Handling Abstaining States
 
-During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite having no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of their votes in the final results. For more detail on how to plot electoral college maps from the Reconstruction period, see Example 3: Plotting Reconstruction Elections.
+During the reconstruction period there were some Southern states that were part of the United States, but did not have any electoral college votes. These states are often shown with zero electoral college votes. To represent this on a map using PoliSciPy, you can create a separate category in the colormap to represent these states. Despite having no electoral votes, you can still include this additional category in the `winning_party` column when merging in the data. This will plot the color over the respective state without counting any of their votes in the final results. For more detail on how to plot electoral college maps from the Reconstruction period, see [Example 3: Plotting Reconstruction Elections](https://eolesinski.github.io/poliscipy/example-3.html).
 
 ---
 

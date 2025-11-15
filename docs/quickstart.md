@@ -92,7 +92,7 @@ gdf.loc[38, 'defector_party'] = 'Republican'
 gdf.loc[10, 'defector_party'] = 'Democrat'
 ```
 
-For more information on handling split states and defecting voters check out the [Adding Defectors](https://eolesinski.github.io/poliscipy/merging-data.html) section of the Merging data page.
+For more information on handling split states and defecting voters check out the [Adding Defectors](https://eolesinski.github.io/poliscipy/merging-data.html#adding-defectors) section of the Merging data page.
 
 ---
 
