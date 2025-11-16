@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use PoliSciPy in your research or projects, please cite it!"
+title: "PoliSciPy: A Python library for U.S. Electoral College visualization"
+version: "0.1.0"
+authors:
+  - family-names: "Olesinski"
+    given-names: "Ethan"
+repository-code: "https://github.com/eolesinski/poliscipy"
+url: "https://github.com/eolesinski/poliscipy"
+license: "MIT"
+date-released: "2025-11-15"
+keywords:
+  - Python
+  - Electoral College
+  - Visualization
+  - Geospatial Data
+type: software
