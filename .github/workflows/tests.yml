@@ -1,12 +1,18 @@
-name: Package tests
+name: Tests
 
 on:
   push:
     branches:
       - main
+    paths:
+      - 'poliscipy/**'
+      - 'tests/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'poliscipy/**'
+      - 'tests/**'
 
 jobs:
   test:
