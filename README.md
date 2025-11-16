@@ -1,18 +1,18 @@
 # PoliSciPy
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
-![PyPI Version](https://img.shields.io/pypi/v/<poliscipy>?color=blue)
+![PyPI Version](https://img.shields.io/pypi/v/poliscipy?color=blue)
 ![Conda](https://img.shields.io/conda/v/conda-forge/poliscipy)
 ![Package tests](https://github.com/eolesinski/poliscipy/actions/workflows/tests.yml/badge.svg)
 [![codecov](https://codecov.io/gh/eolesinski/poliscipy/branch/main/graph/badge.svg)](https://codecov.io/gh/eolesinski/poliscipy)
 
-**PoliSciPy** is an open-source Python library designed for political data analysis and visualization, particularly for U.S. elections. It offers simple, flexible, and high-quality methods to visualize the electoral college, voting results, and demographic trends using libraries such as **GeoPandas** and **Matplotlib**.
+**PoliSciPy** is an open-source Python library that makes it easy to generate electoral maps and explore political data with just a few lines of code. The library is designed for fast experimentation, clear visualizations, and flexible customization, whether you’re analyzing results, presenting findings, or exploring historical trends.
 
 ## Key Features
 
-- **Visualize Electoral Maps:** Create customizable U.S. electoral college maps, including state borders, electoral votes, and party affiliations.
-- **Customize Plots:** Adjust figure size, title, edge color, label colors, and other visual elements for tailored plots.
-- **Supports GeoPandas**: Seamlessly integrates with **GeoPandas** for handling geospatial data plotting and analysis.
+- **Visualize Electoral Maps:** Create U.S. electoral college maps with state labels, electoral votes, and party colors.
+- **Customize Plots:** Adjust figure size, title, edge colors, label colors, and other visual elements for customized plots.
+- **Flexible Data Handling:** Easily merge your own election results (current, historical, or hypothetical) with the map data for visualization.
 
 <div align="center">
     <img src="docs/assets/election_2024.png" alt="Electoral College Map" width="974">
@@ -27,7 +27,7 @@ PoliSciPy requires Python 3.x and can be installed using `pip`:
 pip install poliscipy
 ```
 
-PoliSciPy is also availalbe on conda via:
+PoliSciPy is also available on conda via:
 
 ```
 conda install -c conda-forge poliscipy
@@ -39,7 +39,7 @@ conda install -c conda-forge poliscipy
 
 Creating electoral college maps using PoliSciPy can be done in only three simple steps:
 
-1. Load the geodataframe that contains electoral college geospatial data
+1. Load the GeoDataFrame that contains the electoral college geospatial data
 2. Load and merge the specific data you'd like to plot with the GeoDataFrame
 3. Call the `plot_electoral_map()` function, passing in your GeoDataFrame and the target column for plotting
 
@@ -81,9 +81,9 @@ Complete documentation for PoliSciPy can be found [here](https://eolesinski.gith
 
 ## Contributing
 
-PoliSciPy welcomes contributions! Please see the CONTRIBUTING.md for guidelines on how to get involved.
+PoliSciPy welcomes contributions! Please see the [CONTRIBUTING.md](https://github.com/eolesinski/poliscipy/blob/main/CONTRIBUTING.md) for guidelines on how to get involved.
 
 ## Citation
 
-If you find PoliSciPy useful in your research, academic projects, or software, please cite it using the pre-made BibTeX entry in the CITATION.md file located in the root directory of this repository.
+If you find PoliSciPy useful in your research, academic projects, or software, please cite it using the [CITATION.cff](https://github.com/eolesinski/poliscipy/blob/main/CITATION.cff) file located in the root directory of this repository.
 
