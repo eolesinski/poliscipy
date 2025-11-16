@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 ![PyPI Version](https://img.shields.io/pypi/v/<poliscipy>?color=blue)
+![Package tests](https://github.com/eolesinski/poliscipy/actions/workflows/tests.yml/badge.svg)
 
 **PoliSciPy** is an open-source Python library designed for political data analysis and visualization, particularly for U.S. elections. It offers simple, flexible, and high-quality methods to visualize the electoral college, voting results, and demographic trends using libraries such as **GeoPandas** and **Matplotlib**.
 
@@ -43,18 +44,29 @@ Creating electoral college maps using PoliSciPy can be done in only three simple
 Below is an example of how to use PoliSciPy to visualize the 2024 U.S. electoral college map shown above.
 
 ```
-from poliscipy import plot_electoral_map
+import poliscipy
+
+from poliscipy.shapefile_utils import load_shapefile
+from poliscipy.plot import plot_electoral_map
 
 # Load in GeoDataFrame containing U.S. electoral college geospatial data
-gdf = load_electoral_gdf()
+gdf = load_shapefile()
 
-# load in the data to plot (either as a dictionary, pandas series, etc.)
+# Create a dictionary with the data to plot
 winning_party = {
     'AL': 'Republican','AK': 'Republican','AZ': 'Republican','AR': 'Republican', ...
 }
 
-# merge your data with the gdf and fill any missing data with 'No Data'
+# Merge your data with the gdf and fill any missing data with 'No Data'
 gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
+
+# Add the number of electors that voted for the other candidate
+gdf.loc[38, 'defectors'] = 1 # maine
+gdf.loc[10, 'defectors'] = 1 # nebraska
+
+# Set the political party for each of the congressional district winners
+gdf.loc[38, 'defector_party'] = 'Republican'
+gdf.loc[10, 'defector_party'] = 'Democrat'
 
 # Plot the electoral college map for the year 2024
 plot_electoral_map(gdf, column='winning_party', year='2024', title='2024 U.S. Electoral College Map')
