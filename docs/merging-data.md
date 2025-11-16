@@ -141,12 +141,10 @@ During the Reconstruction period, some Southern states were part of the United S
 
 <div style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 2;">
-    <p>In some early U.S. elections, state boundaries were different from what we recognize today. For example, Massachusetts once included the territory that is now Maine, and Georgia at one time encompassed both present-day Alabama and Mississippi. When plotting historical electoral maps, it is important to account for these merged states to accurately represent electoral votes and political geography. PoliSciPy allows you to adjust the GeoDataFrame to reflect historical boundaries, ensuring that electoral data is mapped correctly to each state as it existed at the time.</p>
+    <p>In some early U.S. elections, state boundaries were different from what we recognize today. For example, Massachusetts once included the territory that is now Maine, and Georgia at one time encompassed both present-day Alabama and Mississippi. When plotting historical electoral maps, it is important to account for these merged states to accurately represent electoral votes and political geography. PoliSciPy allows you to adjust the GeoDataFrame to reflect historical boundaries, ensuring that electoral data is mapped correctly to each state as it existed at the time. For a full example of how to represent states encompassing multiple territories, see <a href="https://eolesinski.github.io/poliscipy/example-2.html">Example 2: Plotting Early Post-Colonial Elections</a>.</p>
   </div>
   <div style="flex: 1; text-align: center;">
     <img src="assets/georgia.png" alt="Electoral College Map" style="width: 100%;">
     <div><em>State of Georgia, 1796.</em></div>
   </div>
 </div>
-
- For a full example of how to represent states encompassing multiple territories, see [Example 2: Plotting Early Post-Colonial Elections](https://eolesinski.github.io/poliscipy/example-2.html).
