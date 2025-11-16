@@ -12,11 +12,11 @@ PoliSciPy allows you to customize various aspects of your electoral college maps
 
 ## Colormaps
 
-Colormaps are an important part of creating the electoral college maps.
+Colormaps define the colors used for each political party or candidate.
 
 ### Default Colormap
 
-PoliSciPy has a default color map that looks like this:
+PoliSciPy provides a default colormap:
 
 ```python
 default_party_colors = {
@@ -28,8 +28,7 @@ default_party_colors = {
     'No Vote': 'gray'
 }
 ```
-
-In addition, any defecting voter who does not belong to a specific political party is represented by the color `#444444` (dark gray) by default.
+In addition, defecting voters who do not belong to a specific party are represented by `#444444` (dark gray) by default.
 
 Below is a visualization of the full default colormap:
 
@@ -51,14 +50,18 @@ custom_party_colors = {
     'Independent': '#2ca02c',  # Green for Independents
     'No Data': 'grey',  # Grey for missing data
     'Green': '#9467bd',  # Purple for Green Party
-    'Sam Smith', 'cyan' # Add another party/candidate
+    'Sam Smith': 'cyan' # Add another party/candidate
 }
 ```
 
 To apply your custom colormap in PoliSciPy, pass it as a parameter to the relevant plotting function, such as `plot_electoral_map()`:
 
 ```python
-plot_electoral_map(gdf, colormap=custom_party_colors)
+plot_electoral_map(
+    gdf,
+    column='winning_party',
+    party_colors=custom_party_colors
+)
 ```
 
 This flexibility allows you to tailor the visual representation of maps to match your project's requirements or preferences.
@@ -76,9 +79,9 @@ This flexibility allows you to tailor the visual representation of maps to match
 
 PoliSciPy also offers several ways to customize other aspects of your electoral college maps, including map titles, labels, and legends. Here are a few options for customizing the appearance of your map.
 
-### Titles and Labels
+### Map Titles and Labels
 
-You can customize the title of your map and the labels for the states or regions. For example:
+You can customize the title of your map using the title parameter:
 
 ```python
 # Plot electoral college map with a custom title and labels
@@ -86,47 +89,56 @@ plot_electoral_map(
     data=your_data,
     colormap=custom_party_colors,
     title="2024 U.S. Electoral College Map",
-    labels={"Democrat": "Democratic", "Republican": "GOP", ...}
 )
 ```
 
-### Adding Legends
+State labels (postal code and electoral votes) are automatically added, and you can adjust their color and font size using `labelcolor` and `fontsize`.
 
-Legends help users understand what different colors represent. PoliSciPy will automatically generate a legend based on the colormap you use, but you can also customize the appearance of the legend, such as its position, size, and labels.
+### Legends
 
-Example:
+Legends help users understand the colors representing each party or candidate.
+- Enable a legend using `legend=True`.
+- Customize legend order with `legend_order`:
 
 ```python
+custom_legend_order = ['Democrat', 'Republican', 'Green', 'Independent', 'No Data']
+
 plot_electoral_map(
-    data=your_data,
-    colormap=custom_party_colors,
-    legend_title="Political Party",
-    legend_position="bottom"
+    gdf,
+    column='winning_party',
+    party_colors=custom_party_colors,
+    legend=True,
+    legend_order=custom_legend_order
 )
 ```
 
-### Customizing State Borders
+This ensures that parties appear in the legend in the order you specify, instead of the default order derived from the data.
 
-You can adjust the borders between states, such as changing their width or color:
+### State Border Customization
+
+You can adjust the appearance of state boundaries (e.g. width or color):
 
 ```python
 plot_electoral_map(
-    data=your_data,
-    colormap=custom_party_colors,
-    border_color="#000000",
-    border_width=1
+    gdf,
+    column='winning_party',
+    party_colors=custom_party_colors,
+    edgecolor='black',  # Color of state borders
+    linewidth=1.0       # Width of state borders
 )
 ```
 
 ### Other Styling Options
 
+Additional keyword arguments (`**kwargs`) are passed to `GeoDataFrame.plot()`. Examples include:
+
 In addition to the features above, PoliSciPy allows other styling options such as:
 
-- Adjusting opacity/transparency of regions.
-- Changing the background color of the map.
-- Adding or customizing annotations or markers.
+- `alpha` – transparency of the filled regions.
+- `facecolor` – override the fill color.
+- `zorder` – control plotting order of layers.
 
-Refer to the API Documentation for a full list of customization options.
+You can combine these to fully customize your map’s visual style.
 
 
 

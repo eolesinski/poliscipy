@@ -6,47 +6,51 @@ parent: API Reference
 
 ## load_shapefile
 
-This method loads a shapefile containing electoral college data, applies specific scaling transformations to Alaska and Hawaii for proper plotting, adds electoral vote data, and returns the data as a GeoDataFrame, allowing further analysis or visualization.
+This function loads a shapefile containing U.S. state geometries, applies scaling transformations to Alaska and Hawaii for proper plotting, merges electoral vote data for a specified year, and initializes columns for defecting voters. The resulting GeoDataFrame is ready for analysis or visualization.
 
 ---
 
 ### Method Signature
 
 ```python
-def load_df(year: str) -> gpd.GeoDataFrame:
+load_shapefile(year: str = "2024") -> gpd.GeoDataFrame
 ```
 
 ### Parameters
 
 **year *(str, optional)*:**
 
-The year for which to load the electoral college data. This parameter is currently unused in the method but can be extended to filter or manipulate data for specific years. If a year is not provided the default is set to the year 2024.
+The election year for which to load electoral votes. Must match a column in the `electoral_votes.csv` file. Defaults to `"2024"`.
 
 ### Returns
 
-gdf (gpd.GeoDataFrame):
+**gdf (GeoDataFrame):**
 
-A GeoDataFrame containing the electoral college data for the specified year. The data includes geographic shapes (polygons) of U.S. states, with special scaling applied to Alaska and Hawaii to account for size distortion in standard maps.
+A GeoDataFrame containing:
+- State geometries (with Alaska and Hawaii scaled horizontally).
+- Electoral votes for the specified year (`elec_votes_<year>`).
+- `defectors` column initialized to 0.
+- `defector_party` column initialized to `None`.
 
 ### Transformations Applied
 
-- Alaska: The geometry of Alaska is horizontally scaled by a factor of 0.64 (X-axis), preserving the state’s relative position and size within the map.
+- **Alaska:** Horizontally scaled by a factor of 0.64 (X-axis).
 
-- Hawaii: The geometry of Hawaii is horizontally scaled by a factor of 1.1 (X-axis), adjusting its size for visual improvement.
+- **Hawaii:** Horizontally scaled by a factor of 1.1 (X-axis).
 
 ### Example Usage
 
 ```python
 import poliscipy
-
 from poliscipy.shapefile_utils import load_shapefile
 
-# Load the GeoDataFrame with electoral college data
-gdf = load_df(year="1992")
+# Load the GeoDataFrame with electoral college data for 2024
+gdf = load_shapefile(year="2024")
 ```
 
 ### Notes
 
-- The method assumes the shapefile contains data about U.S. states, with a column STUSPS denoting state abbreviations (e.g., 'AK' for Alaska, 'HI' for Hawaii).
-
-- Scale factors for Alaska and Hawaii were determined to better represent their geographical sizes in a standard map projection.
+- The shapefile must contain a `STUSPS` column for state abbreviations (e.g., 'AK', 'HI').
+- Scale factors were chosen to adjust Alaska and Hawaii for map visualization.
+- Defector-related columns are added to support plotting of defecting voters in electoral maps.
+- Data is safely loaded from the `poliscipy.shapefiles` package resources.

@@ -17,7 +17,7 @@ plot_electoral_map(
     gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
     figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = 0.5, 
     labelcolor: str = 'white', fontsize: float = 9, legend: bool = False, year: str = '2024', 
-    vote_bar: bool = False, **kwargs
+    vote_bar: bool = False, party_colors: dict = None, legend_order: list = None, **kwargs
 ) -> None
 ```
 
@@ -29,40 +29,47 @@ A GeoPandas GeoDataFrame containing the geographic and electoral data.
 Required columns include:
 - `centroid_x` and `centroid_y`: Coordinates for state labels.
 - `STUSPS`: State postal codes.
-- `elec_votes`: Electoral votes for each state.
+- `elec_votes_{year}`: Electoral votes for each state.
+- `defectors` and `defector_party` (optional): For defecting voters, used when defector boxes are plotted.
 
 **column *(str)*:**
-The target column in gdf that determines the fill color of states, typically representing political party data.
+The target column in `gdf` that determines the fill color of states, typically representing political party affiliation.
 
 **title *(str, optional)*:**
-The title of the plot. Defaults to "Electoral College Map".
+The title of the plot. Defaults to `"Electoral College Map"`.
 
 **figsize *(tuple, optional)*:**
-The size of the plot. Defaults to (20, 10).
+The figure size in inches (width, height). Defaults to `(20, 10)`.
 
 **edgecolor *(str, optional)*:**
-The color of the state boundary lines. Defaults to 'white'.
+The color of state boundary lines. Defaults to `'white'`.
 
 **linewidth *(float, optional)*:**
-The width of the state boundary lines. Defaults to 0.5.
+The width of state boundary lines. Defaults to `0.5`.
 
 **labelcolor *(str, optional)*:**
 The color of the text for state labels. Defaults to 'white'.
 
 **fontsize *(float, optional)*:**
-The fontsize of the state labels. Defaults to 9pt.
+Font size for state labels. Defaults to `9`.
 
 **legend *(bool, optional)*:**
-Whether to display a legend mapping political parties to colors. Defaults to False.
+Whether to display a legend mapping political parties to colors. Defaults to `False`.
 
 **year *(str, optional)*:**
-The election year for the map. Must be 1992 or later and a valid election year (e.g., divisible by 4). Defaults to '2024'.
+The election year to plot. Must be 1789 or later and a valid election year (every 4 years). Defaults to `'2024'`.
 
 **vote_bar *(bool, optional)*:**
-Whether to include a vote bar at the top of the plot. Defaults to False.
+Whether to include a horizontal vote bar at the top of the plot summarizing total votes by party. Defaults to `False`.
+
+**party_colors *(dict, optional)*:**
+A mapping of party names to colors. If `None`, defaults to `default_party_colors`. Parties in the column but missing from this mapping will raise a `ValueError`.
+
+**legend_order *(list, optional)*:**
+Custom ordering of parties in the legend. If `None`, parties appear in the order they are found in the data.
 
 **kwargs:**
-Additional keyword arguments to customize the GeoPandas plot method.
+Additional keyword arguments passed to the `GeoDataFrame.plot()` method, such as `alpha`.
 
 ---
 
@@ -76,7 +83,7 @@ The function directly renders the electoral college map using Matplotlib.
 ## Raises
 
 ValueError:
-Raised if year is not a valid election year (e.g., less than 1992 or not divisible by 4).
+Raised if year is not a valid election year (1789 or later, every 4 years).
 
 ---
 
