@@ -4,6 +4,7 @@
 ![PyPI Version](https://img.shields.io/pypi/v/<poliscipy>?color=blue)
 ![Conda](https://img.shields.io/conda/v/conda-forge/poliscipy)
 ![Package tests](https://github.com/eolesinski/poliscipy/actions/workflows/tests.yml/badge.svg)
+[![codecov](https://codecov.io/gh/<eolesinski>/<poliscipy>/branch/main/graph/badge.svg)](https://codecov.io/gh/<eolesinski>/<poliscipy>)
 
 **PoliSciPy** is an open-source Python library designed for political data analysis and visualization, particularly for U.S. elections. It offers simple, flexible, and high-quality methods to visualize the electoral college, voting results, and demographic trends using libraries such as **GeoPandas** and **Matplotlib**.
 
@@ -32,7 +33,7 @@ PoliSciPy is also availalbe on conda via:
 conda install -c conda-forge poliscipy
 ```
 
-*Dependencies: Note that PoliSciPy requires GeoPandas and matplotlib*
+*Dependencies: Note that PoliSciPy requires GeoPandas, matplotlib, and Pandas*
 
 ## Quickstart and Example
 

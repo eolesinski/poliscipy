@@ -1,6 +1,3 @@
-import matplotlib
-matplotlib.use("Agg")  # noqa: E402, use non-interactive backend for CI/CD tests
-
 import pytest
 from poliscipy.plot import plot_electoral_map
 from poliscipy.colors import default_party_colors
