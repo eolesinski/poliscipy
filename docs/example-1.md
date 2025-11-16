@@ -95,13 +95,13 @@ Now that you’ve merged the data, you can visualize the electoral results by pl
 
 ```python
 # Plot the 2024 electoral map
-plot_electoral_map(gdf, column='winner', title='2024 U.S. Presidential Election')
+plot_electoral_map(gdf, column='winning_party', title='2024 U.S. Presidential Election')
 ```
 
 This function generates a map of the 2024 election results, coloring each state based on the winner. States that did not participate in the election can be marked as "No Votes".
 
 ## Example Output
 
-Here's what the 1796 U.S. Presidential Election map should look like after following the steps above:
+Here's what the 2024 U.S. Presidential Election map should look like after following the steps above:
 
 <div align="center"> <img src="assets/election_2024.png" alt="2024 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 2024 U.S. Presidential Election Results</em></div> </div>

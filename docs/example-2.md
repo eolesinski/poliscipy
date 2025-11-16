@@ -62,7 +62,7 @@ winning_party_1796 = {
 This dictionary includes the states that participated in the 1796 election and the party that won in each state.
 
 {: .important }
-> Note: In the data dictionary above we have added a category for `Territories` above. Note: for representing territories, we can simply create another field in out data dictionary for `Terriroties` and then add this to the colormap.
+> Note: In the data dictionary above we have added a category for `Territories` above. Note: for representing territories, we can simply create another field in out data dictionary for `Territories` and then add this to the colormap.
 
 Since we have added a new category `Territories` to our electoral college map, we need to make sure that we also specify a color in our color map so that PoliSciPy knows which color you would like to use to represent them. For representing territories, it can be useful to show them simply as `grey` so that they do not get confused with the `No Data` category.
 
@@ -122,10 +122,3 @@ This function generates a map visualizing the 1796 election results, coloring ea
 Here's what the 1796 U.S. Presidential Election map should look like after following the steps above:
 
 <div align="center"> <img src="assets/election_1796_2.png" alt="1796 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1796 U.S. Presidential Election Results</em></div> </div>
-
-## Additional Resources
-
-- Historical Election Data: For detailed election results and historical context, refer to the Mapping Early American Elections project.
-- Understanding Early Electoral Processes: Learn more about the evolution of the U.S. electoral system from the Library of Congress.
-
-By following this example, you can visualize early U.S. elections and gain insights into the nation's formative political landscape using PoliSciPy.

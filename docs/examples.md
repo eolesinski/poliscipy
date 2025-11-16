@@ -10,9 +10,9 @@ Below is a gallery of images showing maps created using the PoliSciPy package.
 
 ---
 
-**The Present: plotting current and future United States elections**
+**The Present: Plotting Current and Future United States Elections**
 
-One of PoliSciPy's strengths is its ability to plot current and future United States elections. PoliSciPy can be used to create state-of-the-art Electoral College visualizations that easily support an arbitrary number of candidates. Modern maps are perfect for creating hypothetical matchups or representing candidate performance. The vote bar at the top is especially useful for visualizing different win conditions based on the performance of specific candidates.
+PoliSciPy excels at plotting U.S. elections, both current and hypothetical. It can create state-of-the-art Electoral College visualizations that support any number of candidates, making it ideal for exploring hypothetical matchups or analyzing candidate performance. The vote bar at the top provides a clear visual summary of candidate standings and can help illustrate different win conditions based on the distribution of votes.
 
 <div align="center">
     <a href="https://eolesinski.github.io/poliscipy/example-1.html">
@@ -23,9 +23,9 @@ One of PoliSciPy's strengths is its ability to plot current and future United St
 
 ---
 
-**Early Post-Colonial History: plotting early United States elections**
+**Early Post-Colonial History: Plotting Early United States Elections**
 
-After gaining independence, some of the United States' earliest elections featured maps that looked very different from those of today. These early elections included far fewer states, mostly representing the original thirteen colonies, as well as some newly acquired territories, reflecting the fledgling nation. PoliSciPy allows users to visualize these territories and merged state regions (for example, Massachusetts once included what is now Maine, and Georgia encompassed present-day Mississippi and Alabama) by incorporating their data and colormaps.
+After gaining independence, some of the United States’ earliest elections featured maps that looked very different from those of today. These elections included far fewer states, primarily representing the original thirteen colonies, along with some newly acquired territories. PoliSciPy allows users to visualize these territories and merged state regions—for example, Massachusetts once included what is now Maine, and Georgia encompassed present-day Mississippi and Alabama—by incorporating their historical data and colormaps.
 
 <div align="center">
     <a href="https://eolesinski.github.io/poliscipy/example-2.html">
@@ -36,9 +36,9 @@ After gaining independence, some of the United States' earliest elections featur
 
 ---
 
-**The Civil War and Reconstruction: plotting more complex maps**
+**The Civil War and Reconstruction: Plotting More Complex Maps**
 
-You can also plot more complex historical Electoral College maps that include states that did not participate in certain elections. During the Civil War, several Southern states seceded from the Union and consequently did not participate in the 1864 election. After the Civil War, the tumultuous Reconstruction period meant that some Southern states remained ineligible to cast electoral votes for several years afterward. An example of the consequences of this are illustrated below in the results of the 1864 election.
+PoliSciPy also allows you to plot more complex historical Electoral College maps that include states which did not participate in certain elections. During the Civil War, several Southern states seceded from the Union and did not participate in the 1864 election. In the Reconstruction period that followed, some Southern states remained ineligible to cast electoral votes for several years. The consequences of these exclusions are illustrated below in the results of the 1864 election.
 
 <div align="center">
     <a href="https://eolesinski.github.io/poliscipy/example-3.html">

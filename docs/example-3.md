@@ -50,11 +50,11 @@ For post-Reconstruction elections, we must use the correct state boundaries for 
 gdf = load_shapefile(year="1864")
 ```
 
-This function loads a GeoDataFrame representing U.S. state boundaries as they were in 1868.
+This function loads a GeoDataFrame representing U.S. state boundaries as they were in 1864.
 
 ## Step 4: Prepare Election Data
 
-We'll create a dictionary representing the 1868 U.S. presidential election results. Since Texas, Virginia, and Mississippi did not participate, we will mark these states accordingly.
+We'll create a dictionary representing the 1864 U.S. presidential election results. Since Texas, Virginia, and Mississippi did not participate, we will mark these states accordingly.
 
 ```python
 winning_party_1864 = {
@@ -70,8 +70,8 @@ winning_party_1864 = {
 
 Note:
 
-- Texas, Virginia, and Mississippi did not participate, so they are labeled as "No Votes".
-- The Republican candidate (Ulysses S. Grant) won the election against the Democratic candidate (Horatio Seymour).
+- Several Southern states—including Texas, Virginia, Mississippi, Georgia, South Carolina, Florida, and North Carolina—did not participate in the 1864 election, so they are labeled as "No Vote".
+- The National Union Party candidate, Abraham Lincoln, won the election against the Democratic candidate, George B. McClellan.
 
 ## Step 5: Merge Election Data with Shapefile
 
@@ -99,7 +99,7 @@ gdf.loc[3, 'defector_party'] = 'Other'
 ## Step 7: Plot the Electoral College Map
 
 ```python
-plot_electoral_map(gdf, column='winning_party', legend=True, party_colors=custom_colors_1796,
+plot_electoral_map(gdf, column='winning_party', legend=True, party_colors=custom_colors_1864,
                    title="Election of 1864 - Lincoln vs McCellan")
 ```
 
@@ -107,13 +107,6 @@ This function generates a map highlighting which states voted for each candidate
 
 ## Example Output
 
-Here's an example of the 1868 U.S. Presidential Election map:
+Here's an example of the 1864 U.S. Presidential Election map:
 
 <div align="center"> <img src="assets/election_1864_2.png" alt="1864 U.S. Presidential Election Map" width="974"> <div style="text-align: center;"><em>Figure: 1864 U.S. Presidential Election Results</em></div> </div>
-
-## Additional Resources
-
-- Historical Election Data: For details on post-Reconstruction elections, visit the American Presidency Project.
-- Reconstruction and Voting Rights: Learn about the impact of Reconstruction on elections from the National Archives.
-
-Using PoliSciPy, we can effectively visualize post-Reconstruction elections and understand how political participation evolved in the aftermath of the Civil War.
