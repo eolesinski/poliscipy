@@ -24,4 +24,3 @@ def test_plot_with_missing_party_color(loaded_gdf):
     loaded_gdf['party'] = 'UnknownParty'
     with pytest.raises(ValueError):
         plot_electoral_map(loaded_gdf, column='party', party_colors=default_party_colors)
-        
