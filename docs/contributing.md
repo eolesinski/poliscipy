@@ -52,7 +52,7 @@ If you're ready to write code for PoliSciPy, follow these steps:
 1. Ensure you have **Python 3.x** installed. You can download it here.
 2. Install the required dependencies:
 ```
-pip install -r requirements.txt
+pip install -r dev-requirements.txt
 ```
 3. Run the tests to ensure that the environment is set up correctly:
 ```
