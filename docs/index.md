@@ -14,15 +14,15 @@ PoliSciPy is a Python package for creating customizable electoral college maps o
 
 ---
 
-With Python installed, you can quickly set up PoliSciPy and start generating electoral maps. This lets you experiment with data, visualize results instantly, and test customizations before sharing or publishing.
+PoliSciPy makes it easy to generate electoral maps and explore political data with just a few lines of code. The library is designed for fast experimentation, clear visualizations, and flexible customization, whether you're analyzing results, presenting findings, or exploring historical trends.
 
 PoliSciPy is especially useful for:
 
 - Creating customized, high-quality electoral college maps of the United States
-- Conducting political data analysis and tracking changes in voting history and patterns
-- Exploring historical election results and visualizing trends
+- Analyzing political data and tracking changes in voting patterns over time
+- Exploring historical election results and visualizing long-term trends
 
-Feel free to customize maps however you like, check out the [Getting Started](https://eolesinski.github.io/poliscipy/quickstart.html) guide above, share your results, and post any questions or issues that you run into on the [GitHub](https://github.com/eolesinski/poliscipy) repository.
+To get started, visit the [Quickstart Guide](https://eolesinski.github.io/poliscipy/quickstart.html). You can customize maps freely, browse the full documentation, and report questions or issues on the project’s [GitHub](https://github.com/eolesinski/poliscipy) repository.
 
 <div align="center">
     <img src="assets/election_2024.png" alt="Electoral College Map" width="974">

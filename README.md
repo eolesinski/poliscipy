@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 ![PyPI Version](https://img.shields.io/pypi/v/<poliscipy>?color=blue)
+![Conda](https://img.shields.io/conda/v/conda-forge/poliscipy)
 ![Package tests](https://github.com/eolesinski/poliscipy/actions/workflows/tests.yml/badge.svg)
 
 **PoliSciPy** is an open-source Python library designed for political data analysis and visualization, particularly for U.S. elections. It offers simple, flexible, and high-quality methods to visualize the electoral college, voting results, and demographic trends using libraries such as **GeoPandas** and **Matplotlib**.
