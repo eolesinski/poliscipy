@@ -46,7 +46,7 @@ def _add_defector_box(ax, x_centroid, y_centroid, defectors, defector_party, par
         color=label_color, fontname='Arial', fontsize=fontsize)
 
 
-def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, year: str, 
+def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors: dict, year: str,
                   vote_scale_factor: int = 20, initial_bar_position: float = -113.5) -> None:
     """
     Adds a horizontal vote bar to the plot representing the total votes for each party,
@@ -74,10 +74,10 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
           visualization (e.g., second-largest party moved to the end).
         - Only parties with votes greater than 20 are annotated with vote counts.
     """
-    
+
     # Create a dictionary to store the total vote counts for each party
     total_votes = {party: 0 for party in party_colors.keys()}
-    
+
     for _, row in gdf.iterrows():
         original_party = row[column]
         elec_votes = row[f"elec_votes_{year}"]
@@ -100,10 +100,10 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
         key=lambda x: x[1],
         reverse=True
     )
-    
+
     # Identify the second-largest party
     second_largest_party = sorted_parties[1][0] if len(sorted_parties) > 1 else None
-    
+
     parties_to_plot = ["Republican"] if "Republican" in party_colors else []
 
     # Append other parties in the sorted order, excluding "Republican" and handling second-largest
@@ -122,20 +122,20 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
 
     # Plot each party's votes
     for party in parties_to_plot:
-        
+
         color = party_colors[party]
         width = total_votes.get(party, 0) / vote_scale_factor  # Use .get() to handle missing parties
         ax.barh(y=52, width=width, color=color, align='center', height=1.2, left=current_left)
-        
+
         center_position = current_left + width / 2
         vote_count = total_votes.get(party, 0)
 
         if vote_count > 20:
             # Annotate the bar with the total votes, centered within the bar
-            ax.annotate(f"{int(vote_count)}", 
+            ax.annotate(f"{int(vote_count)}",
                         xy=(center_position, 51.9),
                         ha='center', va='center', color='white', fontsize=10)
-    
+
         # Update the current left position for the next bar
         current_left += width
 
@@ -143,7 +143,7 @@ def _add_vote_bar(gdf: gpd.GeoDataFrame, ax: plt.Axes, column: str, party_colors
 def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Electoral College Map", 
                        figsize: tuple = (20, 10), edgecolor: str = 'white', linewidth: float = .5,
                        labelcolor: str = 'white', fontsize: float = 9, legend=False, year="2024", vote_bar=False,
-                       party_colors=None, **kwargs) -> None:
+                       party_colors=None, legend_order=None, **kwargs) -> None:
     """
     Plots an electoral college map of the United States using GeoPandas and Matplotlib.
 
@@ -164,6 +164,7 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
         year (str, optional): Election year to plot. Must be 1789 or later and a valid election year (every 4 years) (default: "2024").
         vote_bar (bool, optional): Whether to display a vote bar summarizing total votes at the top of the plot (default: False).
         party_colors (dict, optional): Mapping of party names to colors. Defaults to `default_party_colors` if not provided.
+        legend_order (list, optional): Custom order of parties in the legend (default: order found in data).
         **kwargs: Additional keyword arguments passed to `GeoDataFrame.plot()`.
 
     Raises:
@@ -218,16 +219,18 @@ def plot_electoral_map(gdf: gpd.GeoDataFrame, column: str, title: str = "Elector
             if defectors > 0:
                 _add_defector_box(ax1, x_centroid, y_centroid, defectors, defector_party, party_colors,
                                   labelcolor, fontsize)
-            
-    if legend:
-        # Get unique values in the specified column of the GeoDataFrame
-        unique_parties = gdf[column].unique()
-    
-        # Create handles for only the parties present in the data
-        handles = [mpatches.Patch(color=party_colors[party], label=party) 
-                   for party in unique_parties if party in party_colors]
 
-        # Add the legend to the plot
+    if legend:
+
+        # Use the provided legend_order if given, otherwise default to pandas ordering
+        if legend_order is None:
+            legend_order = gdf[column].unique()
+
+        handles = [
+            mpatches.Patch(color=party_colors[party], label=party)
+            for party in legend_order if party in gdf[column].unique()
+        ]
+
         ax1.legend(handles=handles, bbox_to_anchor=(.975, .22))
         
     if vote_bar:
