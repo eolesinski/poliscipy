@@ -86,7 +86,7 @@ This will return a list of state abbreviations you can use:
 ...
 ```
 
-For a full example of creating Electoral College maps with non-winner-takes-all states included in the map see [Example 1](https://eolesinski.github.io/poliscipy/example-1.html) in the Tutorials and Examples section.
+For a full example of creating Electoral College maps with non-winner-takes-all states included in the map see [Example 1](https://eolesinski.github.io/poliscipy/example-1.html) in the Examples section.
 
 ### Faithless electors
 
@@ -94,7 +94,7 @@ Similar to representing electoral votes for the Congressional districts in Maine
 
 The approach for handling faithless electors in PoliSciPy is the same as for Congressional districts. To represent a faithless elector, set the value in the `defectors` column and the respective `defector_party` for that state. If no party is selected, the elector will be assigned to the `Other` category by default.
 
-**Note:** Defecting voters may vote for the opposing party or for a candidate not on the ballot. In such cases, leaving the `defector_party` value blank in the `GeoDataFrame` will group them into the `Other` category automatically. For a full example, see [Example 2](https://eolesinski.github.io/poliscipy/example-2.html) in the Tutorials and Examples section.
+**Note:** Defecting voters may vote for the opposing party or for a candidate not on the ballot. In such cases, leaving the `defector_party` value blank in the `GeoDataFrame` will group them into the `Other` category automatically. For a full example, see [Example 2](https://eolesinski.github.io/poliscipy/example-2.html) in the Examples section.
 
 ### Split states
 
@@ -104,7 +104,7 @@ Another scenario where plotting defecting voters can be useful is in **historica
 
 <div style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 3;">
-    <p>The final scenario where plotting defecting voters can be useful is when an electoral college voter is unable to cast their vote. In such cases, the vote may not be counted, even if it was intended for the winning candidate. For example, in 1864, one of Nevada's three electoral voters was caught in a snowstorm and could not cast their vote. Since there was no established procedure for handling absent voters at the time, the state only cast two votes for President Lincoln. PoliSciPy represents this scenario in <a href="https://eolesinski.github.io/poliscipy/example-3.html">Example 3</a> of the Tutorials and Examples section. By default, absent electoral votes are shown inside a dark grey box (see image to the right for reference).</p>
+    <p>The final scenario where plotting defecting voters can be useful is when an electoral college voter is unable to cast their vote. In such cases, the vote may not be counted, even if it was intended for the winning candidate. For example, in 1864, one of Nevada's three electoral voters was caught in a snowstorm and could not cast their vote. Since there was no established procedure for handling absent voters at the time, the state only cast two votes for President Lincoln. PoliSciPy represents this scenario in <a href="https://eolesinski.github.io/poliscipy/example-3.html">Example 3</a> of the Examples section. By default, absent electoral votes are shown inside a dark grey box (see image to the right for reference).</p>
   </div>
   <div style="flex: 1; text-align: center;">
     <img src="assets/nevada-picture.png" alt="Electoral College Map" style="width: 200px;">
@@ -139,9 +139,11 @@ During the Reconstruction period, some Southern states were part of the United S
 
 ## Handling Merged States
 
+In some early U.S. elections, state boundaries were different from what we recognize today. For example, Massachusetts once included the territory that is now Maine, and Georgia at one time encompassed both present-day Alabama and Mississippi.
+
 <div style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 2;">
-    <p>The final case where it may be useful to plot defecting voters is when an electoral college voter is unable to cast their vote entirely. In these cases, their vote may not be counted even if they had intended to vote for the winning candidate in their state. One example of this occurred in 1864 when one of Nevada's three electoral voters got caught in a snowstorm and was unable to cast their vote. Since there was not yet an established practice for handling absent voters, the state only.</p>
+    <p>When plotting historical electoral maps, it is important to account for these merged states to accurately represent electoral votes and political geography. PoliSciPy allows you to adjust the GeoDataFrame to reflect the historical boundaries, ensuring that electoral data is mapped correctly to each state as it existed at the time. </p>
   </div>
   <div style="flex: 1; text-align: center;">
     <img src="assets/georgia.png" alt="Electoral College Map" style="width: 100%;">
@@ -149,4 +151,4 @@ During the Reconstruction period, some Southern states were part of the United S
   </div>
 </div>
 
-During some early elections, some states had boundaries that were different from those of today. As an example, Massachusetts encompassed what is today Maine and Georgia once included both Alabama and Mississippi. 
+For instance, when visualizing the 1796 election, the state of Georgia included territories that are now separate states. By handling merged states appropriately, you can maintain historical accuracy in electoral college maps and avoid misrepresenting the distribution of votes.
