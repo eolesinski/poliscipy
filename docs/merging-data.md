@@ -139,11 +139,9 @@ During the Reconstruction period, some Southern states were part of the United S
 
 ## Handling Merged States
 
-In some early U.S. elections, state boundaries were different from what we recognize today. For example, Massachusetts once included the territory that is now Maine, and Georgia at one time encompassed both present-day Alabama and Mississippi.
-
 <div style="display: flex; align-items: center; gap: 20px;">
   <div style="flex: 2;">
-    <p>When plotting historical electoral maps, it is important to account for these merged states to accurately represent electoral votes and political geography. PoliSciPy allows you to adjust the GeoDataFrame to reflect the historical boundaries, ensuring that electoral data is mapped correctly to each state as it existed at the time. </p>
+    <p>In some early U.S. elections, state boundaries were different from what we recognize today. For example, Massachusetts once included the territory that is now Maine, and Georgia at one time encompassed both present-day Alabama and Mississippi. When plotting historical electoral maps, it is important to account for these merged states to accurately represent electoral votes and political geography. PoliSciPy allows you to adjust the GeoDataFrame to reflect historical boundaries, ensuring that electoral data is mapped correctly to each state as it existed at the time.</p>
   </div>
   <div style="flex: 1; text-align: center;">
     <img src="assets/georgia.png" alt="Electoral College Map" style="width: 100%;">
@@ -151,4 +149,4 @@ In some early U.S. elections, state boundaries were different from what we recog
   </div>
 </div>
 
-For instance, when visualizing the 1796 election, the state of Georgia included territories that are now separate states. By handling merged states appropriately, you can maintain historical accuracy in electoral college maps and avoid misrepresenting the distribution of votes.
+ For a full example of how to represent states encompassing multiple territories, see [Example 2: Plotting Early Post-Colonial Elections](https://eolesinski.github.io/poliscipy/example-2.html).
