@@ -28,7 +28,7 @@ cd poliscipy
 pip install .
 ```
 
-For more information on how to install PoliSciPy see the [Installation page](https://eolesinski.github.io/poliscipy/installation.html).
+For more information on how to install PoliSciPy see the [Installation page](https://poliscipy.github.io/poliscipy/installation.html).
 
 ---
 
@@ -72,7 +72,7 @@ gdf['winning_party'] = gdf['STUSPS'].map(winning_party).fillna('No Data')
 
 In this example, the `winning_party` dictionary maps state codes (like 'AL' for Alabama) to the party that won the election in that state.
 
-For additional information on how to merge data with the GeoDataFrame please see the [data and shapefiles](https://eolesinski.github.io/poliscipy/data-and-shapefiles.html) section.
+For additional information on how to merge data with the GeoDataFrame please see the [data and shapefiles](https://poliscipy.github.io/poliscipy/data-and-shapefiles.html) section.
 
 ---
 
@@ -92,7 +92,7 @@ gdf.loc[38, 'defector_party'] = 'Republican'
 gdf.loc[10, 'defector_party'] = 'Democrat'
 ```
 
-For more information on handling split states and defecting voters check out the [Adding Defectors](https://eolesinski.github.io/poliscipy/merging-data.html#adding-defectors) section of the Merging data page.
+For more information on handling split states and defecting voters check out the [Adding Defectors](https://poliscipy.github.io/poliscipy/merging-data.html#adding-defectors) section of the Merging data page.
 
 ---
 
@@ -149,7 +149,7 @@ Here’s an example of what the map should look like after running the above com
 
 You’ve now created your first electoral college map with PoliSciPy! If you’d like to dive deeper into the library, here are some next steps:
 
-- Explore additional plotting functions for visualizing demographic trends and voting results.
+- Explore additional features for plots to visualize voting results.
 - Learn how to customize your maps further with advanced styling options.
 - Check out the API documentation for a complete reference of available functions and classes.
 

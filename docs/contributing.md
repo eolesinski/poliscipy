@@ -6,7 +6,7 @@ nav_order: 9
 
 # Contributing to PoliSciPy
 
-Thank you for your interest in contributing to [PoliSciPy](https://github.com/eolesinski/poliscipy)! Your contributions help improve the project for the entire community. Whether you're reporting a bug, proposing a new feature, writing documentation, or improving the codebase, your support is greatly appreciated!
+Thank you for your interest in contributing to [PoliSciPy](https://github.com/poliscipy/poliscipy)! Your contributions help improve the project for the entire community. Whether you're reporting a bug, proposing a new feature, writing documentation, or improving the codebase, your support is greatly appreciated!
 
 This guide outlines the basic process for contributing effectively.
 
@@ -17,7 +17,7 @@ There are a variety of ways you can contribute to PoliSciPy. Below are some of t
 
 ### 1. Report Bugs
 If you encounter a bug while using PoliSciPy:
-- **Check Existing Issues**: Look through the [GitHub Issues](https://github.com/eolesinski/poliscipy/issues) tab to see if it has already been reported.
+- **Check Existing Issues**: Look through the [GitHub Issues](https://github.com/poliscipy/poliscipy/issues) tab to see if it has already been reported.
 - **Submit a New Issue**: If it's not listed, feel free to create a new issue with:
   - A clear and concise title.
   - Steps to reproduce the issue.
@@ -29,7 +29,7 @@ If you encounter a bug while using PoliSciPy:
 ### 2. Propose Features
 Have an idea for a new feature or improvement? Feel free to create a new feature request.
 - **Check Existing Requests**: See if your idea has already been suggested.  
-- **Open a Feature Request**: Use the [Feature Request Template](https://github.com/username/poliscipy/issues/new?template=feature_request.md) to share:
+- **Open a Feature Request**: Use the [Feature Request Template](https://github.com/poliscipy/poliscipy) to share:
   - What problem the feature solves.
   - A description of the feature.
   - Any examples or relevant references.
@@ -40,7 +40,7 @@ Have an idea for a new feature or improvement? Feel free to create a new feature
 If you're ready to write code for PoliSciPy, follow these steps:
 
 **Step 1: Fork the Repository**
-1. Navigate to [PoliSciPy's GitHub Repository](https://github.com/eolesinski/poliscipy).
+1. Navigate to [PoliSciPy's GitHub Repository](https://github.com/poliscipy/poliscipy).
 2. Click the **Fork** button in the top-right corner to create your own copy of the repository.
 3. Clone your fork to your local machine:
    ```bash
@@ -81,7 +81,7 @@ git push origin feature-name
 
 **Step 5: Open a Pull Request**
 
-1. Go to the [Pull Requests](https://github.com/eolesinski/poliscipy/pulls) tab in the main repository.
+1. Go to the [Pull Requests](https://github.com/poliscipy/poliscipy/pulls) tab in the main repository.
 2. Click New Pull Request and follow the template.
 - **Title:** A clear description of the changes you made.
 - **Description:** Explain what problem your changes solve, how you approached the solution, and any additional context or screenshots.
@@ -101,7 +101,7 @@ Documentation is a critical component of any open-source project. You can help o
 
 ## Code of Conduct
 
-If you would like to contribute to PoliSciPy, please make sure that you adhere to the [Code of Conduct](https://github.com/eolesinski/poliscipy?tab=coc-ov-file#). Please be respectful, kind, and considerate in your interactions with others.
+If you would like to contribute to PoliSciPy, please make sure that you adhere to the [Code of Conduct](https://github.com/poliscipy/poliscipy/blob/main/CODE_OF_CONDUCT.md). Please be respectful, kind, and considerate in your interactions with others.
 
 ---
 

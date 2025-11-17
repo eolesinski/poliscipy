@@ -42,7 +42,7 @@ nav_order: 8
   <pre><code>pip install poliscipy</code></pre>
   or
   <pre><code>conda install -c conda-forge poliscipy</code></pre>
-  For detailed installation steps, refer to the <a href="https://eolesinski.github.io/poliscipy/installation.html">Installation Guide</a>.
+  For detailed installation steps, refer to the <a href="https://poliscipy.github.io/poliscipy/installation.html">Installation Guide</a>.
 </details>
 
 
@@ -52,7 +52,7 @@ nav_order: 8
 
 <details>
   <summary>How do I create an electoral college map?</summary>
-  Refer to the <a href="https://eolesinski.github.io/poliscipy/quickstart.html">Quickstart Guide</a> for step-by-step instructions, including loading geospatial data, merging it with electoral results, and plotting a map.
+  Refer to the <a href="https://poliscipy.github.io/poliscipy/quickstart.html">Quickstart Guide</a> for step-by-step instructions, including loading geospatial data, merging it with electoral results, and plotting a map.
 </details>
 
 <details>
@@ -62,7 +62,7 @@ nav_order: 8
 
 <details>
   <summary>How do I customize the appearance of maps?</summary>
-  You can customize map titles, colors, labels, and more by using the parameters in the <code>plot_electoral_map()</code> function. Detailed instructions can be found in the <a href="https://eolesinski.github.io/poliscipy/api-reference.html">API Documentation</a>.
+  You can customize map titles, colors, labels, and more by using the parameters in the <code>plot_electoral_map()</code> function. Detailed instructions can be found in the <a href="https://poliscipy.github.io/poliscipy/api-reference.html">API Documentation</a>.
 </details>
 
 ---
@@ -81,13 +81,13 @@ nav_order: 8
   <ul>
     <li>Check that your data is correctly merged with the GeoDataFrame.</li>
     <li>Verify that the column name passed to <code>plot_electoral_map()</code> exists in your data.</li>
-    <li>Review the example in the <a href="https://eolesinski.github.io/poliscipy/quickstart.html">Quickstart Guide</a> to make sure that you are following the correct steps.</li>
+    <li>Review the example in the <a href="https://poliscipy.github.io/poliscipy/quickstart.html">Quickstart Guide</a> to make sure that you are following the correct steps.</li>
   </ul>
 </details>
 
 <details>
   <summary>How do I report a bug?</summary>
-  If you encounter a bug while using PoliSciPy, please submit an issue on the <a href="https://github.com/eolesinski/poliscipy/issues">GitHub Issue Tracker</a> with a clear description and steps to reproduce it.
+  If you encounter a bug while using PoliSciPy, please submit an issue on the <a href="https://github.com/poliscipy/poliscipy/issues">GitHub Issue Tracker</a> with a clear description and steps to reproduce it.
 </details>
 
 ---
@@ -96,7 +96,7 @@ nav_order: 8
 
 <details>
   <summary>How can I contribute to PoliSciPy?</summary>
-  Contributions are always welcome! See the <a href="https://eolesinski.github.io/poliscipy/contributing.html">Contributing Guide</a> for detailed instructions.
+  Contributions are always welcome! See the <a href="https://poliscipy.github.io/poliscipy/contributing.html">Contributing Guide</a> for detailed instructions.
 </details>
 
 <details>
@@ -115,12 +115,12 @@ nav_order: 8
 
 <details>
   <summary>Where can I find examples and tutorials?</summary>
-  Visit the <a href="https://eolesinski.github.io/poliscipy/examples.html">Examples section</a> of the documentation for detailed tutorials and code snippets.
+  Visit the <a href="https://poliscipy.github.io/poliscipy/examples.html">Examples section</a> of the documentation for detailed tutorials and code snippets.
 </details>
 
 <details>
   <summary>How do I cite PoliSciPy in my research?</summary>
-  Please refer to the <a href="https://eolesinski.github.io/poliscipy/citation.html">Citation Guide</a> for information on how to cite PoliSciPy in your work.
+  Please refer to the <a href="https://poliscipy.github.io/poliscipy/citation.html">Citation Guide</a> for information on how to cite PoliSciPy in your work.
 </details>
 
 <style>

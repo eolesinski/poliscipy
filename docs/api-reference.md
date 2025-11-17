@@ -12,8 +12,8 @@ Located on this page are links to the full PoliSciPy API Reference.
 
 ## Methods
 
-- [plot_electoral_map()](https://eolesinski.github.io/poliscipy/plot-electoral-map.html)
+- [plot_electoral_map()](https://poliscipy.github.io/poliscipy/plot-electoral-map.html)
 
 ## Shapefiles
 
-- [load_shapefile()](https://eolesinski.github.io/poliscipy/load-shapefile.html)
+- [load_shapefile()](https://poliscipy.github.io/poliscipy/load-shapefile.html)

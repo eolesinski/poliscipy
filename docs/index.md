@@ -9,8 +9,8 @@ nav_order: 1
 PoliSciPy is a Python package for creating customizable electoral college maps of the United States, making it easy to visualize and analyze electoral data.
 {: .fs-5 .fw-300 }
 
-[Get started now](https://eolesinski.github.io/poliscipy/quickstart.html){: .btn .btn-blue .fs-4 .mb-4 .mb-md-0 .mr-2 }
-[View on GitHub](https://github.com/eolesinski/poliscipy){: .btn .fs-4 .mb-4 .mb-md-0 .mr-2 }
+[Get started now](https://poliscipy.github.io/poliscipy/quickstart.html){: .btn .btn-blue .fs-4 .mb-4 .mb-md-0 .mr-2 }
+[View on GitHub](https://github.com/poliscipy/poliscipy){: .btn .fs-4 .mb-4 .mb-md-0 .mr-2 }
 
 ---
 
@@ -22,7 +22,7 @@ PoliSciPy is especially useful for:
 - Analyzing political data and tracking changes in voting patterns over time
 - Exploring historical election results and visualizing long-term trends
 
-To get started, visit the [Quickstart Guide](https://eolesinski.github.io/poliscipy/quickstart.html). You can customize maps freely, browse the full documentation, and report questions or issues on the project’s [GitHub](https://github.com/eolesinski/poliscipy) repository.
+To get started, visit the [Quickstart Guide](https://poliscipy.github.io/poliscipy/quickstart.html). You can customize maps freely, browse the full documentation, and report questions or issues on the project’s [GitHub](https://github.com/eolesinski/poliscipy) repository.
 
 <div align="center">
     <img src="assets/election_2024.png" alt="Electoral College Map" width="974">
@@ -35,11 +35,11 @@ PoliSciPy is &copy; 2024-{{ "now" | date: "%Y" }} by [Ethan Olesinski](https://e
 
 ### License
 
-PoliSciPy is distributed under an [MIT license](https://github.com/just-the-docs/just-the-docs/tree/main/LICENSE.txt).
+PoliSciPy is distributed under an [MIT license](https://github.com/poliscipy/poliscipy/blob/main/LICENSE).
 
 ### Contributors
 
-Thank you to everyone who helps make PoliSciPy better! You can see the full list of contributors below or on [GitHub](https://github.com/eolesinski/poliscipy/graphs/contributors):
+Thank you to everyone who helps make PoliSciPy better! You can see the full list of contributors below or on [GitHub](https://github.com/poliscipy/poliscipy/graphs/contributors):
 
 <ul class="list-style-none">
 {% for contributor in site.github.contributors %}
@@ -49,13 +49,13 @@ Thank you to everyone who helps make PoliSciPy better! You can see the full list
 {% endfor %}
 </ul>
 
-We welcome contributors of all levels whether it’s fixing bugs, adding features, or improving documentation! If you are interested in helping improve PoliSciPy, visit the [Contribution Guide](https://eolesinski.github.io/poliscipy/contributing.html) for more information.
+We welcome contributors of all levels whether it’s fixing bugs, adding features, or improving documentation! If you are interested in helping improve PoliSciPy, visit the [Contribution Guide](https://poliscipy.github.io/poliscipy/contributing.html) for more information.
 
 ### Code of Conduct
 
 PoliSciPy is committed to fostering a welcoming and inclusive community.  
 
-[View the Code of Conduct](https://github.com/eolesinski/poliscipy/blob/main/CODE_OF_CONDUCT.md) on the GitHub repository.
+[View the Code of Conduct](https://github.com/poliscipy/poliscipy/blob/main/CODE_OF_CONDUCT.md) on the GitHub repository.
 
 ----
 

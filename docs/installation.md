@@ -6,7 +6,7 @@ nav_order: 2
 
 # Installation
 
-Welcome to the [PoliSciPy](https://github.com/eolesinski/poliscipy) installation guide! This page will help you set up and run PoliSciPy on your own system.
+Welcome to the [PoliSciPy](https://github.com/poliscipy/poliscipy) installation guide! This page will help you set up and run PoliSciPy on your own system.
 
 ---
 
@@ -99,9 +99,9 @@ or
 
 If you encounter any issues during installation, don’t worry! Here are some steps you can take:
 
-- **Check the FAQs:** There is a list of common issues and solutions on the FAQs page.
-- **Open an Issue:** If you can't find a solution in the FAQs, please feel free to open a new issue in the Issues page. Be sure to include any relevant error messages and steps to reproduce the issue.
-- **Join the Discussion:** If you're stuck, you can also join our community discussions on GitHub Discussions for help.
+- **Check the FAQs:** There is a list of common issues and solutions on the [FAQs](https://poliscipy.github.io/poliscipy/faqs.html) page.
+- **Open an Issue:** If you can't find a solution in the FAQs, please feel free to open a new issue in the [Issues](https://github.com/poliscipy/poliscipy/issues) page. Be sure to include any relevant error messages and steps to reproduce the issue.
+- **Join the Discussion:** If you're stuck, you can also join PoliSciPy's discussions on [GitHub Discussions](https://github.com/poliscipy/poliscipy) for help.
 
 
 

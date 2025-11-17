@@ -77,13 +77,14 @@ plot_electoral_map(gdf, column='winning_party', title='2024 U.S. Electoral Colle
 
 ## Documentation
 
-Complete documentation for PoliSciPy can be found [here](https://eolesinski.github.io/poliscipy/).
+Complete documentation for PoliSciPy can be found [here](https://poliscipy.github.io/poliscipy/).
 
 ## Contributing
 
-PoliSciPy welcomes contributions! Please see the [CONTRIBUTING.md](https://github.com/eolesinski/poliscipy/blob/main/CONTRIBUTING.md) for guidelines on how to get involved.
+PoliSciPy welcomes contributions! Please see the [CONTRIBUTING.md](https://github.com/poliscipy/poliscipy/blob/main/CONTRIBUTING.md) for guidelines on how to get involved.
 
 ## Citation
 
-If you find PoliSciPy useful in your research, academic projects, or software, please cite it using the [CITATION.cff](https://github.com/eolesinski/poliscipy/blob/main/CITATION.cff) file located in the root directory of this repository.
+If you find PoliSciPy useful in your research, academic projects, or software, please cite it using the [CITATION.cff](https://github.com/poliscipy/poliscipy/blob/main/CITATION.cff) file located in the root directory of this repository.
 
+c

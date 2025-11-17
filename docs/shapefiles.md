@@ -27,7 +27,7 @@ A shapefile is a widely used geospatial vector data format for geographic inform
 
 **Note on Shapefiles:**
 
-PoliSciPy uses modified shapefiles originally provided by the United States Census Bureau through the [TIGER/Line](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) dataset. For more information about the original shapefiles and how to access them, please visit the [citation page](https://eolesinski.github.io/poliscipy/citation.html).
+PoliSciPy uses modified shapefiles originally provided by the United States Census Bureau through the [TIGER/Line](https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html) dataset. For more information about the original shapefiles and how to access them, please visit the [citation page](https://poliscipy.github.io/poliscipy/citation.html).
 
 
 ### Inspecting the Shapefile
@@ -70,4 +70,4 @@ This table serves as a reference for understanding the attributes in the shapefi
 
 ## Next Step: Merging Election Data with the Shapefile
 
-Next, we’ll explore how to merge additional election data with the shapefile for visualization. Head over to the next section on [Merging Data](https://eolesinski.github.io/poliscipy/merging-data.html) to learn more about integrating datasets for analysis and creating visualizations.
+Next, we’ll explore how to merge additional election data with the shapefile for visualization. Head over to the next section on [Merging Data](https://poliscipy.github.io/poliscipy/merging-data.html) to learn more about integrating datasets for analysis and creating visualizations.
