@@ -3,8 +3,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 ![PyPI Version](https://img.shields.io/pypi/v/poliscipy?color=blue)
 ![Conda](https://img.shields.io/conda/v/conda-forge/poliscipy)
-![Package tests](https://github.com/eolesinski/poliscipy/actions/workflows/tests.yml/badge.svg)
-[![codecov](https://codecov.io/gh/eolesinski/poliscipy/branch/main/graph/badge.svg)](https://codecov.io/gh/eolesinski/poliscipy)
+![Package tests](https://github.com/poliscipy/poliscipy/actions/workflows/tests.yml/badge.svg)
+[![codecov](https://codecov.io/gh/poliscipy/poliscipy/branch/main/graph/badge.svg)](https://codecov.io/gh/poliscipy/poliscipy)
 
 **PoliSciPy** is an open-source Python library that makes it easy to generate electoral maps and explore political data with just a few lines of code. The library is designed for fast experimentation, clear visualizations, and flexible customization, whether you’re analyzing results, presenting findings, or exploring historical trends.
 
