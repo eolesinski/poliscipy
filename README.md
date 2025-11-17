@@ -15,7 +15,7 @@
 - **Flexible Data Handling:** Easily merge your own election results (current, historical, or hypothetical) with the map data for visualization.
 
 <div align="center">
-    <img src="docs/assets/election_2024.png" alt="Electoral College Map" width="974">
+    <img src="https://raw.githubusercontent.com/poliscipy/poliscipy/main/docs/assets/election_2024.png" alt="Electoral College Map" width="974">
     <div style="text-align: center;"><em>Example: Figure with results from the 2024 U.S. election.</em></div>
 </div>
 
