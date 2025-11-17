@@ -9,6 +9,7 @@ def loaded_gdf():
     """Fixture for loading the 2024 shapefile once for multiple tests."""
     gdf = load_shapefile("2024")
 
+    # assign a winning party for each state
     winning_party_map = {state: 'Republican' for state in gdf['STUSPS']}
     gdf['winning_party'] = gdf['STUSPS'].map(winning_party_map)
 
@@ -16,7 +17,7 @@ def loaded_gdf():
 
 
 def test_plot_electoral_map_runs(loaded_gdf):
-    # Just ensure plotting does not raise an exception
+    # just ensure that plotting does not raise an exception
     plot_electoral_map(loaded_gdf, column='winning_party', title="Test Map", legend=True, vote_bar=True)
 
 
