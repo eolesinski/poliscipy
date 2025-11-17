@@ -86,5 +86,3 @@ PoliSciPy welcomes contributions! Please see the [CONTRIBUTING.md](https://githu
 ## Citation
 
 If you find PoliSciPy useful in your research, academic projects, or software, please cite it using the [CITATION.cff](https://github.com/poliscipy/poliscipy/blob/main/CITATION.cff) file located in the root directory of this repository.
-
-c
