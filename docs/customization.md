@@ -86,8 +86,8 @@ You can customize the title of your map using the title parameter:
 ```python
 # Plot electoral college map with a custom title and labels
 plot_electoral_map(
-    data=your_data,
-    colormap=custom_party_colors,
+    gdf,
+    party_colors=custom_party_colors,
     title="2024 U.S. Electoral College Map",
 )
 ```

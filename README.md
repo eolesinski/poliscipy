@@ -72,7 +72,6 @@ gdf.loc[10, 'defector_party'] = 'Democrat'
 
 # Plot the electoral college map for the year 2024
 plot_electoral_map(gdf, column='winning_party', title='2024 U.S. Electoral College Map')
-
 ```
 
 ## Documentation
