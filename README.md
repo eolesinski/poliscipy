@@ -1,23 +1,17 @@
 # PoliSciPy
 
 <p align="center">
-  <img src="https://img.shields.io/pypi/v/poliscipy?color=blue" />
-  <img src="https://img.shields.io/conda/v/conda-forge/poliscipy" />
-  <img src="https://github.com/poliscipy/poliscipy/actions/workflows/tests.yml/badge.svg" />
-  <a href="https://pepy.tech/projects/poliscipy">
-    <img src="https://static.pepy.tech/personalized-badge/poliscipy?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=PyPI%20downloads" />
-  </a>
-  <img src="https://img.shields.io/github/issues/poliscipy/poliscipy" />
+  <img src="https://img.shields.io/pypi/v/poliscipy?color=blue" style="vertical-align: middle;"/>
+  <img src="https://img.shields.io/conda/v/conda-forge/poliscipy" style="vertical-align: middle;"/>
+  <img src="https://github.com/poliscipy/poliscipy/actions/workflows/tests.yml/badge.svg" style="vertical-align: middle;"/>
+  <a href="https://pepy.tech/projects/poliscipy"><img src="https://static.pepy.tech/personalized-badge/poliscipy?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=PyPI%20downloads" style="vertical-align: middle;"/></a>
+  <img src="https://img.shields.io/github/issues/poliscipy/poliscipy" style="vertical-align: middle;"/>
 </p>
 
 <p align="center">
-  <a href="https://codecov.io/gh/poliscipy/poliscipy">
-    <img src="https://codecov.io/gh/poliscipy/poliscipy/branch/main/graph/badge.svg" />
-  </a>
-  <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" />
-  </a>
-  <img src="https://img.shields.io/github/stars/poliscipy/poliscipy?style=social" />
+  <a href="https://codecov.io/gh/poliscipy/poliscipy"><img src="https://codecov.io/gh/poliscipy/poliscipy/branch/main/graph/badge.svg" style="vertical-align: middle;"/></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/badge/License-MIT-lightgrey.svg" style="vertical-align: middle;"/></a>
+  <img src="https://img.shields.io/github/stars/poliscipy/poliscipy?style=social" style="vertical-align: middle;"/>
 </p>
 
 **PoliSciPy** is an open-source Python library that makes it easy to generate electoral maps and explore political data with just a few lines of code. The library is designed for fast experimentation, clear visualizations, and flexible customization, whether you’re analyzing results, presenting findings, or exploring historical trends.
