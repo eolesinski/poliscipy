@@ -21,14 +21,14 @@ Below is a list of a few pre-made entries for citing PoliSciPy:
   author       = {Ethan Olesinski},
   title        = {PoliSciPy: A Python library for U.S. Electoral College visualization},
   year         = {2025},
-  version      = {1.0.0},
+  version      = {0.1.0},
   url          = {https://github.com/eolesinski/poliscipy},
   license      = {MIT}
 }
 ```
 
 ### IEEE
-Ethan Olesinski. (2024). *PoliSciPy: A Python library for U.S. Electoral College visualization* (Version 1.0.0) [Software]. GitHub. Available at: [https://github.com/poliscipy/poliscipy](https://github.com/poliscipy/poliscipy).
+Ethan Olesinski. (2025). *PoliSciPy: A Python library for U.S. Electoral College visualization* (Version 0.1.0) [Software]. GitHub. Available at: [https://github.com/poliscipy/poliscipy](https://github.com/poliscipy/poliscipy).
 
 ---
 
