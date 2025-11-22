@@ -8,6 +8,9 @@
     <img src="https://static.pepy.tech/personalized-badge/poliscipy?period=total&units=INTERNATIONAL_SYSTEM&left_color=GREY&right_color=BLUE&left_text=PyPI%20downloads" />
   </a>
   <img src="https://img.shields.io/github/issues/poliscipy/poliscipy" />
+</p>
+
+<p align="center">
   <a href="https://codecov.io/gh/poliscipy/poliscipy">
     <img src="https://codecov.io/gh/poliscipy/poliscipy/branch/main/graph/badge.svg" />
   </a>
